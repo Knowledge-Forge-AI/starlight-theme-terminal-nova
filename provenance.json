@@ -8,7 +8,7 @@
   "themeName": "terminal-nova",
   "themeVersion": "0.1.0",
   "themeInputDigest": "74254406ee782ebf076801dbbe96ab279439a3b32dd44a7f836268ef1244ec1a",
-  "cssOutputDigest": "0839d349314ad36964e4990058ef71249d79b911dd35c50a367f59a71eeaf515",
+  "cssOutputDigest": "b615d8e89a1bb1eb25d71bc0a66e715bb5ad10ac99b8974c291d142d0814e1dd",
   "files": [
     {
       "path": "COMMERCIAL-LICENSE.md",
@@ -60,14 +60,14 @@
     },
     {
       "path": "styles/theme.css",
-      "size": 2400,
-      "sha256": "0839d349314ad36964e4990058ef71249d79b911dd35c50a367f59a71eeaf515",
+      "size": 2515,
+      "sha256": "b615d8e89a1bb1eb25d71bc0a66e715bb5ad10ac99b8974c291d142d0814e1dd",
       "category": "generated-syntax"
     },
     {
       "path": "theme.descriptor.json",
       "size": 631,
-      "sha256": "7bbbaf1a07f1df21f39a11a3ef3b8c246d0e14a662c2fa41c2bfd39f8a6eec1e",
+      "sha256": "5203f14f9d326034fe3bec1e558f8c3a488c48354bbd75e32d2aff766b7190a7",
       "category": "generated-metadata"
     },
     {

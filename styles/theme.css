@@ -66,3 +66,8 @@
   --sl-text-body: 18px;
   --sl-line-height: 1.65;
 }
+
+.sl-markdown-content a:focus-visible {
+  outline: 2px solid var(--sl-color-text-accent);
+  outline-offset: 2px;
+}
