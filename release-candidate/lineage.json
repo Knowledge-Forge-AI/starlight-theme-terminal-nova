@@ -1,0 +1,82 @@
+{
+  "schema": "tfsb.nova-lineage-v1",
+  "phase": "TFSB55 implementation_testing",
+  "product": "starlight-theme-terminal-nova",
+  "targetVersion": "0.1.0",
+  "historicalOrigin": {
+    "phase": "TFSB54",
+    "baseCommit": "3f60fe1a13d71b04f79bf57f7beb94b7cc3edbe4",
+    "evaluation": "docs/evaluations/tfsb54-terminal-nova.md",
+    "historicalVersion": "0.1.0-preview.1"
+  },
+  "designContinuity": {
+    "selected": {
+      "candidate": "forge-console",
+      "canonicalName": "terminal-nova",
+      "role": "Provisional technical-documentation preference",
+      "template": "page-title-frame",
+      "tokens": {
+        "bodyFont": "system-sans",
+        "codeFont": "system-mono",
+        "baseFontSize": "18px",
+        "lineHeight": 1.65,
+        "contentWidth": "44rem",
+        "sidebarWidth": "17rem",
+        "accentDark": "#ff8a3d",
+        "accentLight": "#9c3e0b"
+      },
+      "historicalIdentities": {
+        "themeDigest": "14bf66776767ec02c6552736ef8201222d70f1749b380bda4545486c13e58db7",
+        "cssDigest": "c913f7efceb32da8f7562c6eff9e269c9e9b88070686735e905e68a77804ff37",
+        "packageSha256": "55d842bd44605e20f67cbbd008997f826bc9278b4391d0dedbe1cdc78aea5650",
+        "candidatePacketDigest": "sha256:df5358a2b7f2d5222e0a4e58b3c9886b8d9de80ff8d04968adb8d530cea66d8c"
+      }
+    },
+    "alternative": {
+      "candidate": "nova-observatory",
+      "role": "Retained editorial alternative",
+      "template": null,
+      "tokens": {
+        "bodyFont": "system-serif",
+        "codeFont": "system-code",
+        "baseFontSize": "19px",
+        "lineHeight": 1.8,
+        "contentWidth": "48rem",
+        "sidebarWidth": "19rem",
+        "accentDark": "#bb9bff",
+        "accentLight": "#6540a4"
+      },
+      "historicalIdentities": {
+        "themeDigest": "d0e43dbbe243595a54d88397a899e5ef2aa8aca88650a5cf3462c5305dad5868",
+        "cssDigest": "8d85574f882e9f2443665163a0e5b34ae596e7747527fe6b17d9c8a3407e4226",
+        "packageSha256": "1e82cc238c12cb661f997532ac138d80e6396e7c7382b7435eb4976c3b7c5285",
+        "candidatePacketDigest": "sha256:0c94521fb7523f490766e1f962b226c1620031a560790c28647c2c20dc3c6f6f"
+      }
+    }
+  },
+  "historicalExchange": {
+    "briefDigest": "sha256:1f9c93b358ae7c7df2483e2740602574db7956cc824b90725f0c03c43de3fc73",
+    "reviewDigest": "sha256:84392f1dcda04e53d2ee1676d8bf097fcc998f4a0fe6e1efb0e3c9b85d6469a3"
+  },
+  "preservedRecords": {
+    "selectedSpec": "themes/terminal-nova/terminal-nova.theme.json",
+    "selectedMetadata": "themes/terminal-nova/package-metadata.json",
+    "candidates": "themes/terminal-nova/candidates/",
+    "exchangePackets": "themes/terminal-nova/exchange/",
+    "renderEvidence": "themes/terminal-nova/evidence/"
+  },
+  "brandAssets": {
+    "provenance": "themes/terminal-nova/brand-provenance.json",
+    "markLightSha256": "ea6b2d70dfa117fc7e875c746c98c512066825af1a3b4980b33409dfc687ebf0",
+    "markDarkSha256": "138751558fef0cffae9ca3e3556a33544fa58526599bfae34e3515beb6aad154",
+    "faviconLightSha256": "cbcf044cd7b3024f9419c0cbe9396d1e9cc0d0d777d64a17581d1ea89debc51e",
+    "faviconDarkSha256": "3bcf7b8be08f2b29dd018187dda8f4d76cd3ea294995aab1e028e50e2f1c2eda"
+  },
+  "invariants": {
+    "designTokensPreserved": true,
+    "noLegacyCodeImported": true,
+    "noDependencyChanges": true,
+    "noAestheticApprovalClaim": true,
+    "noPublicCoordinatesExistenceClaim": true
+  }
+}

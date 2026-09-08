@@ -1,0 +1,22 @@
+{
+  "name": "@knowledge-forge-ai/terminal-nova-demo",
+  "version": "0.1.0",
+  "description": "Standalone Terminal Nova release candidate demonstration",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "astro build",
+    "test": "node ../tools/smoke-generated-plugin.mjs --release-nova-root .."
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.42.0",
+    "astro": "7.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "typescript": "7.0.2"
+  }
+}

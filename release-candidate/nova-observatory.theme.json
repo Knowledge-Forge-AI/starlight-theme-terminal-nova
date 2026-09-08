@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "tfsl.theme-v1",
+  "adapter": "starlight-v0.42",
+  "name": "terminal-nova",
+  "version": "0.1.0",
+  "colors": {
+    "dark": {
+      "accent": {
+        "base": "#bb9bff",
+        "low": "#30263f",
+        "high": "#e6d5ff"
+      },
+      "neutrals": {
+        "bg": "#17151e",
+        "bgNav": "#211c2b",
+        "bgSidebar": "#1b1823",
+        "bgInlineCode": "#302a3b",
+        "bgAccent": "#bb9bff",
+        "text": "#e9e3f0",
+        "textAccent": "#cbb4ff",
+        "textInvert": "#17151e",
+        "hairline": "#5f536d",
+        "hairlineLight": "#443b50",
+        "hairlineShade": "#100e16"
+      },
+      "grays": {
+        "gray1": "#f8f2ff",
+        "gray2": "#ded5e8",
+        "gray3": "#bfb1ce",
+        "gray4": "#91839f",
+        "gray5": "#5d516c",
+        "gray6": "#302a3b",
+        "gray7": "#211c2b"
+      }
+    },
+    "light": {
+      "accent": {
+        "base": "#6540a4",
+        "low": "#eee5fa",
+        "high": "#40256c"
+      },
+      "neutrals": {
+        "bg": "#fcf9ff",
+        "bgNav": "#ffffff",
+        "bgSidebar": "#f3edf8",
+        "bgInlineCode": "#ece4f3",
+        "bgAccent": "#6540a4",
+        "text": "#302638",
+        "textAccent": "#6540a4",
+        "textInvert": "#fcf9ff",
+        "hairline": "#b2a2c0",
+        "hairlineLight": "#d9cce4",
+        "hairlineShade": "#bfafcc"
+      },
+      "grays": {
+        "gray1": "#23192d",
+        "gray2": "#41344d",
+        "gray3": "#6b587c",
+        "gray4": "#8c779e",
+        "gray5": "#b1a0bf",
+        "gray6": "#ece4f3",
+        "gray7": "#f6f0fa"
+      }
+    }
+  },
+  "typography": {
+    "bodyFont": "system-serif",
+    "codeFont": "system-code",
+    "baseFontSize": "19px",
+    "lineHeight": 1.8
+  },
+  "layout": {
+    "contentWidth": "48rem",
+    "sidebarWidth": "19rem"
+  }
+}

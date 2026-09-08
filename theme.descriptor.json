@@ -1,0 +1,20 @@
+{
+  "schema": "tfsl.theme-descriptor-v1",
+  "schemaVersion": 1,
+  "themeSchemaVersion": "tfsl.theme-v1",
+  "themeName": "terminal-nova",
+  "themeVersion": "0.1.0",
+  "adapter": "starlight-v0.42",
+  "inputDigest": "74254406ee782ebf076801dbbe96ab279439a3b32dd44a7f836268ef1244ec1a",
+  "outputDigest": "b615d8e89a1bb1eb25d71bc0a66e715bb5ad10ac99b8974c291d142d0814e1dd",
+  "cssFile": "styles/theme.css",
+  "provenance": {
+    "categories": [
+      "user-authored-data",
+      "generated-syntax",
+      "first-party-expression"
+    ],
+    "compiler": "@knowledge-forge-ai/theme-forge-stellar-loom",
+    "compilerVersion": "0.1.0"
+  }
+}

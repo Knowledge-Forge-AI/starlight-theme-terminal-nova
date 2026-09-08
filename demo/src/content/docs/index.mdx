@@ -1,0 +1,94 @@
+---
+title: Terminal Nova
+description: A quiet forge for technical ideas, working notes, and useful documentation.
+---
+
+import { Card, CardGrid, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## A quiet forge for technical ideas
+
+Terminal Nova is a documentation theme for **Knowledge Forge AI** and personal writing: a place to explain a system, keep a working notebook, and leave the next reader a clear path. Warm surfaces, precise dividers, and a measured accent bring the workshop into the page. The words stay in a familiar proportional typeface; commands keep their own disciplined rhythm.
+
+This is an independent first-party theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). It does not continue the legacy Terminal Nova fork. The Nova Ingot is the approved project mark; the interface is new work.
+
+:::note[Private working candidate]
+Forge Console is the provisional selection. Nova Observatory remains available for comparison. This package has not been registered or publicly released, and the selection does not represent final aesthetic approval.
+:::
+
+## Start at the command line
+
+Keep the theme specification in version control. Generate into a fresh directory, pack it, then install the local archive. The explicit `--ignore-scripts` option keeps installation separate from executing a site build.
+
+```sh title="local session"
+tfsl validate terminal-nova.theme.json --strict-contrast
+tfsl generate terminal-nova.theme.json --package package-metadata.json --out ./generated
+cd generated
+npm pack
+# In your documentation site:
+npm install --ignore-scripts /absolute/path/to/theme.tgz
+```
+
+<Tabs>
+  <TabItem label="Configure">
+    ```js
+    import terminalNova from '@knowledge-forge-ai/starlight-theme-terminal-nova';
+
+    // Add to your existing Starlight configuration.
+    plugins: [terminalNova()]
+    ```
+  </TabItem>
+  <TabItem label="Keep ownership">
+    Consumer custom CSS follows theme defaults. An existing PageTitle override stays yours. The plugin never writes into your content tree.
+  </TabItem>
+</Tabs>
+
+## Read, inspect, return
+
+Good technical writing has several speeds. A new reader needs enough context to understand why a decision exists. A returning maintainer needs an anchor, a short example, and an accurate boundary. Neither should have to navigate a wall of simulated terminal output to reach a paragraph.
+
+The reading column therefore leaves room for an explanation without stretching a sentence across the screen. Navigation stays visible on a wide display and moves into a menu on a phone. Headings carry the structure, while tables and code may scroll inside their own containers. Follow the [design notes](/design/) for the alternatives and return through the sidebar.
+
+### A useful decision record
+
+Start with the question that made the decision necessary. Describe the observable behavior, then show the smallest example that makes the contract concrete. Put uncertainty next to the claim it limits. When you return months later, a clear boundary is more useful than a confident adjective.
+
+Use `themeDigest` to identify the semantic input and `outputDigest` for the emitted CSS. A packet binds its contents; it does not authenticate the author. A preview helps judge a candidate; adopting it creates an unsaved draft. Saving and generating remain separate actions.
+
+:::tip[Make the next step explicit]
+Use headings as destinations. Link to the section that resolves a question, and keep one runnable example near the explanation it supports.
+:::
+
+:::caution[Keep the boundary visible]
+A local package is a working artifact. Public composition, signing, SBOM generation, and release execution still need their owning release workflow.
+:::
+
+## Product boundaries
+
+<CardGrid>
+  <Card title="Stellar Burst" icon="star">The engine for SVG and brand work.</Card>
+  <Card title="Stellar Loom" icon="setting">The typed theme compiler and package generator.</Card>
+  <Card title="Nebular Fusion" icon="pencil">The application for previewing and exchanging designs.</Card>
+  <Card title="Terminal Nova" icon="approve-check">An independent documentation theme consuming Loom output.</Card>
+</CardGrid>
+
+## Reference table
+
+| Role | Forge Console | Nova Observatory |
+| :--- | :--- | :--- |
+| Prose | System sans, 1.65 line height | System serif, 1.8 line height |
+| Reading column | 44rem maximum | 48rem maximum |
+| Navigation | 17rem sidebar | 19rem sidebar |
+| Accent | Warm orange UI tones | Soft violet UI tones |
+| Title | Approved title frame | Default Starlight title |
+
+The table describes UI choices. It does not redefine the colors or permissions of the approved brand artwork.
+
+## Leave a useful trail
+
+Before sharing a result, record what actually ran: the specification, package metadata, adapter, and local build. Keep the image beside the identity of the design it depicts. A small reproducible example earns its place by helping someone make the next change with confidence.
+
+1. Read the brief and its constraints.
+2. Compare both modes at a comfortable and a narrow width.
+3. Inspect diagnostics, annotate the candidate, and save deliberately.
+
+That is the working rhythm of Terminal Nova: write, inspect, refine.

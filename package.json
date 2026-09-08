@@ -1,0 +1,49 @@
+{
+  "name": "@knowledge-forge-ai/starlight-theme-terminal-nova",
+  "version": "0.1.0",
+  "description": "Independent Terminal Nova documentation theme; Forge Console release candidate",
+  "private": false,
+  "type": "module",
+  "license": "AGPL-3.0-or-later",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./styles/*": "./styles/*",
+    "./components/*": "./components/*"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "styles",
+    "theme.descriptor.json",
+    "theme.json",
+    "provenance.json",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "COMMERCIAL-LICENSE.md",
+    "components"
+  ],
+  "peerDependencies": {
+    "@astrojs/starlight": "^0.42.0",
+    "astro": "^7.3.1"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "author": "The Knowledge Forge Authors",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova.git"
+  },
+  "homepage": "https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova#readme",
+  "bugs": {
+    "url": "https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/issues"
+  }
+}

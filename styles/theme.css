@@ -1,0 +1,73 @@
+/* Theme Forge Stellar Loom generated theme */
+/* Schema: tfsl.theme-v1 | Adapter: starlight-v0.42 | Input-Digest: 74254406ee782ebf076801dbbe96ab279439a3b32dd44a7f836268ef1244ec1a */
+
+:root,
+::backdrop {
+  --sl-color-accent: #ff8a3d;
+  --sl-color-accent-low: #3a231c;
+  --sl-color-accent-high: #ffcfad;
+  --sl-color-white: #fff8f0;
+  --sl-color-black: #111318;
+  --sl-color-bg: #111318;
+  --sl-color-bg-nav: #191c23;
+  --sl-color-bg-sidebar: #15181e;
+  --sl-color-bg-inline-code: #262a33;
+  --sl-color-bg-accent: #ff8a3d;
+  --sl-color-text: #eee9e3;
+  --sl-color-text-accent: #ffac75;
+  --sl-color-text-invert: #111318;
+  --sl-color-hairline: #50535d;
+  --sl-color-hairline-light: #393d48;
+  --sl-color-hairline-shade: #090b0f;
+  --sl-color-gray-1: #fff8f0;
+  --sl-color-gray-2: #ddd7d0;
+  --sl-color-gray-3: #b9b4ad;
+  --sl-color-gray-4: #8e8b89;
+  --sl-color-gray-5: #51535d;
+  --sl-color-gray-6: #262a33;
+  --sl-color-gray-7: #191c23;
+  --sl-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sl-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sl-content-width: 44rem;
+  --sl-sidebar-width: 17rem;
+  --sl-text-body: 18px;
+  --sl-line-height: 1.65;
+}
+
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+  --sl-color-accent: #9c3e0b;
+  --sl-color-accent-low: #ffeadc;
+  --sl-color-accent-high: #612909;
+  --sl-color-white: #111318;
+  --sl-color-black: #fff8f0;
+  --sl-color-bg: #fff8f0;
+  --sl-color-bg-nav: #fffdfa;
+  --sl-color-bg-sidebar: #f5ede5;
+  --sl-color-bg-inline-code: #eee4da;
+  --sl-color-bg-accent: #9c3e0b;
+  --sl-color-text: #262a33;
+  --sl-color-text-accent: #963b0c;
+  --sl-color-text-invert: #fff8f0;
+  --sl-color-hairline: #9d9187;
+  --sl-color-hairline-light: #d1c4b8;
+  --sl-color-hairline-shade: #b9aca0;
+  --sl-color-gray-1: #111318;
+  --sl-color-gray-2: #33343b;
+  --sl-color-gray-3: #625a55;
+  --sl-color-gray-4: #837971;
+  --sl-color-gray-5: #a89d92;
+  --sl-color-gray-6: #eee4da;
+  --sl-color-gray-7: #faf1e8;
+  --sl-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sl-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sl-content-width: 44rem;
+  --sl-sidebar-width: 17rem;
+  --sl-text-body: 18px;
+  --sl-line-height: 1.65;
+}
+
+.sl-markdown-content a:focus-visible {
+  outline: 2px solid var(--sl-color-text-accent);
+  outline-offset: 2px;
+}
