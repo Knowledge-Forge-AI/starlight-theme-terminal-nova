@@ -1,0 +1,82 @@
+{
+  "schema": "tfsl.package-provenance-v1",
+  "schemaVersion": 1,
+  "packageName": "@knowledge-forge-ai/starlight-theme-terminal-nova",
+  "packageVersion": "0.1.0",
+  "generator": "@knowledge-forge-ai/theme-forge-stellar-loom",
+  "generatorVersion": "0.1.0",
+  "themeName": "terminal-nova",
+  "themeVersion": "0.1.0",
+  "themeInputDigest": "74254406ee782ebf076801dbbe96ab279439a3b32dd44a7f836268ef1244ec1a",
+  "cssOutputDigest": "0839d349314ad36964e4990058ef71249d79b911dd35c50a367f59a71eeaf515",
+  "files": [
+    {
+      "path": "COMMERCIAL-LICENSE.md",
+      "size": 932,
+      "sha256": "a81bcda7ec57a5c09f1cc6d05de420db7a0053b9496f1762065e083a60e5ede2",
+      "category": "legal-notice"
+    },
+    {
+      "path": "LICENSE",
+      "size": 34460,
+      "sha256": "62eef07fc3ad238dd889ff98cf9ed87b3ef0f421579b6945f87ec37c608afb62",
+      "category": "legal-notice"
+    },
+    {
+      "path": "NOTICE",
+      "size": 598,
+      "sha256": "e711709e69f5f8fc65c55ff3b3e47c390ed8f60890eb38cf999d95c2494b5d17",
+      "category": "legal-notice"
+    },
+    {
+      "path": "README.md",
+      "size": 2916,
+      "sha256": "50d89a11cd5d6f16f7d8444ef1111cfd235bc2e6d35e257ec1038bdfa1110f0a",
+      "category": "first-party-expression"
+    },
+    {
+      "path": "components/PageTitleFrame.astro",
+      "size": 341,
+      "sha256": "ec6728e2cb2fc222140348152b7cc6d70bb403683aa493e119118d50229e5745",
+      "category": "first-party-expression"
+    },
+    {
+      "path": "index.d.ts",
+      "size": 528,
+      "sha256": "973fdd15ef408692a4f36c7699ab6e691a59f0c56738cf5ca0b7e084f103635c",
+      "category": "first-party-expression"
+    },
+    {
+      "path": "index.js",
+      "size": 1316,
+      "sha256": "abbfa8aa57bc49fa40965a1cb6a22e42e601fa8a47679f8420333d7a48ca9dd6",
+      "category": "first-party-expression"
+    },
+    {
+      "path": "package.json",
+      "size": 1252,
+      "sha256": "7b5e3b85faa0695afe6f087a7b34d75ca35ce6a730258f77d17329bebc6e99fe",
+      "category": "generated-metadata"
+    },
+    {
+      "path": "styles/theme.css",
+      "size": 2400,
+      "sha256": "0839d349314ad36964e4990058ef71249d79b911dd35c50a367f59a71eeaf515",
+      "category": "generated-syntax"
+    },
+    {
+      "path": "theme.descriptor.json",
+      "size": 631,
+      "sha256": "7bbbaf1a07f1df21f39a11a3ef3b8c246d0e14a662c2fa41c2bfd39f8a6eec1e",
+      "category": "generated-metadata"
+    },
+    {
+      "path": "theme.json",
+      "size": 1795,
+      "sha256": "74254406ee782ebf076801dbbe96ab279439a3b32dd44a7f836268ef1244ec1a",
+      "category": "user-authored-data"
+    }
+  ],
+  "licensingNotice": "Licensed under AGPL-3.0-or-later. Commercial dual licensing available directly from The Knowledge Forge Authors.",
+  "template": "page-title-frame"
+}
