@@ -1,0 +1,569 @@
+{
+  "accessibility": {
+    "desc": "Promotional card for Terminal Nova 0.2 featuring the central Nova mark, glowing starburst accents, technical grid telemetry, and project badges in warm orange and cool cyan",
+    "focusable": false,
+    "mode": "labelled",
+    "title": "Terminal Nova 0.2 Social Promotional Banner"
+  },
+  "artboard": {
+    "height": 630,
+    "policy": "contain",
+    "viewBox": [
+      0,
+      0,
+      1200,
+      630
+    ],
+    "width": 1200
+  },
+  "compatibility": 1,
+  "compilerLevel": 1,
+  "definitions": {
+    "gradients": [
+      {
+        "gradientUnits": "userSpaceOnUse",
+        "id": "socialSky",
+        "spreadMethod": "pad",
+        "stops": [
+          {
+            "color": {
+              "color": "#090E17",
+              "type": "solid"
+            },
+            "offset": 0
+          },
+          {
+            "color": {
+              "color": "#111318",
+              "type": "solid"
+            },
+            "offset": 0.45
+          },
+          {
+            "color": {
+              "color": "#15181E",
+              "type": "solid"
+            },
+            "offset": 1
+          }
+        ],
+        "type": "linearGradient",
+        "x1": 0,
+        "x2": 1200,
+        "y1": 0,
+        "y2": 630
+      },
+      {
+        "cx": 600,
+        "cy": 220,
+        "fx": 600,
+        "fy": 220,
+        "gradientUnits": "userSpaceOnUse",
+        "id": "coreGlow",
+        "r": 320,
+        "spreadMethod": "pad",
+        "stops": [
+          {
+            "color": {
+              "color": "#FFF8F0",
+              "type": "solid"
+            },
+            "offset": 0,
+            "opacity": 0.8
+          },
+          {
+            "color": {
+              "color": "#FFCFAD",
+              "type": "solid"
+            },
+            "offset": 0.25,
+            "opacity": 0.5
+          },
+          {
+            "color": {
+              "color": "#FF8A3D",
+              "type": "solid"
+            },
+            "offset": 0.5,
+            "opacity": 0.25
+          },
+          {
+            "color": {
+              "color": "#00D2FF",
+              "type": "solid"
+            },
+            "offset": 0.75,
+            "opacity": 0.1
+          },
+          {
+            "color": {
+              "color": "#111318",
+              "type": "solid"
+            },
+            "offset": 1,
+            "opacity": 0
+          }
+        ],
+        "type": "radialGradient"
+      }
+    ]
+  },
+  "elements": [
+    {
+      "height": 630,
+      "id": "socialBg",
+      "presentation": {
+        "fill": {
+          "id": "socialSky",
+          "type": "gradient"
+        }
+      },
+      "type": "rect",
+      "width": 1200,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 440,
+      "id": "socialGlowRect",
+      "presentation": {
+        "fill": {
+          "id": "coreGlow",
+          "type": "gradient"
+        }
+      },
+      "type": "rect",
+      "width": 640,
+      "x": 280,
+      "y": 0
+    },
+    {
+      "id": "cornerTl",
+      "points": [
+        [
+          60,
+          100
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          100,
+          60
+        ]
+      ],
+      "presentation": {
+        "fill": {
+          "type": "none"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "type": "polyline"
+    },
+    {
+      "id": "cornerTr",
+      "points": [
+        [
+          1100,
+          60
+        ],
+        [
+          1140,
+          60
+        ],
+        [
+          1140,
+          100
+        ]
+      ],
+      "presentation": {
+        "fill": {
+          "type": "none"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "type": "polyline"
+    },
+    {
+      "id": "cornerBl",
+      "points": [
+        [
+          60,
+          530
+        ],
+        [
+          60,
+          570
+        ],
+        [
+          100,
+          570
+        ]
+      ],
+      "presentation": {
+        "fill": {
+          "type": "none"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "type": "polyline"
+    },
+    {
+      "id": "cornerBr",
+      "points": [
+        [
+          1100,
+          570
+        ],
+        [
+          1140,
+          570
+        ],
+        [
+          1140,
+          530
+        ]
+      ],
+      "presentation": {
+        "fill": {
+          "type": "none"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "type": "polyline"
+    },
+    {
+      "id": "emblemDiamondOuter",
+      "points": [
+        [
+          600,
+          130
+        ],
+        [
+          680,
+          210
+        ],
+        [
+          600,
+          290
+        ],
+        [
+          520,
+          210
+        ]
+      ],
+      "presentation": {
+        "fill": {
+          "name": "ink-surface",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 2.5
+      },
+      "type": "polygon"
+    },
+    {
+      "id": "emblemDiamondInner",
+      "points": [
+        [
+          600,
+          150
+        ],
+        [
+          660,
+          210
+        ],
+        [
+          600,
+          270
+        ],
+        [
+          540,
+          210
+        ]
+      ],
+      "presentation": {
+        "fill": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 1.5
+      },
+      "type": "polygon"
+    },
+    {
+      "id": "emblemRayV",
+      "presentation": {
+        "stroke": {
+          "name": "orange-light",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "type": "line",
+      "x1": 600,
+      "x2": 600,
+      "y1": 100,
+      "y2": 320
+    },
+    {
+      "id": "emblemRayH",
+      "presentation": {
+        "stroke": {
+          "name": "cyan-glow",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "type": "line",
+      "x1": 490,
+      "x2": 710,
+      "y1": 210,
+      "y2": 210
+    },
+    {
+      "cx": 600,
+      "cy": 210,
+      "id": "emblemCoreCircle",
+      "presentation": {
+        "fill": {
+          "name": "orange-bright",
+          "type": "token"
+        }
+      },
+      "r": 18,
+      "type": "circle"
+    },
+    {
+      "height": 28,
+      "id": "orgBadgeRect",
+      "presentation": {
+        "fill": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "rx": 4,
+      "ry": 4,
+      "type": "rect",
+      "width": 240,
+      "x": 480,
+      "y": 330
+    },
+    {
+      "align": "center",
+      "color": {
+        "name": "cyan-glow",
+        "type": "token"
+      },
+      "id": "orgBadgeText",
+      "scale": 1.5,
+      "text": "KNOWLEDGE FORGE AI",
+      "type": "label",
+      "x": 600,
+      "y": 338
+    },
+    {
+      "align": "center",
+      "color": {
+        "name": "text-light",
+        "type": "token"
+      },
+      "id": "socialMainTitle",
+      "scale": 2.6,
+      "text": "TERMINAL NOVA 0.2",
+      "type": "label",
+      "x": 600,
+      "y": 375
+    },
+    {
+      "align": "center",
+      "color": {
+        "name": "orange-light",
+        "type": "token"
+      },
+      "id": "socialSubtitle",
+      "scale": 1.5,
+      "text": "A STARLIGHT DOCUMENTATION THEME",
+      "type": "label",
+      "x": 600,
+      "y": 435
+    },
+    {
+      "children": [
+        {
+          "height": 38,
+          "id": "pill1Bg",
+          "presentation": {
+            "fill": {
+              "name": "ink-surface",
+              "type": "token"
+            },
+            "stroke": {
+              "name": "gray-border",
+              "type": "token"
+            },
+            "strokeWidth": 1
+          },
+          "rx": 4,
+          "ry": 4,
+          "type": "rect",
+          "width": 220,
+          "x": 230,
+          "y": 485
+        },
+        {
+          "align": "center",
+          "color": {
+            "name": "text-light",
+            "type": "token"
+          },
+          "id": "pill1Text",
+          "scale": 1.5,
+          "text": "TIER-1 VECTOR SCENES",
+          "type": "label",
+          "x": 340,
+          "y": 498
+        }
+      ],
+      "id": "pillGroup1",
+      "type": "group"
+    },
+    {
+      "children": [
+        {
+          "height": 38,
+          "id": "pill2Bg",
+          "presentation": {
+            "fill": {
+              "name": "ink-surface",
+              "type": "token"
+            },
+            "stroke": {
+              "name": "orange-base",
+              "type": "token"
+            },
+            "strokeWidth": 1.5
+          },
+          "rx": 4,
+          "ry": 4,
+          "type": "rect",
+          "width": 220,
+          "x": 490,
+          "y": 485
+        },
+        {
+          "align": "center",
+          "color": {
+            "name": "orange-bright",
+            "type": "token"
+          },
+          "id": "pill2Text",
+          "scale": 1.5,
+          "text": "STELLAR BURST ENGINE",
+          "type": "label",
+          "x": 600,
+          "y": 498
+        }
+      ],
+      "id": "pillGroup2",
+      "type": "group"
+    },
+    {
+      "children": [
+        {
+          "height": 38,
+          "id": "pill3Bg",
+          "presentation": {
+            "fill": {
+              "name": "ink-surface",
+              "type": "token"
+            },
+            "stroke": {
+              "name": "cyan-base",
+              "type": "token"
+            },
+            "strokeWidth": 1.5
+          },
+          "rx": 4,
+          "ry": 4,
+          "type": "rect",
+          "width": 220,
+          "x": 750,
+          "y": 485
+        },
+        {
+          "align": "center",
+          "color": {
+            "name": "cyan-glow",
+            "type": "token"
+          },
+          "id": "pill3Text",
+          "scale": 1.5,
+          "text": "STELLAR LOOM THEMES",
+          "type": "label",
+          "x": 860,
+          "y": 498
+        }
+      ],
+      "id": "pillGroup3",
+      "type": "group"
+    }
+  ],
+  "profile": "promotional",
+  "provenance": {
+    "author": "Knowledge Forge AI",
+    "created": "2026-09-09",
+    "license": "AGPL-3.0-or-later",
+    "note": "Terminal Nova 0.2 first-party social promotional banner SVG"
+  },
+  "schema": "tfsb.vector-scene-v1",
+  "tokenBindings": {
+    "cyan-base": "#00D2FF",
+    "cyan-bright": "#B8F2FF",
+    "cyan-dim": "#082B40",
+    "cyan-glow": "#38BDF8",
+    "gray-border": "#50535D",
+    "gray-light": "#8E8B89",
+    "ink-code": "#262A33",
+    "ink-dark": "#111318",
+    "ink-panel": "#15181E",
+    "ink-surface": "#191C23",
+    "orange-base": "#FF8A3D",
+    "orange-bright": "#FFCFAD",
+    "orange-dark": "#3A231C",
+    "orange-light": "#FFAC75",
+    "text-dim": "#B9B4AD",
+    "text-light": "#EEE9E3",
+    "text-warm": "#FFCFAD"
+  }
+}

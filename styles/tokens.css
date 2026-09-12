@@ -1,0 +1,105 @@
+@layer tfsl.tokens {
+  :root,
+  ::backdrop {
+    --sl-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --sl-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --tfsl-font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --tfsl-font-heading: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --tfsl-font-ui: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --tfsl-font-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sl-text-body: 18px;
+    --sl-line-height: 1.65;
+    --sl-line-height-headings: 1.3;
+    --sl-text-h1: 30px;
+    --sl-text-h2: 26px;
+    --sl-text-h3: 22px;
+    --sl-text-h4: 19px;
+    --sl-text-h5: 17px;
+    --sl-text-h6: 15px;
+    --sl-content-width: 704px;
+    --sl-sidebar-width: 272px;
+    --tfsl-spacing: 4px;
+    --tfsl-space-small: 2px;
+    --tfsl-space-large: 8px;
+    --tfsl-space-section: 16px;
+    --tfsl-radius-small: 2px;
+    --tfsl-border-style: solid;
+    --tfsl-focus-offset: 3px;
+    --tfsl-radius: 4px;
+    --tfsl-border-width: 1px;
+    --tfsl-focus-width: 2px;
+
+    /* Theme color roles */
+    --tfsl-color-page: #111318;
+    --tfsl-color-navigation: #191c23;
+    --tfsl-color-header: #191c23;
+    --tfsl-color-sidebar: #15181e;
+    --tfsl-color-raised: #191c23;
+    --tfsl-color-panel: #262a33;
+    --tfsl-color-card: #191c23;
+    --tfsl-color-inline-code: #262a33;
+    --tfsl-color-code: #15181e;
+    --tfsl-color-body: #eee9e3;
+    --tfsl-color-secondary: #ddd7d0;
+    --tfsl-color-muted: #b9b4ad;
+    --tfsl-color-inverted: #111318;
+    --tfsl-color-link: #ff8a3d;
+    --tfsl-color-hairline: #393d48;
+    --tfsl-color-border: #50535d;
+    --tfsl-color-focus: #ff8a3d;
+    --tfsl-color-selection-background: #3a231c;
+    --tfsl-color-selection-text: #ffcfad;
+
+    /* Starlight standard token mappings */
+    --sl-color-bg: var(--tfsl-color-page);
+    --sl-color-bg-nav: var(--tfsl-color-header);
+    --sl-color-bg-sidebar: var(--tfsl-color-sidebar);
+    --sl-color-bg-inline-code: var(--tfsl-color-inline-code);
+    --sl-color-text: var(--tfsl-color-body);
+    --sl-color-text-accent: var(--tfsl-color-link);
+    --sl-color-text-invert: var(--tfsl-color-inverted);
+    --sl-color-hairline: var(--tfsl-color-hairline);
+    --sl-color-hairline-light: var(--tfsl-color-border);
+    --sl-color-hairline-shade: var(--tfsl-color-border);
+    --sl-color-white: var(--tfsl-color-secondary);
+    --sl-color-black: var(--tfsl-color-page);
+  }
+
+  :root[data-theme='light'],
+  [data-theme='light'] ::backdrop {
+    /* Theme color roles */
+    --tfsl-color-page: #fff8f0;
+    --tfsl-color-navigation: #fffdfa;
+    --tfsl-color-header: #fffdfa;
+    --tfsl-color-sidebar: #f5ede5;
+    --tfsl-color-raised: #fffdfa;
+    --tfsl-color-panel: #eee4da;
+    --tfsl-color-card: #fffdfa;
+    --tfsl-color-inline-code: #eee4da;
+    --tfsl-color-code: #faf1e8;
+    --tfsl-color-body: #262a33;
+    --tfsl-color-secondary: #33343b;
+    --tfsl-color-muted: #625a55;
+    --tfsl-color-inverted: #fff8f0;
+    --tfsl-color-link: #9c3e0b;
+    --tfsl-color-hairline: #d1c4b8;
+    --tfsl-color-border: #9d9187;
+    --tfsl-color-focus: #9c3e0b;
+    --tfsl-color-selection-background: #ffeadc;
+    --tfsl-color-selection-text: #612909;
+
+    /* Starlight standard token mappings */
+    --sl-color-bg: var(--tfsl-color-page);
+    --sl-color-bg-nav: var(--tfsl-color-header);
+    --sl-color-bg-sidebar: var(--tfsl-color-sidebar);
+    --sl-color-bg-inline-code: var(--tfsl-color-inline-code);
+    --sl-color-text: var(--tfsl-color-body);
+    --sl-color-text-accent: var(--tfsl-color-link);
+    --sl-color-text-invert: var(--tfsl-color-inverted);
+    --sl-color-hairline: var(--tfsl-color-hairline);
+    --sl-color-hairline-light: var(--tfsl-color-border);
+    --sl-color-hairline-shade: var(--tfsl-color-border);
+    --sl-color-white: var(--tfsl-color-secondary);
+    --sl-color-black: var(--tfsl-color-page);
+  }
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="scene-title scene-desc" focusable="false">
+  <title id="scene-title">Terminal Nova Console Hero Illustration</title>
+  <desc id="scene-desc">Dark ink terminal console deck with warm orange telemetry displays, glowing cool cyan orbital grids, and stellar burst vectors</desc>
+  <defs>
+    <linearGradient id="heroBgGrad" x1="0" y1="0" x2="1440" y2="720" gradientUnits="userSpaceOnUse" spreadMethod="pad">
+      <stop offset="0" stop-color="#111318"/>
+      <stop offset="0.5" stop-color="#15181E"/>
+      <stop offset="1" stop-color="#090E17"/>
+    </linearGradient>
+    <linearGradient id="heroDeckBevel" x1="0" y1="560" x2="0" y2="720" gradientUnits="userSpaceOnUse" spreadMethod="pad">
+      <stop offset="0" stop-color="#262A33" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#111318" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="heroStellarBurst" cx="720" cy="300" r="380" fx="720" fy="300" gradientUnits="userSpaceOnUse" spreadMethod="pad">
+      <stop offset="0" stop-color="#FFF8F0" stop-opacity="0.9"/>
+      <stop offset="0.2" stop-color="#FFCFAD" stop-opacity="0.65"/>
+      <stop offset="0.45" stop-color="#FF8A3D" stop-opacity="0.35"/>
+      <stop offset="0.7" stop-color="#00D2FF" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#111318" stop-opacity="0"/>
+    </radialGradient>
+    <symbol id="hudCrosshair" viewBox="0 0 40 40" preserveAspectRatio="xMidYMid meet" overflow="hidden">
+      <circle cx="20" cy="20" r="12" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+      <line x1="8" y1="20" x2="15" y2="20" stroke="#38BDF8" stroke-width="1.5"/>
+      <line x1="25" y1="20" x2="32" y2="20" stroke="#38BDF8" stroke-width="1.5"/>
+      <line x1="20" y1="8" x2="20" y2="15" stroke="#38BDF8" stroke-width="1.5"/>
+      <line x1="20" y1="25" x2="20" y2="32" stroke="#38BDF8" stroke-width="1.5"/>
+      <circle cx="20" cy="20" r="2" fill="#FF8A3D"/>
+    </symbol>
+    <symbol id="statusLed" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" overflow="hidden">
+      <circle cx="8" cy="8" r="6" fill="#262A33" stroke="#FF8A3D" stroke-width="1.5"/>
+      <circle cx="8" cy="8" r="3" fill="#FFCFAD"/>
+    </symbol>
+    <symbol id="telemetryBar" viewBox="0 0 180 18" preserveAspectRatio="xMidYMid meet" overflow="hidden">
+      <rect x="0" y="0" width="180" height="18" rx="3" ry="3" fill="#262A33" stroke="#50535D" stroke-width="1"/>
+      <rect x="2" y="2" width="126" height="14" rx="2" ry="2" fill="#FF8A3D"/>
+      <line x1="132" y1="2" x2="132" y2="16" stroke="#B8F2FF" stroke-width="2"/>
+    </symbol>
+  </defs>
+  <rect id="heroBg" x="0" y="0" width="1440" height="720" fill="url(#heroBgGrad)"/>
+  <rect id="heroBurstArea" x="340" y="0" width="760" height="600" fill="url(#heroStellarBurst)"/>
+  <line id="gridLineH1" x1="0" y1="120" x2="1440" y2="120" stroke="#50535D" stroke-width="1" stroke-dasharray="6 6" opacity="0.3"/>
+  <line id="gridLineH2" x1="0" y1="240" x2="1440" y2="240" stroke="#50535D" stroke-width="1" stroke-dasharray="6 6" opacity="0.3"/>
+  <line id="gridLineH3" x1="0" y1="360" x2="1440" y2="360" stroke="#50535D" stroke-width="1" stroke-dasharray="6 6" opacity="0.3"/>
+  <line id="gridLineH4" x1="0" y1="480" x2="1440" y2="480" stroke="#50535D" stroke-width="1" stroke-dasharray="6 6" opacity="0.3"/>
+  <line id="gridLineV1" x1="360" y1="0" x2="360" y2="720" stroke="#50535D" stroke-width="1" stroke-dasharray="6 6" opacity="0.3"/>
+  <line id="gridLineV2" x1="720" y1="0" x2="720" y2="720" stroke="#082B40" stroke-width="1.5" stroke-dasharray="8 4" opacity="0.4"/>
+  <line id="gridLineV3" x1="1080" y1="0" x2="1080" y2="720" stroke="#50535D" stroke-width="1" stroke-dasharray="6 6" opacity="0.3"/>
+  <ellipse id="orbitalRingOuter" cx="720" cy="300" rx="340" ry="130" fill="none" stroke="#00D2FF" stroke-width="1.5" stroke-dasharray="8 4" transform="rotate(-12 720 300)"/>
+  <ellipse id="orbitalRingInner" cx="720" cy="300" rx="210" ry="80" fill="none" stroke="#FF8A3D" stroke-width="1.5" transform="rotate(22 720 300)"/>
+  <circle id="centralOrb" cx="720" cy="300" r="44" fill="#191C23" stroke="#B8F2FF" stroke-width="2"/>
+  <circle id="centralOrbCore" cx="720" cy="300" r="16" fill="#FFCFAD"/>
+  <use id="crosshairLeft" href="#hudCrosshair" x="360" y="200" width="40" height="40"/>
+  <use id="crosshairRight" href="#hudCrosshair" x="1040" y="200" width="40" height="40"/>
+  <g id="hudLeftCard">
+    <rect id="hudLeftCardBg" x="70" y="90" width="270" height="450" rx="8" ry="8" fill="#15181E" stroke="#50535D" stroke-width="1.5"/>
+    <rect id="hudLeftHeaderBg" x="70" y="90" width="270" height="36" rx="8" ry="8" fill="#262A33"/>
+    <use id="hudLeftLed" href="#statusLed" x="82" y="100" width="16" height="16"/>
+    <use id="hudLeftBar1" href="#telemetryBar" x="90" y="172" width="180" height="18"/>
+    <use id="hudLeftBar2" href="#telemetryBar" x="90" y="236" width="180" height="18"/>
+  </g>
+  <g id="hudRightCard">
+    <rect id="hudRightCardBg" x="1100" y="90" width="270" height="450" rx="8" ry="8" fill="#15181E" stroke="#50535D" stroke-width="1.5"/>
+    <rect id="hudRightHeaderBg" x="1100" y="90" width="270" height="36" rx="8" ry="8" fill="#262A33"/>
+    <use id="hudRightLed" href="#statusLed" x="1112" y="100" width="16" height="16"/>
+    <rect id="hudRightWaveBg" x="1120" y="145" width="230" height="90" rx="4" ry="4" fill="#111318" stroke="#082B40" stroke-width="1"/>
+    <polyline id="hudRightWavePoly" points="1125,205 1150,195 1175,160 1200,215 1225,175 1250,185 1275,155 1300,210 1325,180 1345,190" fill="none" stroke="#00D2FF" stroke-width="2"/>
+  </g>
+  <polygon id="consoleBevelDeck" points="0,630 200,580 1240,580 1440,630 1440,720 0,720" fill="url(#heroDeckBevel)" stroke="#FF8A3D" stroke-width="2"/>
+  <rect id="consoleCenterPanel" x="440" y="605" width="560" height="85" rx="6" ry="6" fill="#111318" stroke="#00D2FF" stroke-width="1.5"/>
+  <path id="consoleCenterTitle" d="M 567 622 L 573 622 M 570 622 L 570 631 M 582 622 L 576 622 L 576 631 L 582 631 M 576 626.5 L 580.5 626.5 M 585 631 L 585 622 L 589.5 622 L 591 623.5 L 591 626.5 L 589.5 628 L 585 628 M 588 628 L 591 631 M 594 631 L 594 622 L 597 626.5 L 600 622 L 600 631 M 604.5 622 L 607.5 622 M 606 622 L 606 631 M 604.5 631 L 607.5 631 M 612 631 L 612 622 L 618 631 L 618 622 M 621 631 L 621 625 L 624 622 L 627 625 L 627 631 M 621 628 L 627 628 M 630 622 L 630 631 L 636 631 M 648 631 L 648 622 L 654 631 L 654 622 M 658.5 622 L 661.5 622 L 663 623.5 L 663 629.5 L 661.5 631 L 658.5 631 L 657 629.5 L 657 623.5 Z M 666 622 L 669 631 L 672 622 M 675 631 L 675 625 L 678 622 L 681 625 L 681 631 M 675 628 L 681 628 M 693 622 L 699 622 L 699 631 L 693 631 Z M 699 622 L 693 631 M 705 629.5 L 705 631 M 711 623.5 L 712.5 622 L 715.5 622 L 717 623.5 L 717 626.5 L 711 631 L 717 631 M 729 631 L 735 622 M 738 631 L 744 622 M 762 622 L 756 622 L 756 631 M 756 626.5 L 760.5 626.5 M 766.5 622 L 769.5 622 L 771 623.5 L 771 629.5 L 769.5 631 L 766.5 631 L 765 629.5 L 765 623.5 Z M 774 631 L 774 622 L 778.5 622 L 780 623.5 L 780 626.5 L 778.5 628 L 774 628 M 777 628 L 780 631 M 789 623.5 L 787.5 622 L 784.5 622 L 783 623.5 L 783 629.5 L 784.5 631 L 787.5 631 L 789 629.5 L 789 626.5 L 786 626.5 M 798 622 L 792 622 L 792 631 L 798 631 M 792 626.5 L 796.5 626.5 M 816 623.5 L 814.5 622 L 811.5 622 L 810 623.5 L 810 629.5 L 811.5 631 L 814.5 631 L 816 629.5 M 820.5 622 L 823.5 622 L 825 623.5 L 825 629.5 L 823.5 631 L 820.5 631 L 819 629.5 L 819 623.5 Z M 828 631 L 828 622 L 834 631 L 834 622 M 843 623.5 L 841.5 622 L 838.5 622 L 837 623.5 L 837 625 L 838.5 626.5 L 841.5 626.5 L 843 628 L 843 629.5 L 841.5 631 L 838.5 631 L 837 629.5 M 847.5 622 L 850.5 622 L 852 623.5 L 852 629.5 L 850.5 631 L 847.5 631 L 846 629.5 L 846 623.5 Z M 855 622 L 855 631 L 861 631 M 870 622 L 864 622 L 864 631 L 870 631 M 864 626.5 L 868.5 626.5" fill="none" stroke="#EEE9E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-label="TERMINAL NOVA 0.2 // FORGE CONSOLE"/>
+</svg>

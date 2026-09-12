@@ -1,0 +1,923 @@
+{
+  "accessibility": {
+    "desc": "Seamless 256 by 256 isometric terminal console pattern featuring repeating circuit nodes, crosshairs, and hairline grids for background tiling",
+    "focusable": false,
+    "mode": "labelled",
+    "title": "Terminal Nova Console Grid Pattern"
+  },
+  "artboard": {
+    "height": 256,
+    "policy": "contain",
+    "viewBox": [
+      0,
+      0,
+      256,
+      256
+    ],
+    "width": 256
+  },
+  "compatibility": 1,
+  "compilerLevel": 1,
+  "definitions": {
+    "symbols": [
+      {
+        "elements": [
+          {
+            "points": [
+              [
+                16,
+                4
+              ],
+              [
+                28,
+                16
+              ],
+              [
+                16,
+                28
+              ],
+              [
+                4,
+                16
+              ]
+            ],
+            "presentation": {
+              "fill": {
+                "name": "ink-surface",
+                "type": "token"
+              },
+              "stroke": {
+                "name": "gray-border",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "type": "polygon"
+          },
+          {
+            "cx": 16,
+            "cy": 16,
+            "presentation": {
+              "fill": {
+                "name": "orange-base",
+                "type": "token"
+              }
+            },
+            "r": 3,
+            "type": "circle"
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-base",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "type": "line",
+            "x1": 16,
+            "x2": 16,
+            "y1": 0,
+            "y2": 4
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-base",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "type": "line",
+            "x1": 16,
+            "x2": 16,
+            "y1": 28,
+            "y2": 32
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-base",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "type": "line",
+            "x1": 0,
+            "x2": 4,
+            "y1": 16,
+            "y2": 16
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-base",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "type": "line",
+            "x1": 28,
+            "x2": 32,
+            "y1": 16,
+            "y2": 16
+          }
+        ],
+        "id": "circuitNode",
+        "type": "symbol",
+        "viewBox": [
+          0,
+          0,
+          32,
+          32
+        ]
+      },
+      {
+        "elements": [
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-glow",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "type": "line",
+            "x1": 8,
+            "x2": 8,
+            "y1": 2,
+            "y2": 14
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-glow",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "type": "line",
+            "x1": 2,
+            "x2": 14,
+            "y1": 8,
+            "y2": 8
+          },
+          {
+            "cx": 8,
+            "cy": 8,
+            "presentation": {
+              "fill": {
+                "name": "cyan-bright",
+                "type": "token"
+              }
+            },
+            "r": 1.5,
+            "type": "circle"
+          }
+        ],
+        "id": "terminalCross",
+        "type": "symbol",
+        "viewBox": [
+          0,
+          0,
+          16,
+          16
+        ]
+      }
+    ]
+  },
+  "elements": [
+    {
+      "height": 256,
+      "id": "patternCanvasBg",
+      "presentation": {
+        "fill": {
+          "name": "ink-dark",
+          "type": "token"
+        }
+      },
+      "type": "rect",
+      "width": 256,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "gridH0",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 0,
+      "y2": 0
+    },
+    {
+      "id": "gridH64",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 64,
+      "y2": 64
+    },
+    {
+      "id": "gridH128",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 128,
+      "y2": 128
+    },
+    {
+      "id": "gridH192",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 192,
+      "y2": 192
+    },
+    {
+      "id": "gridH256",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 256,
+      "y2": 256
+    },
+    {
+      "id": "gridV0",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 0,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "gridV64",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 64,
+      "x2": 64,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "gridV128",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 128,
+      "x2": 128,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "gridV192",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 192,
+      "x2": 192,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "gridV256",
+      "presentation": {
+        "stroke": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 256,
+      "x2": 256,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "subH32",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          2,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 32,
+      "y2": 32
+    },
+    {
+      "id": "subH96",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          2,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 96,
+      "y2": 96
+    },
+    {
+      "id": "subH160",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          2,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 160,
+      "y2": 160
+    },
+    {
+      "id": "subH224",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          2,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 224,
+      "y2": 224
+    },
+    {
+      "id": "subV32",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          2,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 32,
+      "x2": 32,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "subV96",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          2,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 96,
+      "x2": 96,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "subV160",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          2,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 160,
+      "x2": 160,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "subV224",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          2,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 224,
+      "x2": 224,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "diagTrack1",
+      "presentation": {
+        "opacity": 0.4,
+        "stroke": {
+          "name": "cyan-dim",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          4,
+          8
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 0,
+      "y2": 256
+    },
+    {
+      "id": "diagTrack2",
+      "presentation": {
+        "opacity": 0.4,
+        "stroke": {
+          "name": "cyan-dim",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          4,
+          8
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 256,
+      "y1": 256,
+      "y2": 0
+    },
+    {
+      "id": "diagTrack3",
+      "presentation": {
+        "opacity": 0.4,
+        "stroke": {
+          "name": "cyan-dim",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          4,
+          8
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 128,
+      "y1": 128,
+      "y2": 256
+    },
+    {
+      "id": "diagTrack4",
+      "presentation": {
+        "opacity": 0.4,
+        "stroke": {
+          "name": "cyan-dim",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          4,
+          8
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 128,
+      "x2": 256,
+      "y1": 0,
+      "y2": 128
+    },
+    {
+      "id": "diagTrack5",
+      "presentation": {
+        "opacity": 0.4,
+        "stroke": {
+          "name": "cyan-dim",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          4,
+          8
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 128,
+      "y1": 128,
+      "y2": 0
+    },
+    {
+      "id": "diagTrack6",
+      "presentation": {
+        "opacity": 0.4,
+        "stroke": {
+          "name": "cyan-dim",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          4,
+          8
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 128,
+      "x2": 256,
+      "y1": 256,
+      "y2": 128
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeCenter",
+      "type": "use",
+      "width": 32,
+      "x": 112,
+      "y": 112
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeTl",
+      "type": "use",
+      "width": 32,
+      "x": -16,
+      "y": -16
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeTr",
+      "type": "use",
+      "width": 32,
+      "x": 240,
+      "y": -16
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeBl",
+      "type": "use",
+      "width": 32,
+      "x": -16,
+      "y": 240
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeBr",
+      "type": "use",
+      "width": 32,
+      "x": 240,
+      "y": 240
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeTopMid",
+      "type": "use",
+      "width": 32,
+      "x": 112,
+      "y": -16
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeBtmMid",
+      "type": "use",
+      "width": 32,
+      "x": 112,
+      "y": 240
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeLftMid",
+      "type": "use",
+      "width": 32,
+      "x": -16,
+      "y": 112
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeRgtMid",
+      "type": "use",
+      "width": 32,
+      "x": 240,
+      "y": 112
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeQ1",
+      "type": "use",
+      "width": 32,
+      "x": 48,
+      "y": 48
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeQ2",
+      "type": "use",
+      "width": 32,
+      "x": 176,
+      "y": 48
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeQ3",
+      "type": "use",
+      "width": 32,
+      "x": 48,
+      "y": 176
+    },
+    {
+      "height": 32,
+      "href": "#circuitNode",
+      "id": "nodeQ4",
+      "type": "use",
+      "width": 32,
+      "x": 176,
+      "y": 176
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross00",
+      "type": "use",
+      "width": 16,
+      "x": 24,
+      "y": 24
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross10",
+      "type": "use",
+      "width": 16,
+      "x": 88,
+      "y": 24
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross20",
+      "type": "use",
+      "width": 16,
+      "x": 152,
+      "y": 24
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross30",
+      "type": "use",
+      "width": 16,
+      "x": 216,
+      "y": 24
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross01",
+      "type": "use",
+      "width": 16,
+      "x": 24,
+      "y": 88
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross11",
+      "type": "use",
+      "width": 16,
+      "x": 88,
+      "y": 88
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross21",
+      "type": "use",
+      "width": 16,
+      "x": 152,
+      "y": 88
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross31",
+      "type": "use",
+      "width": 16,
+      "x": 216,
+      "y": 88
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross02",
+      "type": "use",
+      "width": 16,
+      "x": 24,
+      "y": 152
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross12",
+      "type": "use",
+      "width": 16,
+      "x": 88,
+      "y": 152
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross22",
+      "type": "use",
+      "width": 16,
+      "x": 152,
+      "y": 152
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross32",
+      "type": "use",
+      "width": 16,
+      "x": 216,
+      "y": 152
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross03",
+      "type": "use",
+      "width": 16,
+      "x": 24,
+      "y": 216
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross13",
+      "type": "use",
+      "width": 16,
+      "x": 88,
+      "y": 216
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross23",
+      "type": "use",
+      "width": 16,
+      "x": 152,
+      "y": 216
+    },
+    {
+      "height": 16,
+      "href": "#terminalCross",
+      "id": "cross33",
+      "type": "use",
+      "width": 16,
+      "x": 216,
+      "y": 216
+    }
+  ],
+  "profile": "pattern",
+  "provenance": {
+    "author": "Knowledge Forge AI",
+    "created": "2026-09-09",
+    "license": "AGPL-3.0-or-later",
+    "note": "Terminal Nova 0.2 first-party console grid pattern with bounded repeat"
+  },
+  "schema": "tfsb.vector-scene-v1",
+  "tokenBindings": {
+    "cyan-base": "#00D2FF",
+    "cyan-bright": "#B8F2FF",
+    "cyan-dim": "#082B40",
+    "cyan-glow": "#38BDF8",
+    "gray-border": "#50535D",
+    "gray-light": "#8E8B89",
+    "ink-code": "#262A33",
+    "ink-dark": "#111318",
+    "ink-panel": "#15181E",
+    "ink-surface": "#191C23",
+    "orange-base": "#FF8A3D",
+    "orange-bright": "#FFCFAD",
+    "orange-dark": "#3A231C",
+    "orange-light": "#FFAC75",
+    "text-dim": "#B9B4AD",
+    "text-light": "#EEE9E3",
+    "text-warm": "#FFCFAD"
+  }
+}

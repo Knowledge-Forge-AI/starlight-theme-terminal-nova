@@ -1,0 +1,35 @@
+---
+title: Architecture Overview
+description: Architecture overview and design system of Terminal Nova.
+---
+
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+## Overview Details
+
+The overview route exercises the catalog banner Hero layout when rendered by the catalog-enabled Starlight theme plugin.
+
+### Architectural Principles
+
+1. **Proportional Typography**: Readable system sans prose at 1.65 line height.
+2. **Disciplined Chrome**: Monospace navigation and code boundaries.
+3. **Contrast Fidelity**: Verified WCAG contrast diagnostics across light and dark modes.
+4. **Offline Isolation**: Zero external network requests at runtime.
+
+<CardGrid>
+  <Card title="Primary Accent" icon="star">
+    Warm orange accent (#ff8a3d dark / #9c3e0b light) with high-contrast tone derivations.
+  </Card>
+  <Card title="Alternate Accent" icon="moon">
+    Cyan is selected at Loom generation time and installed as a separate generated candidate package. The generated plugin takes no accent option.
+  </Card>
+</CardGrid>
+
+## Candidate Lineage
+
+| Candidate | Prose Font | Column Width | Line Height | UI Tone |
+| :--- | :--- | :--- | :--- | :--- |
+| Forge Console (Flagship) | System sans | 44rem | 1.65 | Warm orange |
+| Nova Observatory (History) | System serif | 48rem | 1.80 | Soft violet |
+
+The Forge Console design remains the canonical flagship for technical documentation.

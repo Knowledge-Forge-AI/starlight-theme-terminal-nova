@@ -1,0 +1,8 @@
+{
+  "name": "@knowledge-forge-ai/starlight-theme-terminal-nova",
+  "version": "0.2.0",
+  "description": "Independent Terminal Nova documentation theme; Forge Console 0.2.0 design",
+  "author": "The Knowledge Forge Authors",
+  "license": "AGPL-3.0-or-later",
+  "template": "page-title-frame"
+}

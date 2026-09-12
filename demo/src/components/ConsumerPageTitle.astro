@@ -1,19 +1,25 @@
 ---
+import type { Props } from '@astrojs/starlight/props';
 import Default from '@astrojs/starlight/components/PageTitle.astro';
 ---
 
-<div class="consumer-page-title-wrapper" data-test-override="consumer-owned">
-  <Default {...Astro.props} />
-  <p class="consumer-subtitle">Consumer Owned Component Override</p>
+<div class="consumer-page-title-wrapper" data-consumer-override="page-title">
+  <Default {...Astro.props}><slot /></Default>
+  <span class="consumer-override-badge">[Consumer Override Active]</span>
 </div>
 
 <style>
   .consumer-page-title-wrapper {
-    border-bottom: 2px dashed #e11d48;
-    margin-bottom: 1rem;
+    position: relative;
   }
-  .consumer-subtitle {
-    font-size: 0.85rem;
-    color: #e11d48;
+  .consumer-override-badge {
+    font-size: 0.75rem;
+    color: var(--sl-color-accent, #ff8a3d);
+    border: 1px solid var(--sl-color-accent, #ff8a3d);
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   }
 </style>

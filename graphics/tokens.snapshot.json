@@ -1,0 +1,27 @@
+{
+  "schema": "tfsb.token-snapshot-v1",
+  "theme": "terminal-nova",
+  "version": "0.2.0",
+  "historicalBrandProvenanceSha256": "bd9a8a8c31155150686009caf0470b5dad2f67c183bdeb7a4d3801fa2eb267c3",
+  "tokenCount": 17,
+  "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+  "tokens": {
+    "cyan-base": "#00D2FF",
+    "cyan-bright": "#B8F2FF",
+    "cyan-dim": "#082B40",
+    "cyan-glow": "#38BDF8",
+    "gray-border": "#50535D",
+    "gray-light": "#8E8B89",
+    "ink-code": "#262A33",
+    "ink-dark": "#111318",
+    "ink-panel": "#15181E",
+    "ink-surface": "#191C23",
+    "orange-base": "#FF8A3D",
+    "orange-bright": "#FFCFAD",
+    "orange-dark": "#3A231C",
+    "orange-light": "#FFAC75",
+    "text-dim": "#B9B4AD",
+    "text-light": "#EEE9E3",
+    "text-warm": "#FFCFAD"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "tfsb.nova-rc-inputs-v1",
+  "compiler": {
+    "name": "@knowledge-forge-ai/theme-forge-stellar-loom",
+    "version": "0.2.0",
+    "sha256": "cdfb1ada33fb146a89622f32e3d676f581e4972b0b5654171ba0a6f08264cd0f"
+  },
+  "burst": {
+    "name": "@knowledge-forge-ai/theme-forge-stellar-burst",
+    "version": "0.5.0",
+    "sha256": "1222b613b119f785061ac61e25eccf3af9810f2b118a4669481c23cd390c661e"
+  },
+  "generatedPackageTreeDigest": "e6a0d4c8fe30e617301e65c566fe54f2b1658d29ce42c9f5954a8b1d71b5cd43"
+}

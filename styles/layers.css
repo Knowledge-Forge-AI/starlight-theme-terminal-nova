@@ -1,0 +1,3 @@
+/* Theme Forge Stellar Loom v2 - Layer order declaration */
+@layer starlight, tfsl;
+@layer tfsl.tokens, tfsl.base, tfsl.accent, tfsl.overrides;

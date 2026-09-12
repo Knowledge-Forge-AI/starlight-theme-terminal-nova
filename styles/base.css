@@ -1,0 +1,73 @@
+@layer tfsl.base {
+  body { font-family: var(--tfsl-font-body); font-size: 18px; line-height: 1.65; }
+  header, nav, aside, button, select, input { font-family: var(--tfsl-font-ui); font-size: 14px; line-height: 1.5; }
+  code, pre { font-family: var(--tfsl-font-code); font-size: 14px; line-height: 1.6; }
+  nav { background-color: var(--tfsl-color-navigation); }
+  .sl-markdown-content pre { background-color: var(--tfsl-color-code); }
+  .sl-markdown-content blockquote { background-color: var(--tfsl-color-panel); border-color: var(--tfsl-color-border); }
+  .sl-markdown-content details { background-color: var(--tfsl-color-raised); border-radius: var(--tfsl-radius-small); padding: var(--tfsl-space-small); }
+  .sl-markdown-content small { color: var(--tfsl-color-muted); }
+  @media (min-width: 50rem) { :root { --sl-content-width: min(704px, 1152px); } }
+  h1, .sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--tfsl-font-heading, var(--sl-font));
+    line-height: var(--sl-line-height-headings, 1.2);
+    color: var(--tfsl-color-secondary, var(--sl-color-white));
+  }
+
+  .sl-markdown-content h1 {
+    font-size: var(--sl-text-h1);
+  }
+
+  .sl-markdown-content h2 {
+    font-size: var(--sl-text-h2);
+  }
+
+  .sl-markdown-content h3 {
+    font-size: var(--sl-text-h3);
+  }
+
+  .sl-markdown-content h4 {
+    font-size: var(--sl-text-h4);
+  }
+
+  .sl-markdown-content h5 {
+    font-size: var(--sl-text-h5);
+  }
+
+  .sl-markdown-content h6 {
+    font-size: var(--sl-text-h6);
+  }
+
+  /* Responsive heading scaling across breakpoints */
+  @media (min-width: 50rem) {
+    .sl-markdown-content h1 {
+      font-size: calc(var(--sl-text-h1) * 1.15);
+    }
+    .sl-markdown-content h2 {
+      font-size: calc(var(--sl-text-h2) * 1.1);
+    }
+  }
+
+  @media (min-width: 72rem) {
+    .sl-markdown-content h1 {
+      font-size: calc(var(--sl-text-h1) * 1.25);
+    }
+    .sl-markdown-content h2 {
+      font-size: calc(var(--sl-text-h2) * 1.15);
+    }
+  }
+
+  /* Card and surface styling */
+  .card,
+  .sl-markdown-content .card {
+    background-color: var(--tfsl-color-card);
+    border: var(--tfsl-border-width, 1px) var(--tfsl-border-style) var(--tfsl-color-border);
+    border-radius: var(--tfsl-radius, 8px);
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: var(--tfsl-color-selection-background);
+    color: var(--tfsl-color-selection-text);
+  }
+}

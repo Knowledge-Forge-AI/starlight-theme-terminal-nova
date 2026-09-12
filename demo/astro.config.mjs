@@ -1,43 +1,75 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-// Private smoke runs overlay the consumer fixture. The standalone composition
-// selects the kitchen-sink fixture's package.json/lock and consumer support files.
-const scenario = process.env.CONSUMER_SCENARIO ?? "nova";
+const scenario = process.env.CONSUMER_SCENARIO || "nova";
 const disconnected = scenario === "nova-disconnected";
 const override = scenario === "nova-override";
+const codeDisabled = scenario === "nova-code-disabled" || process.env.CONSUMER_CODE_DISABLED === "true";
+const outDir = process.env.ASTRO_OUT_DIR || "./dist";
+const packageName = process.env.THEME_PACKAGE_NAME || "@knowledge-forge-ai/starlight-theme-terminal-nova";
+
 const plugins = [];
 if (!disconnected) {
-  const { default: terminalNova } = await import("@knowledge-forge-ai/starlight-theme-terminal-nova");
-  plugins.push(terminalNova());
+  const mod = await import(packageName);
+  const themePlugin = mod.default || mod.terminalNova || mod;
+  if (typeof themePlugin !== "function") {
+    throw new Error(`Theme package ${packageName} does not export a valid plugin function`);
+  }
+  plugins.push(themePlugin());
+}
+
+const customCss = [];
+if (override) {
+  customCss.push("./src/styles/consumer-custom.css");
 }
 
 export default defineConfig({
-  outDir: process.env.ASTRO_OUT_DIR ?? "./dist",
+  outDir,
+  server: {
+    host: "127.0.0.1",
+  },
   integrations: [
     starlight({
       title: "Terminal Nova",
+      description: "A quiet forge for technical ideas, working notes, and useful documentation.",
       plugins,
+      expressiveCode: codeDisabled ? false : undefined,
       components: override ? { PageTitle: "./src/components/ConsumerPageTitle.astro" } : {},
-      customCss: override ? ["./src/styles/consumer-custom.css"] : [],
+      customCss,
       logo: {
         light: "./public/brand/theme-forge-terminal-nova-mark-on-light.svg",
         dark: "./public/brand/theme-forge-terminal-nova-mark-on-dark.svg",
         replacesTitle: false,
       },
       favicon: "/brand/favicon-on-light.svg",
-      head: [{
-        tag: "link",
-        attrs: {
-          rel: "icon", type: "image/svg+xml",
-          href: "/brand/favicon-on-dark.svg",
-          media: "(prefers-color-scheme: dark)",
+      head: [
+        {
+          tag: "link",
+          attrs: {
+            rel: "icon",
+            type: "image/svg+xml",
+            href: "/brand/favicon-on-dark.svg",
+            media: "(prefers-color-scheme: dark)",
+          },
         },
-      }],
-      sidebar: [{
-        label: "Workspace",
-        items: [{ label: "Overview", slug: "index" }, { label: "Design notes", slug: "design" }],
-      }],
+      ],
+      pagination: true,
+      sidebar: [
+        {
+          label: "Overview",
+          items: [
+            { label: "Welcome", slug: "index" },
+            { label: "Architecture Overview", slug: "overview" },
+          ],
+        },
+        {
+          label: "Documentation",
+          items: [
+            { label: "Engine Workflow", slug: "docs/workflow" },
+            { label: "Component Gallery", slug: "docs/components" },
+          ],
+        },
+      ],
     }),
   ],
 });

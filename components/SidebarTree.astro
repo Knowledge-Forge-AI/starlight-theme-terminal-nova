@@ -1,0 +1,17 @@
+---
+const {entries} = Astro.props;
+---
+<ul class="tfsl-nav-tree">
+  {entries.map((item: any) => <li>
+    {item.type === "group" ? <details open={item.current || !item.collapsed}>
+      <summary>{item.label}</summary><Astro.self entries={item.entries} />
+    </details> : <a href={item.href} aria-current={item.current ? "page" : undefined} title={item.title} aria-label={item.ariaLabel}>{item.label}</a>}
+  </li>)}
+</ul>
+<style>
+  ul { list-style:none; margin:0; padding:0; }
+  ul ul { padding-inline-start:1rem; }
+  a,summary { display:block; padding:.4rem .6rem; color:var(--sl-color-text); border-radius:var(--tfsl-radius-small); overflow-wrap:anywhere; }
+  a[aria-current="page"] { color:var(--sl-color-accent-high); background:var(--sl-color-accent-low); }
+  summary { cursor:pointer; }
+</style>
