@@ -3,7 +3,7 @@
   "compiler": {
     "name": "@knowledge-forge-ai/theme-forge-stellar-loom",
     "version": "0.2.0",
-    "sha256": "cdfb1ada33fb146a89622f32e3d676f581e4972b0b5654171ba0a6f08264cd0f"
+    "sha256": "4ec53cfe3c48a1d5b44e5fc695fe8c07b4f72dc4076a91ae10efa7d579818b34"
   },
   "burst": {
     "name": "@knowledge-forge-ai/theme-forge-stellar-burst",
