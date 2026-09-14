@@ -1,0 +1,37 @@
+{
+  "schema": "tfsb.nova-graphics-rc-v1",
+  "compilerVersion": "0.5.0",
+  "scenes": [
+    {
+      "id": "console-hero",
+      "svgDigest": "sha256:885daded20dec373b95511696c26fd00901abc31d22289cea978bd2a4f3f6a93",
+      "sourceDigest": "sha256:9d2e1aa6d41b040f6a09d215f4d24e3d798e0e65be5c4e10e34f32230f3b5ce6"
+    },
+    {
+      "id": "orbital-section",
+      "svgDigest": "sha256:8d505148506f75bb8df6e5d567dbc2b4f4681c5453987254cb0e71652f1ec0cc",
+      "sourceDigest": "sha256:6d25c8ddcbeccf92a6e1c0322334a5474dd766a187c65fd4b3a0bd1dc9fc5f95"
+    },
+    {
+      "id": "engine-workflow",
+      "svgDigest": "sha256:968530f2c05e290d1bf22689329361b214f31c61c9ce8c37b3c6f2fc31e7f0ec",
+      "sourceDigest": "sha256:e332ccad6b54806afad26fb6b790255a52e63b8bae5695d5cce9d37ba2a42e81"
+    },
+    {
+      "id": "documentation-callout",
+      "svgDigest": "sha256:6067504e0d5a3aba934f96d88d1962afed78f99e7f88273b9d6bf5636f48e74c",
+      "sourceDigest": "sha256:c5f2f99b5dbfb13b2e7cbca059332a454c57a6edebcf35f958cb1d87dd6ac059"
+    },
+    {
+      "id": "nova-social",
+      "svgDigest": "sha256:0add9f6802a54a331666e07f20b0fe415e4d53a79322f0a09f0f09aed16b71d5",
+      "sourceDigest": "sha256:6b3d1231bba8ed05e31bbdbffba2c2f43694e8db14e447353d67edbaa6136028"
+    },
+    {
+      "id": "console-pattern",
+      "svgDigest": "sha256:3e6e5c4a2a131507761e4fa69a0ded899495ffe032c8e6eba3397986e956f7c5",
+      "sourceDigest": "sha256:b38466a62b9cfa0cd08f4bd2a66b484777526d17d86ea991e4da4e5c58ae33cd"
+    }
+  ],
+  "artifactSha256": "1222b613b119f785061ac61e25eccf3af9810f2b118a4669481c23cd390c661e"
+}

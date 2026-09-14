@@ -1,0 +1,445 @@
+{
+  "schema": "tfsb.scene-candidate-v1",
+  "schemaVersion": 1,
+  "candidateId": "terminal-nova-orbital-section-candidate-final",
+  "briefId": "terminal-nova-v0.2-graphics-brief",
+  "briefDigest": "sha256:248e272012a76ea6d4e04bd78f410de3fc33e182a7f25972f2a5f982018e8306",
+  "canonicalSceneDigest": "sha256:6d25c8ddcbeccf92a6e1c0322334a5474dd766a187c65fd4b3a0bd1dc9fc5f95",
+  "svgDigest": "sha256:8d505148506f75bb8df6e5d567dbc2b4f4681c5453987254cb0e71652f1ec0cc",
+  "profile": "illustration",
+  "artboard": {
+    "height": 360,
+    "policy": "contain",
+    "viewBox": [
+      0,
+      0,
+      960,
+      360
+    ],
+    "width": 960
+  },
+  "sceneSchema": "tfsb.vector-scene-v1",
+  "sceneCompatibility": 1,
+  "sceneCompilerLevel": 1,
+  "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+  "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+  "senderProvenance": {
+    "author": "Knowledge Forge AI",
+    "created": "2026-09-09",
+    "license": "AGPL-3.0-or-later",
+    "note": "Terminal Nova 0.2 first-party orbital section illustration"
+  },
+  "scene": {
+    "accessibility": {
+      "desc": "Three small satellites follow orange and cyan orbital paths above a curved horizon.",
+      "focusable": false,
+      "mode": "labelled",
+      "title": "Terminal Nova Orbital Section Illustration"
+    },
+    "artboard": {
+      "height": 360,
+      "policy": "contain",
+      "viewBox": [
+        0,
+        0,
+        960,
+        360
+      ],
+      "width": 960
+    },
+    "compatibility": 1,
+    "compilerLevel": 1,
+    "definitions": {
+      "gradients": [
+        {
+          "gradientUnits": "userSpaceOnUse",
+          "id": "orbitSky",
+          "spreadMethod": "pad",
+          "stops": [
+            {
+              "color": {
+                "color": "#090E17",
+                "type": "solid"
+              },
+              "offset": 0
+            },
+            {
+              "color": {
+                "color": "#111318",
+                "type": "solid"
+              },
+              "offset": 0.5
+            },
+            {
+              "color": {
+                "color": "#15181E",
+                "type": "solid"
+              },
+              "offset": 1
+            }
+          ],
+          "type": "linearGradient",
+          "x1": 0,
+          "x2": 960,
+          "y1": 0,
+          "y2": 360
+        },
+        {
+          "gradientUnits": "userSpaceOnUse",
+          "id": "horizonGlow",
+          "spreadMethod": "pad",
+          "stops": [
+            {
+              "color": {
+                "color": "#FF8A3D",
+                "type": "solid"
+              },
+              "offset": 0,
+              "opacity": 0.6
+            },
+            {
+              "color": {
+                "color": "#082B40",
+                "type": "solid"
+              },
+              "offset": 0.4,
+              "opacity": 0.4
+            },
+            {
+              "color": {
+                "color": "#111318",
+                "type": "solid"
+              },
+              "offset": 1,
+              "opacity": 0
+            }
+          ],
+          "type": "linearGradient",
+          "x1": 480,
+          "x2": 480,
+          "y1": 220,
+          "y2": 360
+        }
+      ],
+      "symbols": [
+        {
+          "elements": [
+            {
+              "height": 16,
+              "presentation": {
+                "fill": {
+                  "name": "ink-code",
+                  "type": "token"
+                },
+                "stroke": {
+                  "name": "cyan-base",
+                  "type": "token"
+                },
+                "strokeWidth": 1
+              },
+              "rx": 2,
+              "ry": 2,
+              "type": "rect",
+              "width": 18,
+              "x": 4,
+              "y": 12
+            },
+            {
+              "height": 16,
+              "presentation": {
+                "fill": {
+                  "name": "ink-code",
+                  "type": "token"
+                },
+                "stroke": {
+                  "name": "cyan-base",
+                  "type": "token"
+                },
+                "strokeWidth": 1
+              },
+              "rx": 2,
+              "ry": 2,
+              "type": "rect",
+              "width": 18,
+              "x": 38,
+              "y": 12
+            },
+            {
+              "height": 20,
+              "presentation": {
+                "fill": {
+                  "name": "orange-dark",
+                  "type": "token"
+                },
+                "stroke": {
+                  "name": "orange-base",
+                  "type": "token"
+                },
+                "strokeWidth": 1.5
+              },
+              "rx": 2,
+              "ry": 2,
+              "type": "rect",
+              "width": 12,
+              "x": 24,
+              "y": 10
+            },
+            {
+              "presentation": {
+                "stroke": {
+                  "name": "cyan-bright",
+                  "type": "token"
+                },
+                "strokeWidth": 1.5
+              },
+              "type": "line",
+              "x1": 30,
+              "x2": 30,
+              "y1": 10,
+              "y2": 4
+            }
+          ],
+          "id": "satelliteNode",
+          "type": "symbol",
+          "viewBox": [
+            0,
+            0,
+            60,
+            40
+          ]
+        },
+        {
+          "elements": [
+            {
+              "points": [
+                [
+                  12,
+                  2
+                ],
+                [
+                  22,
+                  12
+                ],
+                [
+                  12,
+                  22
+                ],
+                [
+                  2,
+                  12
+                ]
+              ],
+              "presentation": {
+                "fill": {
+                  "name": "ink-surface",
+                  "type": "token"
+                },
+                "stroke": {
+                  "name": "orange-light",
+                  "type": "token"
+                },
+                "strokeWidth": 1.5
+              },
+              "type": "polygon"
+            },
+            {
+              "cx": 12,
+              "cy": 12,
+              "presentation": {
+                "fill": {
+                  "name": "cyan-base",
+                  "type": "token"
+                }
+              },
+              "r": 3,
+              "type": "circle"
+            }
+          ],
+          "id": "waypointMarker",
+          "type": "symbol",
+          "viewBox": [
+            0,
+            0,
+            24,
+            24
+          ]
+        }
+      ]
+    },
+    "elements": [
+      {
+        "height": 360,
+        "id": "orbitBg",
+        "presentation": {
+          "fill": {
+            "id": "orbitSky",
+            "type": "gradient"
+          }
+        },
+        "type": "rect",
+        "width": 960,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "d": "M 0 320 Q 480 220 960 320 L 960 360 L 0 360 Z",
+        "id": "horizonCurve",
+        "presentation": {
+          "fill": {
+            "id": "horizonGlow",
+            "type": "gradient"
+          },
+          "stroke": {
+            "name": "orange-base",
+            "type": "token"
+          },
+          "strokeWidth": 2
+        },
+        "type": "path"
+      },
+      {
+        "d": "M 60 210 C 300 70 660 70 900 210",
+        "id": "orbitTrackUpper",
+        "presentation": {
+          "fill": {
+            "type": "none"
+          },
+          "stroke": {
+            "name": "cyan-base",
+            "type": "token"
+          },
+          "strokeDasharray": [
+            8,
+            6
+          ],
+          "strokeWidth": 2
+        },
+        "type": "path"
+      },
+      {
+        "d": "M 120 270 C 360 160 600 160 840 270",
+        "id": "orbitTrackLower",
+        "presentation": {
+          "fill": {
+            "type": "none"
+          },
+          "stroke": {
+            "name": "orange-light",
+            "type": "token"
+          },
+          "strokeDasharray": [
+            12,
+            4
+          ],
+          "strokeWidth": 1.5
+        },
+        "type": "path"
+      },
+      {
+        "id": "orbitTrackCross",
+        "presentation": {
+          "opacity": 0.4,
+          "stroke": {
+            "name": "gray-border",
+            "type": "token"
+          },
+          "strokeDasharray": [
+            4,
+            4
+          ],
+          "strokeWidth": 1
+        },
+        "type": "line",
+        "x1": 180,
+        "x2": 780,
+        "y1": 50,
+        "y2": 310
+      },
+      {
+        "height": 40,
+        "href": "#satelliteNode",
+        "id": "sat1",
+        "type": "use",
+        "width": 60,
+        "x": 230,
+        "y": 100
+      },
+      {
+        "height": 40,
+        "href": "#satelliteNode",
+        "id": "sat2",
+        "type": "use",
+        "width": 60,
+        "x": 450,
+        "y": 60
+      },
+      {
+        "height": 40,
+        "href": "#satelliteNode",
+        "id": "sat3",
+        "type": "use",
+        "width": 60,
+        "x": 670,
+        "y": 100
+      },
+      {
+        "height": 24,
+        "href": "#waypointMarker",
+        "id": "wp1",
+        "type": "use",
+        "width": 24,
+        "x": 350,
+        "y": 130
+      },
+      {
+        "height": 24,
+        "href": "#waypointMarker",
+        "id": "wp2",
+        "type": "use",
+        "width": 24,
+        "x": 580,
+        "y": 130
+      },
+      {
+        "align": "center",
+        "color": {
+          "name": "text-light",
+          "type": "token"
+        },
+        "id": "sectionBannerTitle",
+        "scale": 1.5,
+        "text": "ROOM TO EXPLORE",
+        "type": "label",
+        "x": 480,
+        "y": 28
+      }
+    ],
+    "profile": "illustration",
+    "provenance": {
+      "author": "Knowledge Forge AI",
+      "created": "2026-09-09",
+      "license": "AGPL-3.0-or-later",
+      "note": "Terminal Nova 0.2 first-party orbital section illustration"
+    },
+    "schema": "tfsb.vector-scene-v1",
+    "tokenBindings": {
+      "cyan-base": "#00D2FF",
+      "cyan-bright": "#B8F2FF",
+      "cyan-dim": "#082B40",
+      "cyan-glow": "#38BDF8",
+      "gray-border": "#50535D",
+      "gray-light": "#8E8B89",
+      "ink-code": "#262A33",
+      "ink-dark": "#111318",
+      "ink-panel": "#15181E",
+      "ink-surface": "#191C23",
+      "orange-base": "#FF8A3D",
+      "orange-bright": "#FFCFAD",
+      "orange-dark": "#3A231C",
+      "orange-light": "#FFAC75",
+      "text-dim": "#B9B4AD",
+      "text-light": "#EEE9E3",
+      "text-warm": "#FFCFAD"
+    }
+  }
+}

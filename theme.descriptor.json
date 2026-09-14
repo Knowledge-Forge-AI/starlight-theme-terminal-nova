@@ -1,20 +1,30 @@
 {
-  "schema": "tfsl.theme-descriptor-v1",
-  "schemaVersion": 1,
-  "themeSchemaVersion": "tfsl.theme-v1",
+  "schema": "tfsl.theme-descriptor-v2",
+  "schemaVersion": 2,
+  "themeSchemaVersion": "tfsl.theme-v2",
   "themeName": "terminal-nova",
-  "themeVersion": "0.1.0",
+  "themeVersion": "0.2.0",
   "adapter": "starlight-v0.42",
-  "inputDigest": "74254406ee782ebf076801dbbe96ab279439a3b32dd44a7f836268ef1244ec1a",
-  "outputDigest": "b615d8e89a1bb1eb25d71bc0a66e715bb5ad10ac99b8974c291d142d0814e1dd",
-  "cssFile": "styles/theme.css",
+  "selectedAccent": "orange",
+  "accent": "orange",
+  "inputDigest": "a71a1df0c03c82fc2c5253602aad1bc3493f94ef2553fe547dbd11df7d7f4a68",
+  "outputDigest": "328439213f29cf6e05ac7df7323d2dda5336bce9228825b26a16b34a1beadcb7",
+  "inventoryDigest": "27185445712f03de4d27060660f95827cb49d5bfd553bf07db93b99ab20304cb",
+  "catalogIdentity": "tfsl.starlight-component-catalog-v1",
+  "catalogDigest": "34b1b7c6359a3eb996043d5ce688e1d3740bfeafa462a1b912a08d162638fc73",
+  "catalog": {
+    "identity": "tfsl.starlight-component-catalog-v1",
+    "digest": "34b1b7c6359a3eb996043d5ce688e1d3740bfeafa462a1b912a08d162638fc73"
+  },
+  "compilerSemantic": "tfsl.theme-compiler-v2-catalog-1",
   "provenance": {
     "categories": [
       "user-authored-data",
       "generated-syntax",
       "first-party-expression"
     ],
+    "semantic": "tfsl.theme-compiler-v2-catalog-1",
     "compiler": "@knowledge-forge-ai/theme-forge-stellar-loom",
-    "compilerVersion": "0.1.0"
+    "compilerVersion": "0.2.0"
   }
 }

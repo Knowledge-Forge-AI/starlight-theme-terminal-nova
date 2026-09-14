@@ -1,0 +1,21 @@
+@layer tfsl.accent {
+  :root,
+  ::backdrop {
+    --tfsl-color-accent-base: #ff8a3d;
+    --tfsl-color-accent-low: #3a231c;
+    --tfsl-color-accent-high: #ffcfad;
+    --sl-color-accent: var(--tfsl-color-accent-base);
+    --sl-color-accent-low: var(--tfsl-color-accent-low);
+    --sl-color-accent-high: var(--tfsl-color-accent-high);
+  }
+
+  :root[data-theme='light'],
+  [data-theme='light'] ::backdrop {
+    --tfsl-color-accent-base: #9c3e0b;
+    --tfsl-color-accent-low: #ffeadc;
+    --tfsl-color-accent-high: #612909;
+    --sl-color-accent: var(--tfsl-color-accent-base);
+    --sl-color-accent-low: var(--tfsl-color-accent-low);
+    --sl-color-accent-high: var(--tfsl-color-accent-high);
+  }
+}

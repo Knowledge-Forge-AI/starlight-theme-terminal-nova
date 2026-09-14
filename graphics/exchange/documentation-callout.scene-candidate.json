@@ -1,0 +1,664 @@
+{
+  "schema": "tfsb.scene-candidate-v1",
+  "schemaVersion": 1,
+  "candidateId": "terminal-nova-documentation-callout-candidate-final",
+  "briefId": "terminal-nova-v0.2-graphics-brief",
+  "briefDigest": "sha256:248e272012a76ea6d4e04bd78f410de3fc33e182a7f25972f2a5f982018e8306",
+  "canonicalSceneDigest": "sha256:c5f2f99b5dbfb13b2e7cbca059332a454c57a6edebcf35f958cb1d87dd6ac059",
+  "svgDigest": "sha256:6067504e0d5a3aba934f96d88d1962afed78f99e7f88273b9d6bf5636f48e74c",
+  "profile": "editorial",
+  "artboard": {
+    "height": 540,
+    "policy": "contain",
+    "viewBox": [
+      0,
+      0,
+      960,
+      540
+    ],
+    "width": 960
+  },
+  "sceneSchema": "tfsb.vector-scene-v1",
+  "sceneCompatibility": 1,
+  "sceneCompilerLevel": 1,
+  "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+  "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+  "senderProvenance": {
+    "author": "Knowledge Forge AI",
+    "created": "2026-09-09",
+    "license": "AGPL-3.0-or-later",
+    "note": "Terminal Nova 0.2 first-party documentation callout editorial figure"
+  },
+  "scene": {
+    "accessibility": {
+      "desc": "Technical documentation callout figure featuring an integrated terminal window frame, status pill, architecture schematic inset, and specifications list",
+      "focusable": false,
+      "mode": "labelled",
+      "title": "Terminal Nova Editorial Documentation Callout"
+    },
+    "artboard": {
+      "height": 540,
+      "policy": "contain",
+      "viewBox": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "width": 960
+    },
+    "compatibility": 1,
+    "compilerLevel": 1,
+    "elements": [
+      {
+        "height": 540,
+        "id": "calloutCanvasBg",
+        "presentation": {
+          "fill": {
+            "name": "ink-dark",
+            "type": "token"
+          }
+        },
+        "type": "rect",
+        "width": 960,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "height": 480,
+        "id": "calloutWindowFrame",
+        "presentation": {
+          "fill": {
+            "name": "ink-panel",
+            "type": "token"
+          },
+          "stroke": {
+            "name": "gray-border",
+            "type": "token"
+          },
+          "strokeWidth": 1.5
+        },
+        "rx": 10,
+        "ry": 10,
+        "type": "rect",
+        "width": 880,
+        "x": 40,
+        "y": 30
+      },
+      {
+        "height": 44,
+        "id": "calloutTitleBar",
+        "presentation": {
+          "fill": {
+            "name": "ink-code",
+            "type": "token"
+          }
+        },
+        "rx": 10,
+        "ry": 10,
+        "type": "rect",
+        "width": 880,
+        "x": 40,
+        "y": 30
+      },
+      {
+        "cx": 68,
+        "cy": 52,
+        "id": "btnDot1",
+        "presentation": {
+          "fill": {
+            "name": "orange-base",
+            "type": "token"
+          }
+        },
+        "r": 6,
+        "type": "circle"
+      },
+      {
+        "cx": 88,
+        "cy": 52,
+        "id": "btnDot2",
+        "presentation": {
+          "fill": {
+            "name": "cyan-glow",
+            "type": "token"
+          }
+        },
+        "r": 6,
+        "type": "circle"
+      },
+      {
+        "cx": 108,
+        "cy": 52,
+        "id": "btnDot3",
+        "presentation": {
+          "fill": {
+            "name": "gray-border",
+            "type": "token"
+          }
+        },
+        "r": 6,
+        "type": "circle"
+      },
+      {
+        "color": {
+          "name": "text-light",
+          "type": "token"
+        },
+        "id": "calloutWindowTitle",
+        "scale": 1.5,
+        "text": "TERMINAL NOVA // CANONICAL INPUT",
+        "type": "label",
+        "x": 135,
+        "y": 47
+      },
+      {
+        "height": 24,
+        "id": "calloutStatusPill",
+        "presentation": {
+          "fill": {
+            "name": "orange-dark",
+            "type": "token"
+          },
+          "stroke": {
+            "name": "orange-base",
+            "type": "token"
+          },
+          "strokeWidth": 1
+        },
+        "rx": 4,
+        "ry": 4,
+        "type": "rect",
+        "width": 180,
+        "x": 720,
+        "y": 40
+      },
+      {
+        "height": 385,
+        "id": "schematicInsetBg",
+        "presentation": {
+          "fill": {
+            "name": "ink-dark",
+            "type": "token"
+          },
+          "stroke": {
+            "name": "cyan-dim",
+            "type": "token"
+          },
+          "strokeWidth": 1.5
+        },
+        "rx": 6,
+        "ry": 6,
+        "type": "rect",
+        "width": 370,
+        "x": 70,
+        "y": 95
+      },
+      {
+        "height": 180,
+        "id": "schematicBox",
+        "presentation": {
+          "fill": {
+            "name": "ink-surface",
+            "type": "token"
+          },
+          "stroke": {
+            "name": "cyan-base",
+            "type": "token"
+          },
+          "strokeDasharray": [
+            4,
+            4
+          ],
+          "strokeWidth": 1.5
+        },
+        "rx": 4,
+        "ry": 4,
+        "type": "rect",
+        "width": 280,
+        "x": 115,
+        "y": 160
+      },
+      {
+        "id": "schematicDiamond",
+        "points": [
+          [
+            255,
+            180
+          ],
+          [
+            355,
+            250
+          ],
+          [
+            255,
+            320
+          ],
+          [
+            155,
+            250
+          ]
+        ],
+        "presentation": {
+          "fill": {
+            "name": "orange-dark",
+            "type": "token"
+          },
+          "stroke": {
+            "name": "orange-base",
+            "type": "token"
+          },
+          "strokeWidth": 2
+        },
+        "type": "polygon"
+      },
+      {
+        "cx": 255,
+        "cy": 250,
+        "id": "schematicCenterCircle",
+        "presentation": {
+          "fill": {
+            "name": "ink-code",
+            "type": "token"
+          },
+          "stroke": {
+            "name": "cyan-bright",
+            "type": "token"
+          },
+          "strokeWidth": 1.5
+        },
+        "r": 16,
+        "type": "circle"
+      },
+      {
+        "id": "schematicCalH",
+        "presentation": {
+          "stroke": {
+            "name": "gray-border",
+            "type": "token"
+          },
+          "strokeWidth": 1
+        },
+        "type": "line",
+        "x1": 115,
+        "x2": 395,
+        "y1": 360,
+        "y2": 360
+      },
+      {
+        "id": "schematicCalTickH1",
+        "presentation": {
+          "stroke": {
+            "name": "gray-border",
+            "type": "token"
+          },
+          "strokeWidth": 1
+        },
+        "type": "line",
+        "x1": 115,
+        "x2": 115,
+        "y1": 354,
+        "y2": 366
+      },
+      {
+        "id": "schematicCalTickH2",
+        "presentation": {
+          "stroke": {
+            "name": "gray-border",
+            "type": "token"
+          },
+          "strokeWidth": 1
+        },
+        "type": "line",
+        "x1": 395,
+        "x2": 395,
+        "y1": 354,
+        "y2": 366
+      },
+      {
+        "id": "schematicCalV",
+        "presentation": {
+          "stroke": {
+            "name": "gray-border",
+            "type": "token"
+          },
+          "strokeWidth": 1
+        },
+        "type": "line",
+        "x1": 415,
+        "x2": 415,
+        "y1": 160,
+        "y2": 340
+      },
+      {
+        "id": "schematicCalTickV1",
+        "presentation": {
+          "stroke": {
+            "name": "gray-border",
+            "type": "token"
+          },
+          "strokeWidth": 1
+        },
+        "type": "line",
+        "x1": 409,
+        "x2": 421,
+        "y1": 160,
+        "y2": 160
+      },
+      {
+        "id": "schematicCalTickV2",
+        "presentation": {
+          "stroke": {
+            "name": "gray-border",
+            "type": "token"
+          },
+          "strokeWidth": 1
+        },
+        "type": "line",
+        "x1": 409,
+        "x2": 421,
+        "y1": 340,
+        "y2": 340
+      },
+      {
+        "color": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "id": "specTitleLbl",
+        "scale": 1.5,
+        "text": "ARCHITECTURAL CONSTRAINTS",
+        "type": "label",
+        "x": 470,
+        "y": 105
+      },
+      {
+        "children": [
+          {
+            "height": 56,
+            "id": "sc1Bg",
+            "presentation": {
+              "fill": {
+                "name": "ink-dark",
+                "type": "token"
+              },
+              "stroke": {
+                "name": "gray-border",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "rx": 4,
+            "ry": 4,
+            "type": "rect",
+            "width": 420,
+            "x": 470,
+            "y": 135
+          },
+          {
+            "cx": 495,
+            "cy": 163,
+            "id": "sc1Dot",
+            "presentation": {
+              "fill": {
+                "name": "orange-base",
+                "type": "token"
+              }
+            },
+            "r": 5,
+            "type": "circle"
+          },
+          {
+            "color": {
+              "name": "text-light",
+              "type": "token"
+            },
+            "id": "sc1Heading",
+            "scale": 1.5,
+            "text": "1. DETERMINISTIC EMISSION",
+            "type": "label",
+            "x": 515,
+            "y": 147
+          }
+        ],
+        "id": "specCard1",
+        "type": "group"
+      },
+      {
+        "children": [
+          {
+            "height": 56,
+            "id": "sc2Bg",
+            "presentation": {
+              "fill": {
+                "name": "ink-dark",
+                "type": "token"
+              },
+              "stroke": {
+                "name": "gray-border",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "rx": 4,
+            "ry": 4,
+            "type": "rect",
+            "width": 420,
+            "x": 470,
+            "y": 202
+          },
+          {
+            "cx": 495,
+            "cy": 230,
+            "id": "sc2Dot",
+            "presentation": {
+              "fill": {
+                "name": "cyan-base",
+                "type": "token"
+              }
+            },
+            "r": 5,
+            "type": "circle"
+          },
+          {
+            "color": {
+              "name": "text-light",
+              "type": "token"
+            },
+            "id": "sc2Heading",
+            "scale": 1.5,
+            "text": "2. CLOSED TIER-1 GRAMMAR",
+            "type": "label",
+            "x": 515,
+            "y": 214
+          }
+        ],
+        "id": "specCard2",
+        "type": "group"
+      },
+      {
+        "children": [
+          {
+            "height": 56,
+            "id": "sc3Bg",
+            "presentation": {
+              "fill": {
+                "name": "ink-dark",
+                "type": "token"
+              },
+              "stroke": {
+                "name": "gray-border",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "rx": 4,
+            "ry": 4,
+            "type": "rect",
+            "width": 420,
+            "x": 470,
+            "y": 269
+          },
+          {
+            "cx": 495,
+            "cy": 297,
+            "id": "sc3Dot",
+            "presentation": {
+              "fill": {
+                "name": "orange-light",
+                "type": "token"
+              }
+            },
+            "r": 5,
+            "type": "circle"
+          },
+          {
+            "color": {
+              "name": "text-light",
+              "type": "token"
+            },
+            "id": "sc3Heading",
+            "scale": 1.5,
+            "text": "3. RESOLVED COLOR TOKENS",
+            "type": "label",
+            "x": 515,
+            "y": 281
+          }
+        ],
+        "id": "specCard3",
+        "type": "group"
+      },
+      {
+        "children": [
+          {
+            "height": 56,
+            "id": "sc4Bg",
+            "presentation": {
+              "fill": {
+                "name": "ink-dark",
+                "type": "token"
+              },
+              "stroke": {
+                "name": "gray-border",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "rx": 4,
+            "ry": 4,
+            "type": "rect",
+            "width": 420,
+            "x": 470,
+            "y": 336
+          },
+          {
+            "cx": 495,
+            "cy": 364,
+            "id": "sc4Dot",
+            "presentation": {
+              "fill": {
+                "name": "cyan-glow",
+                "type": "token"
+              }
+            },
+            "r": 5,
+            "type": "circle"
+          },
+          {
+            "color": {
+              "name": "text-light",
+              "type": "token"
+            },
+            "id": "sc4Heading",
+            "scale": 1.5,
+            "text": "4. FORGE GRID LABEL GLYPHS",
+            "type": "label",
+            "x": 515,
+            "y": 348
+          }
+        ],
+        "id": "specCard4",
+        "type": "group"
+      },
+      {
+        "children": [
+          {
+            "height": 56,
+            "id": "sc5Bg",
+            "presentation": {
+              "fill": {
+                "name": "ink-dark",
+                "type": "token"
+              },
+              "stroke": {
+                "name": "gray-border",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "rx": 4,
+            "ry": 4,
+            "type": "rect",
+            "width": 420,
+            "x": 470,
+            "y": 403
+          },
+          {
+            "cx": 495,
+            "cy": 431,
+            "id": "sc5Dot",
+            "presentation": {
+              "fill": {
+                "name": "orange-bright",
+                "type": "token"
+              }
+            },
+            "r": 5,
+            "type": "circle"
+          },
+          {
+            "color": {
+              "name": "text-light",
+              "type": "token"
+            },
+            "id": "sc5Heading",
+            "scale": 1.5,
+            "text": "5. ZERO REMOTE DEPENDENCIES",
+            "type": "label",
+            "x": 515,
+            "y": 415
+          }
+        ],
+        "id": "specCard5",
+        "type": "group"
+      }
+    ],
+    "profile": "editorial",
+    "provenance": {
+      "author": "Knowledge Forge AI",
+      "created": "2026-09-09",
+      "license": "AGPL-3.0-or-later",
+      "note": "Terminal Nova 0.2 first-party documentation callout editorial figure"
+    },
+    "schema": "tfsb.vector-scene-v1",
+    "tokenBindings": {
+      "cyan-base": "#00D2FF",
+      "cyan-bright": "#B8F2FF",
+      "cyan-dim": "#082B40",
+      "cyan-glow": "#38BDF8",
+      "gray-border": "#50535D",
+      "gray-light": "#8E8B89",
+      "ink-code": "#262A33",
+      "ink-dark": "#111318",
+      "ink-panel": "#15181E",
+      "ink-surface": "#191C23",
+      "orange-base": "#FF8A3D",
+      "orange-bright": "#FFCFAD",
+      "orange-dark": "#3A231C",
+      "orange-light": "#FFAC75",
+      "text-dim": "#B9B4AD",
+      "text-light": "#EEE9E3",
+      "text-warm": "#FFCFAD"
+    }
+  }
+}

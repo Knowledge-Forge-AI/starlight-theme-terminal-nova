@@ -1,0 +1,559 @@
+{
+  "schema": "tfsb.graphics-manifest-v1",
+  "family": "terminal-nova",
+  "version": "0.2.0",
+  "generatedAt": "2026-09-10T00:17:59.088Z",
+  "historicalBrandProvenanceSha256": "bd9a8a8c31155150686009caf0470b5dad2f67c183bdeb7a4d3801fa2eb267c3",
+  "tokenSnapshotFile": "tokens.snapshot.json",
+  "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+  "compiler": {
+    "schema": "tfsb.vector-scene-v1",
+    "compatibility": 1,
+    "compilerLevel": 1,
+    "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+    "packageVersion": "0.4.0",
+    "packageExport": "./scene/v1"
+  },
+  "scenes": [
+    {
+      "id": "console-hero",
+      "profile": "illustration",
+      "artboard": {
+        "height": 720,
+        "policy": "contain",
+        "viewBox": [
+          0,
+          0,
+          1440,
+          720
+        ],
+        "width": 1440
+      },
+      "sourceFile": "console-hero.scene.json",
+      "svgFile": "console-hero.svg",
+      "candidateFile": "exchange/console-hero.scene-candidate.json",
+      "sourceByteDigest": "sha256:0d721e32565ce33c806aa5af217ca1811e34c9ee80c2cd678b5cc7462a077952",
+      "canonicalDigest": "sha256:9d2e1aa6d41b040f6a09d215f4d24e3d798e0e65be5c4e10e34f32230f3b5ce6",
+      "sourceDigest": "sha256:9d2e1aa6d41b040f6a09d215f4d24e3d798e0e65be5c4e10e34f32230f3b5ce6",
+      "inputDigest": "sha256:9d2e1aa6d41b040f6a09d215f4d24e3d798e0e65be5c4e10e34f32230f3b5ce6",
+      "svgDigest": "sha256:885daded20dec373b95511696c26fd00901abc31d22289cea978bd2a4f3f6a93",
+      "svgBytesLength": 8146,
+      "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+      "metrics": {
+        "expandedElementCount": 52,
+        "authoredElementCount": 41,
+        "pathSegmentCount": 305,
+        "glyphCount": 34,
+        "maxNestingDepth": 2,
+        "gradientStopCount": 10
+      },
+      "receipt": {
+        "schema": "tfsb.scene-compile-receipt-v1",
+        "limits": {
+          "maxInputBytes": 8388608,
+          "maxExpandedElements": 10000,
+          "maxAuthoredElements": 2000,
+          "maxNestingDepth": 32,
+          "maxGradientStops": 128,
+          "maxGlyphsPerLabel": 1024,
+          "maxGlyphsPerScene": 8192,
+          "maxAggregatePathSegments": 1000000,
+          "maxPathBytes": 65536,
+          "maxDefinitions": 500,
+          "maxTokens": 1000,
+          "maxLayoutDirectives": 256,
+          "maxSymbolDepth": 8,
+          "maxSymbolAmplification": 500,
+          "maxStructuralDepth": 128,
+          "maxInputNodes": 100000,
+          "maxOutputBytes": 33554432,
+          "maxCanonicalPathBytes": 1048576,
+          "maxCanonicalPathsBytes": 16777216,
+          "maxTransforms": 32,
+          "maxPoints": 10000,
+          "maxLabelCharacters": 2048
+        },
+        "diagnostics": [],
+        "sourceSnapshotDigest": "sha256:68e93f027fef29c12646e5a56d7fa948786fdf26349734feca34222fe72b877f",
+        "sceneSchema": "tfsb.vector-scene-v1",
+        "sceneCompatibility": 1,
+        "sceneCompilerLevel": 1,
+        "sourceDigest": "sha256:9d2e1aa6d41b040f6a09d215f4d24e3d798e0e65be5c4e10e34f32230f3b5ce6",
+        "svgDigest": "sha256:885daded20dec373b95511696c26fd00901abc31d22289cea978bd2a4f3f6a93",
+        "profile": "illustration",
+        "artboard": {
+          "width": 1440,
+          "height": 720,
+          "viewBox": [
+            0,
+            0,
+            1440,
+            720
+          ],
+          "policy": "contain"
+        },
+        "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+        "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+        "metrics": {
+          "expandedElementCount": 52,
+          "authoredElementCount": 41,
+          "pathSegmentCount": 305,
+          "glyphCount": 34,
+          "maxNestingDepth": 2,
+          "gradientStopCount": 10
+        }
+      },
+      "deterministicCompilation": true
+    },
+    {
+      "id": "orbital-section",
+      "profile": "illustration",
+      "artboard": {
+        "height": 360,
+        "policy": "contain",
+        "viewBox": [
+          0,
+          0,
+          960,
+          360
+        ],
+        "width": 960
+      },
+      "sourceFile": "orbital-section.scene.json",
+      "svgFile": "orbital-section.svg",
+      "candidateFile": "exchange/orbital-section.scene-candidate.json",
+      "sourceByteDigest": "sha256:8277734d60402f9ea9b240a4fdf38198ddf25c11340919ec21d295a440d24883",
+      "canonicalDigest": "sha256:6d25c8ddcbeccf92a6e1c0322334a5474dd766a187c65fd4b3a0bd1dc9fc5f95",
+      "sourceDigest": "sha256:6d25c8ddcbeccf92a6e1c0322334a5474dd766a187c65fd4b3a0bd1dc9fc5f95",
+      "inputDigest": "sha256:6d25c8ddcbeccf92a6e1c0322334a5474dd766a187c65fd4b3a0bd1dc9fc5f95",
+      "svgDigest": "sha256:8d505148506f75bb8df6e5d567dbc2b4f4681c5453987254cb0e71652f1ec0cc",
+      "svgBytesLength": 4034,
+      "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+      "metrics": {
+        "expandedElementCount": 27,
+        "authoredElementCount": 17,
+        "pathSegmentCount": 158,
+        "glyphCount": 15,
+        "maxNestingDepth": 1,
+        "gradientStopCount": 6
+      },
+      "receipt": {
+        "schema": "tfsb.scene-compile-receipt-v1",
+        "limits": {
+          "maxInputBytes": 8388608,
+          "maxExpandedElements": 10000,
+          "maxAuthoredElements": 2000,
+          "maxNestingDepth": 32,
+          "maxGradientStops": 128,
+          "maxGlyphsPerLabel": 1024,
+          "maxGlyphsPerScene": 8192,
+          "maxAggregatePathSegments": 1000000,
+          "maxPathBytes": 65536,
+          "maxDefinitions": 500,
+          "maxTokens": 1000,
+          "maxLayoutDirectives": 256,
+          "maxSymbolDepth": 8,
+          "maxSymbolAmplification": 500,
+          "maxStructuralDepth": 128,
+          "maxInputNodes": 100000,
+          "maxOutputBytes": 33554432,
+          "maxCanonicalPathBytes": 1048576,
+          "maxCanonicalPathsBytes": 16777216,
+          "maxTransforms": 32,
+          "maxPoints": 10000,
+          "maxLabelCharacters": 2048
+        },
+        "diagnostics": [],
+        "sourceSnapshotDigest": "sha256:37356d588923f0f42dc44071f2c5f77465a32b0f5b9fc0e9e7f22b78a874ae3c",
+        "sceneSchema": "tfsb.vector-scene-v1",
+        "sceneCompatibility": 1,
+        "sceneCompilerLevel": 1,
+        "sourceDigest": "sha256:6d25c8ddcbeccf92a6e1c0322334a5474dd766a187c65fd4b3a0bd1dc9fc5f95",
+        "svgDigest": "sha256:8d505148506f75bb8df6e5d567dbc2b4f4681c5453987254cb0e71652f1ec0cc",
+        "profile": "illustration",
+        "artboard": {
+          "width": 960,
+          "height": 360,
+          "viewBox": [
+            0,
+            0,
+            960,
+            360
+          ],
+          "policy": "contain"
+        },
+        "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+        "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+        "metrics": {
+          "expandedElementCount": 27,
+          "authoredElementCount": 17,
+          "pathSegmentCount": 158,
+          "glyphCount": 15,
+          "maxNestingDepth": 1,
+          "gradientStopCount": 6
+        }
+      },
+      "deterministicCompilation": true
+    },
+    {
+      "id": "engine-workflow",
+      "profile": "diagram",
+      "artboard": {
+        "height": 675,
+        "policy": "contain",
+        "viewBox": [
+          0,
+          0,
+          1200,
+          675
+        ],
+        "width": 1200
+      },
+      "sourceFile": "engine-workflow.scene.json",
+      "svgFile": "engine-workflow.svg",
+      "candidateFile": "exchange/engine-workflow.scene-candidate.json",
+      "sourceByteDigest": "sha256:bd3d97a22eb48d3472d9b08e0fa9635bc9590edff568efb1dd951cf50c5f3d56",
+      "canonicalDigest": "sha256:e332ccad6b54806afad26fb6b790255a52e63b8bae5695d5cce9d37ba2a42e81",
+      "sourceDigest": "sha256:e332ccad6b54806afad26fb6b790255a52e63b8bae5695d5cce9d37ba2a42e81",
+      "inputDigest": "sha256:e332ccad6b54806afad26fb6b790255a52e63b8bae5695d5cce9d37ba2a42e81",
+      "svgDigest": "sha256:968530f2c05e290d1bf22689329361b214f31c61c9ce8c37b3c6f2fc31e7f0ec",
+      "svgBytesLength": 24968,
+      "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+      "metrics": {
+        "expandedElementCount": 60,
+        "authoredElementCount": 26,
+        "pathSegmentCount": 1541,
+        "glyphCount": 247,
+        "maxNestingDepth": 1,
+        "gradientStopCount": 0
+      },
+      "receipt": {
+        "schema": "tfsb.scene-compile-receipt-v1",
+        "limits": {
+          "maxInputBytes": 8388608,
+          "maxExpandedElements": 10000,
+          "maxAuthoredElements": 2000,
+          "maxNestingDepth": 32,
+          "maxGradientStops": 128,
+          "maxGlyphsPerLabel": 1024,
+          "maxGlyphsPerScene": 8192,
+          "maxAggregatePathSegments": 1000000,
+          "maxPathBytes": 65536,
+          "maxDefinitions": 500,
+          "maxTokens": 1000,
+          "maxLayoutDirectives": 256,
+          "maxSymbolDepth": 8,
+          "maxSymbolAmplification": 500,
+          "maxStructuralDepth": 128,
+          "maxInputNodes": 100000,
+          "maxOutputBytes": 33554432,
+          "maxCanonicalPathBytes": 1048576,
+          "maxCanonicalPathsBytes": 16777216,
+          "maxTransforms": 32,
+          "maxPoints": 10000,
+          "maxLabelCharacters": 2048
+        },
+        "diagnostics": [],
+        "sourceSnapshotDigest": "sha256:e7c34e4c62826e6b8c9694ed53e955d3e12e4a23160dc72f95bd61a529ef3d9a",
+        "sceneSchema": "tfsb.vector-scene-v1",
+        "sceneCompatibility": 1,
+        "sceneCompilerLevel": 1,
+        "sourceDigest": "sha256:e332ccad6b54806afad26fb6b790255a52e63b8bae5695d5cce9d37ba2a42e81",
+        "svgDigest": "sha256:968530f2c05e290d1bf22689329361b214f31c61c9ce8c37b3c6f2fc31e7f0ec",
+        "profile": "diagram",
+        "artboard": {
+          "width": 1200,
+          "height": 675,
+          "viewBox": [
+            0,
+            0,
+            1200,
+            675
+          ],
+          "policy": "contain"
+        },
+        "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+        "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+        "metrics": {
+          "expandedElementCount": 60,
+          "authoredElementCount": 26,
+          "pathSegmentCount": 1541,
+          "glyphCount": 247,
+          "maxNestingDepth": 1,
+          "gradientStopCount": 0
+        }
+      },
+      "deterministicCompilation": true
+    },
+    {
+      "id": "documentation-callout",
+      "profile": "editorial",
+      "artboard": {
+        "height": 540,
+        "policy": "contain",
+        "viewBox": [
+          0,
+          0,
+          960,
+          540
+        ],
+        "width": 960
+      },
+      "sourceFile": "documentation-callout.scene.json",
+      "svgFile": "documentation-callout.svg",
+      "candidateFile": "exchange/documentation-callout.scene-candidate.json",
+      "sourceByteDigest": "sha256:70f19a0bf6d8462a5cb2442d0bc0fd3a4ef2b04bb3eed347f4055a8e44324b89",
+      "canonicalDigest": "sha256:c5f2f99b5dbfb13b2e7cbca059332a454c57a6edebcf35f958cb1d87dd6ac059",
+      "sourceDigest": "sha256:c5f2f99b5dbfb13b2e7cbca059332a454c57a6edebcf35f958cb1d87dd6ac059",
+      "inputDigest": "sha256:c5f2f99b5dbfb13b2e7cbca059332a454c57a6edebcf35f958cb1d87dd6ac059",
+      "svgDigest": "sha256:6067504e0d5a3aba934f96d88d1962afed78f99e7f88273b9d6bf5636f48e74c",
+      "svgBytesLength": 15959,
+      "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+      "metrics": {
+        "expandedElementCount": 39,
+        "authoredElementCount": 39,
+        "pathSegmentCount": 1143,
+        "glyphCount": 183,
+        "maxNestingDepth": 2,
+        "gradientStopCount": 0
+      },
+      "receipt": {
+        "schema": "tfsb.scene-compile-receipt-v1",
+        "limits": {
+          "maxInputBytes": 8388608,
+          "maxExpandedElements": 10000,
+          "maxAuthoredElements": 2000,
+          "maxNestingDepth": 32,
+          "maxGradientStops": 128,
+          "maxGlyphsPerLabel": 1024,
+          "maxGlyphsPerScene": 8192,
+          "maxAggregatePathSegments": 1000000,
+          "maxPathBytes": 65536,
+          "maxDefinitions": 500,
+          "maxTokens": 1000,
+          "maxLayoutDirectives": 256,
+          "maxSymbolDepth": 8,
+          "maxSymbolAmplification": 500,
+          "maxStructuralDepth": 128,
+          "maxInputNodes": 100000,
+          "maxOutputBytes": 33554432,
+          "maxCanonicalPathBytes": 1048576,
+          "maxCanonicalPathsBytes": 16777216,
+          "maxTransforms": 32,
+          "maxPoints": 10000,
+          "maxLabelCharacters": 2048
+        },
+        "diagnostics": [],
+        "sourceSnapshotDigest": "sha256:60ed9f8c44e7436cd7d90e857254d8be852519af184b5df10474bcd477f76fef",
+        "sceneSchema": "tfsb.vector-scene-v1",
+        "sceneCompatibility": 1,
+        "sceneCompilerLevel": 1,
+        "sourceDigest": "sha256:c5f2f99b5dbfb13b2e7cbca059332a454c57a6edebcf35f958cb1d87dd6ac059",
+        "svgDigest": "sha256:6067504e0d5a3aba934f96d88d1962afed78f99e7f88273b9d6bf5636f48e74c",
+        "profile": "editorial",
+        "artboard": {
+          "width": 960,
+          "height": 540,
+          "viewBox": [
+            0,
+            0,
+            960,
+            540
+          ],
+          "policy": "contain"
+        },
+        "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+        "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+        "metrics": {
+          "expandedElementCount": 39,
+          "authoredElementCount": 39,
+          "pathSegmentCount": 1143,
+          "glyphCount": 183,
+          "maxNestingDepth": 2,
+          "gradientStopCount": 0
+        }
+      },
+      "deterministicCompilation": true
+    },
+    {
+      "id": "nova-social",
+      "profile": "promotional",
+      "artboard": {
+        "height": 630,
+        "policy": "contain",
+        "viewBox": [
+          0,
+          0,
+          1200,
+          630
+        ],
+        "width": 1200
+      },
+      "sourceFile": "nova-social.scene.json",
+      "svgFile": "nova-social.svg",
+      "candidateFile": "exchange/nova-social.scene-candidate.json",
+      "sourceByteDigest": "sha256:052630b878b13b105bc74700775f6cafbe2c61ae4103b49bf8fcb25c31e4b95a",
+      "canonicalDigest": "sha256:6b3d1231bba8ed05e31bbdbffba2c2f43694e8db14e447353d67edbaa6136028",
+      "sourceDigest": "sha256:6b3d1231bba8ed05e31bbdbffba2c2f43694e8db14e447353d67edbaa6136028",
+      "inputDigest": "sha256:6b3d1231bba8ed05e31bbdbffba2c2f43694e8db14e447353d67edbaa6136028",
+      "svgDigest": "sha256:0add9f6802a54a331666e07f20b0fe415e4d53a79322f0a09f0f09aed16b71d5",
+      "svgBytesLength": 13040,
+      "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+      "metrics": {
+        "expandedElementCount": 24,
+        "authoredElementCount": 24,
+        "pathSegmentCount": 761,
+        "glyphCount": 125,
+        "maxNestingDepth": 2,
+        "gradientStopCount": 8
+      },
+      "receipt": {
+        "schema": "tfsb.scene-compile-receipt-v1",
+        "limits": {
+          "maxInputBytes": 8388608,
+          "maxExpandedElements": 10000,
+          "maxAuthoredElements": 2000,
+          "maxNestingDepth": 32,
+          "maxGradientStops": 128,
+          "maxGlyphsPerLabel": 1024,
+          "maxGlyphsPerScene": 8192,
+          "maxAggregatePathSegments": 1000000,
+          "maxPathBytes": 65536,
+          "maxDefinitions": 500,
+          "maxTokens": 1000,
+          "maxLayoutDirectives": 256,
+          "maxSymbolDepth": 8,
+          "maxSymbolAmplification": 500,
+          "maxStructuralDepth": 128,
+          "maxInputNodes": 100000,
+          "maxOutputBytes": 33554432,
+          "maxCanonicalPathBytes": 1048576,
+          "maxCanonicalPathsBytes": 16777216,
+          "maxTransforms": 32,
+          "maxPoints": 10000,
+          "maxLabelCharacters": 2048
+        },
+        "diagnostics": [],
+        "sourceSnapshotDigest": "sha256:6dc2960518e75d0f3451fd63eeeadeb28920d7fb9979ee11c74f2afb8cb04a92",
+        "sceneSchema": "tfsb.vector-scene-v1",
+        "sceneCompatibility": 1,
+        "sceneCompilerLevel": 1,
+        "sourceDigest": "sha256:6b3d1231bba8ed05e31bbdbffba2c2f43694e8db14e447353d67edbaa6136028",
+        "svgDigest": "sha256:0add9f6802a54a331666e07f20b0fe415e4d53a79322f0a09f0f09aed16b71d5",
+        "profile": "promotional",
+        "artboard": {
+          "width": 1200,
+          "height": 630,
+          "viewBox": [
+            0,
+            0,
+            1200,
+            630
+          ],
+          "policy": "contain"
+        },
+        "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+        "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+        "metrics": {
+          "expandedElementCount": 24,
+          "authoredElementCount": 24,
+          "pathSegmentCount": 761,
+          "glyphCount": 125,
+          "maxNestingDepth": 2,
+          "gradientStopCount": 8
+        }
+      },
+      "deterministicCompilation": true
+    },
+    {
+      "id": "console-pattern",
+      "profile": "pattern",
+      "artboard": {
+        "height": 256,
+        "policy": "contain",
+        "viewBox": [
+          0,
+          0,
+          256,
+          256
+        ],
+        "width": 256
+      },
+      "sourceFile": "console-pattern.scene.json",
+      "svgFile": "console-pattern.svg",
+      "candidateFile": "exchange/console-pattern.scene-candidate.json",
+      "sourceByteDigest": "sha256:17d077ff68fcba89c10a87e17b1c0db38aa33796d41c47ab4e6c6dc4abfb01e8",
+      "canonicalDigest": "sha256:b38466a62b9cfa0cd08f4bd2a66b484777526d17d86ea991e4da4e5c58ae33cd",
+      "sourceDigest": "sha256:b38466a62b9cfa0cd08f4bd2a66b484777526d17d86ea991e4da4e5c58ae33cd",
+      "inputDigest": "sha256:b38466a62b9cfa0cd08f4bd2a66b484777526d17d86ea991e4da4e5c58ae33cd",
+      "svgDigest": "sha256:3e6e5c4a2a131507761e4fa69a0ded899495ffe032c8e6eba3397986e956f7c5",
+      "svgBytesLength": 6560,
+      "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+      "metrics": {
+        "expandedElementCount": 180,
+        "authoredElementCount": 63,
+        "pathSegmentCount": 280,
+        "glyphCount": 0,
+        "maxNestingDepth": 1,
+        "gradientStopCount": 0
+      },
+      "receipt": {
+        "schema": "tfsb.scene-compile-receipt-v1",
+        "limits": {
+          "maxInputBytes": 8388608,
+          "maxExpandedElements": 10000,
+          "maxAuthoredElements": 2000,
+          "maxNestingDepth": 32,
+          "maxGradientStops": 128,
+          "maxGlyphsPerLabel": 1024,
+          "maxGlyphsPerScene": 8192,
+          "maxAggregatePathSegments": 1000000,
+          "maxPathBytes": 65536,
+          "maxDefinitions": 500,
+          "maxTokens": 1000,
+          "maxLayoutDirectives": 256,
+          "maxSymbolDepth": 8,
+          "maxSymbolAmplification": 500,
+          "maxStructuralDepth": 128,
+          "maxInputNodes": 100000,
+          "maxOutputBytes": 33554432,
+          "maxCanonicalPathBytes": 1048576,
+          "maxCanonicalPathsBytes": 16777216,
+          "maxTransforms": 32,
+          "maxPoints": 10000,
+          "maxLabelCharacters": 2048
+        },
+        "diagnostics": [],
+        "sourceSnapshotDigest": "sha256:175f5fbcb43fc1ea22cdf871b503fedd60079a16be8644c4bae78b1c972eac31",
+        "sceneSchema": "tfsb.vector-scene-v1",
+        "sceneCompatibility": 1,
+        "sceneCompilerLevel": 1,
+        "sourceDigest": "sha256:b38466a62b9cfa0cd08f4bd2a66b484777526d17d86ea991e4da4e5c58ae33cd",
+        "svgDigest": "sha256:3e6e5c4a2a131507761e4fa69a0ded899495ffe032c8e6eba3397986e956f7c5",
+        "profile": "pattern",
+        "artboard": {
+          "width": 256,
+          "height": 256,
+          "viewBox": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "policy": "contain"
+        },
+        "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
+        "tokenDigest": "sha256:d604a6cf1e8a15d8d37d53e3c4c92521fb898acdaf64c7d048e6dfd083420a93",
+        "metrics": {
+          "expandedElementCount": 180,
+          "authoredElementCount": 63,
+          "pathSegmentCount": 280,
+          "glyphCount": 0,
+          "maxNestingDepth": 1,
+          "gradientStopCount": 0
+        }
+      },
+      "deterministicCompilation": true
+    }
+  ]
+}

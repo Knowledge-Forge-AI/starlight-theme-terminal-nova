@@ -1,14 +1,24 @@
+/* Consumer custom CSS override demonstration */
 :root {
-  --sl-font-system: "Custom Consumer Font", sans-serif;
-  --sl-color-hairline: #e11d48;
+  --consumer-custom-marker: "terminal-nova-consumer-override";
 }
 
-:root[data-theme='light'] {
-  --sl-color-hairline: #e11d48;
+[data-consumer-override="page-title"] {
+  border-left: 3px solid var(--sl-color-accent, #ff8a3d);
+  padding-left: 0.5rem;
 }
 
-.consumer-custom-marker {
-  padding: 0.5rem;
-  border: 1px solid var(--sl-color-hairline);
-  color: var(--sl-color-accent);
+.console-hero-img,
+.orbital-section-img,
+.engine-workflow-img,
+.documentation-callout-img,
+.nova-social-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.console-pattern-strip {
+  overflow: hidden;
 }

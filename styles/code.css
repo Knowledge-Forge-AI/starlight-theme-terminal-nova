@@ -1,0 +1,12 @@
+/* Theme Forge Stellar Loom v2 - Expressive Code overrides */
+@layer tfsl.overrides {
+  .sl-markdown-content .expressive-code pre,
+  .expressive-code pre {
+    background-color: var(--code-background, var(--ec-codeBg));
+  }
+  .expressive-code pre, .expressive-code pre > code {
+    font-family: var(--ec-codeFontFml);
+    font-size: var(--ec-codeFontSize);
+    line-height: var(--ec-codeLineHt);
+  }
+}

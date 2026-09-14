@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "routes": [
+      {
+        "actions": [
+          {
+            "href": "/docs/workflow/",
+            "label": "Explore the workflow"
+          }
+        ],
+        "announcement": "Forge Console 0.2.0",
+        "layout": "banner",
+        "route": "/overview",
+        "subtitle": "Terminal Nova / Forge Console",
+        "summary": "Readable documentation, explicit design decisions and original technical graphics.",
+        "title": "A clear view of the work"
+      }
+    ]
+  },
+  "sidebar": {
+    "groupIds": [
+      "documentation"
+    ],
+    "mode": "nested"
+  }
+}

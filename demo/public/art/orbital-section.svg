@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="scene-title scene-desc" focusable="false">
+  <title id="scene-title">Terminal Nova Orbital Section Illustration</title>
+  <desc id="scene-desc">Three small satellites follow orange and cyan orbital paths above a curved horizon.</desc>
+  <defs>
+    <linearGradient id="horizonGlow" x1="480" y1="220" x2="480" y2="360" gradientUnits="userSpaceOnUse" spreadMethod="pad">
+      <stop offset="0" stop-color="#FF8A3D" stop-opacity="0.6"/>
+      <stop offset="0.4" stop-color="#082B40" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#111318" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="orbitSky" x1="0" y1="0" x2="960" y2="360" gradientUnits="userSpaceOnUse" spreadMethod="pad">
+      <stop offset="0" stop-color="#090E17"/>
+      <stop offset="0.5" stop-color="#111318"/>
+      <stop offset="1" stop-color="#15181E"/>
+    </linearGradient>
+    <symbol id="satelliteNode" viewBox="0 0 60 40" preserveAspectRatio="xMidYMid meet" overflow="hidden">
+      <rect x="4" y="12" width="18" height="16" rx="2" ry="2" fill="#262A33" stroke="#00D2FF" stroke-width="1"/>
+      <rect x="38" y="12" width="18" height="16" rx="2" ry="2" fill="#262A33" stroke="#00D2FF" stroke-width="1"/>
+      <rect x="24" y="10" width="12" height="20" rx="2" ry="2" fill="#3A231C" stroke="#FF8A3D" stroke-width="1.5"/>
+      <line x1="30" y1="10" x2="30" y2="4" stroke="#B8F2FF" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="waypointMarker" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" overflow="hidden">
+      <polygon points="12,2 22,12 12,22 2,12" fill="#191C23" stroke="#FFAC75" stroke-width="1.5"/>
+      <circle cx="12" cy="12" r="3" fill="#00D2FF"/>
+    </symbol>
+  </defs>
+  <rect id="orbitBg" x="0" y="0" width="960" height="360" fill="url(#orbitSky)"/>
+  <path id="horizonCurve" d="M 0 320 Q 480 220 960 320 L 960 360 L 0 360 Z" fill="url(#horizonGlow)" stroke="#FF8A3D" stroke-width="2"/>
+  <path id="orbitTrackUpper" d="M 60 210 C 300 70 660 70 900 210" fill="none" stroke="#00D2FF" stroke-width="2" stroke-dasharray="8 6"/>
+  <path id="orbitTrackLower" d="M 120 270 C 360 160 600 160 840 270" fill="none" stroke="#FFAC75" stroke-width="1.5" stroke-dasharray="12 4"/>
+  <line id="orbitTrackCross" x1="180" y1="50" x2="780" y2="310" stroke="#50535D" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
+  <use id="sat1" href="#satelliteNode" x="230" y="100" width="60" height="40"/>
+  <use id="sat2" href="#satelliteNode" x="450" y="60" width="60" height="40"/>
+  <use id="sat3" href="#satelliteNode" x="670" y="100" width="60" height="40"/>
+  <use id="wp1" href="#waypointMarker" x="350" y="130" width="24" height="24"/>
+  <use id="wp2" href="#waypointMarker" x="580" y="130" width="24" height="24"/>
+  <path id="sectionBannerTitle" d="M 412.5 37 L 412.5 28 L 417 28 L 418.5 29.5 L 418.5 32.5 L 417 34 L 412.5 34 M 415.5 34 L 418.5 37 M 423 28 L 426 28 L 427.5 29.5 L 427.5 35.5 L 426 37 L 423 37 L 421.5 35.5 L 421.5 29.5 Z M 432 28 L 435 28 L 436.5 29.5 L 436.5 35.5 L 435 37 L 432 37 L 430.5 35.5 L 430.5 29.5 Z M 439.5 37 L 439.5 28 L 442.5 32.5 L 445.5 28 L 445.5 37 M 457.5 28 L 463.5 28 M 460.5 28 L 460.5 37 M 468 28 L 471 28 L 472.5 29.5 L 472.5 35.5 L 471 37 L 468 37 L 466.5 35.5 L 466.5 29.5 Z M 490.5 28 L 484.5 28 L 484.5 37 L 490.5 37 M 484.5 32.5 L 489 32.5 M 493.5 28 L 499.5 37 M 499.5 28 L 493.5 37 M 502.5 37 L 502.5 28 L 507 28 L 508.5 29.5 L 508.5 32.5 L 507 34 L 502.5 34 M 511.5 28 L 511.5 37 L 517.5 37 M 522 28 L 525 28 L 526.5 29.5 L 526.5 35.5 L 525 37 L 522 37 L 520.5 35.5 L 520.5 29.5 Z M 529.5 37 L 529.5 28 L 534 28 L 535.5 29.5 L 535.5 32.5 L 534 34 L 529.5 34 M 532.5 34 L 535.5 37 M 544.5 28 L 538.5 28 L 538.5 37 L 544.5 37 M 538.5 32.5 L 543 32.5" fill="none" stroke="#EEE9E3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-label="ROOM TO EXPLORE"/>
+</svg>

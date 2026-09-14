@@ -1,0 +1,65 @@
+/* Fixed Starlight 0.42 compatibility. Later consumer rules of matching specificity win. */
+@media screen {
+  :root:not([data-has-sidebar]) { --sl-content-width: 704px; }
+  @media (min-width:50rem) {
+    :root:not([data-has-sidebar]) { --sl-content-width: min(704px, 1152px); }
+  }
+}
+@media print {
+  :root[data-theme] {
+    color-scheme: light;
+    --tfsl-color-page: #fff8f0;
+    --tfsl-color-navigation: #fffdfa;
+    --tfsl-color-header: #fffdfa;
+    --tfsl-color-sidebar: #f5ede5;
+    --tfsl-color-raised: #fffdfa;
+    --tfsl-color-panel: #eee4da;
+    --tfsl-color-card: #fffdfa;
+    --tfsl-color-inline-code: #eee4da;
+    --tfsl-color-code: #faf1e8;
+    --tfsl-color-body: #262a33;
+    --tfsl-color-secondary: #33343b;
+    --tfsl-color-muted: #625a55;
+    --tfsl-color-inverted: #fff8f0;
+    --tfsl-color-link: #9c3e0b;
+    --tfsl-color-hairline: #d1c4b8;
+    --tfsl-color-border: #9d9187;
+    --tfsl-color-focus: #9c3e0b;
+    --tfsl-color-selection-background: #ffeadc;
+    --tfsl-color-selection-text: #612909;
+    --tfsl-color-accent-base: #9c3e0b;
+    --tfsl-color-accent-low: #ffeadc;
+    --tfsl-color-accent-high: #612909;
+    --sl-color-bg: var(--tfsl-color-page);
+    --sl-color-bg-nav: var(--tfsl-color-header);
+    --sl-color-bg-sidebar: var(--tfsl-color-sidebar);
+    --sl-color-bg-inline-code: var(--tfsl-color-inline-code);
+    --sl-color-text: var(--tfsl-color-body);
+    --sl-color-text-accent: var(--tfsl-color-link);
+    --sl-color-text-invert: var(--tfsl-color-inverted);
+    --sl-color-white: var(--tfsl-color-secondary);
+    --sl-color-black: var(--tfsl-color-page);
+    --sl-color-hairline: var(--tfsl-color-hairline);
+    --sl-color-hairline-light: var(--tfsl-color-border);
+    --sl-color-hairline-shade: var(--tfsl-color-border);
+    --sl-color-accent: var(--tfsl-color-accent-base);
+    --sl-color-accent-low: var(--tfsl-color-accent-low);
+    --sl-color-accent-high: var(--tfsl-color-accent-high);
+    --sl-color-bg-accent: var(--tfsl-color-accent-base);
+    --sl-color-gray-1: var(--tfsl-color-secondary);
+    --sl-color-gray-2: var(--tfsl-color-secondary);
+    --sl-color-gray-3: var(--tfsl-color-muted);
+    --sl-color-gray-4: var(--tfsl-color-muted);
+    --sl-color-gray-5: var(--tfsl-color-border);
+    --sl-color-gray-6: var(--tfsl-color-raised);
+    --sl-color-gray-7: var(--tfsl-color-panel);
+  }
+  .expressive-code .frame pre {
+    background-color: var(--tfsl-color-code);
+    color: var(--tfsl-color-body);
+    --code-background: var(--tfsl-color-code);
+    --ec-codeBg: var(--tfsl-color-code);
+  }
+  .expressive-code .frame pre code { color: inherit; }
+  .expressive-code .frame pre span[style] { color: var(--0, inherit); }
+}

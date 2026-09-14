@@ -1,0 +1,93 @@
+---
+title: Component Gallery
+description: Full component gallery demonstrating Starlight and Terminal Nova components.
+---
+
+import { Card, CardGrid, Tabs, TabItem, Aside, Badge, FileTree } from '@astrojs/starlight/components';
+
+## Social Share Demonstration
+
+The social share demonstration illustrates local SVG presentation without relying on remote network requests or platform-specific endpoints.
+
+<figure class="social-card-figure" aria-label="Terminal Nova Social Card">
+  <img
+    src="/art/nova-social.svg"
+    alt="Terminal Nova local SVG social share card demonstration"
+    width="1200"
+    height="630"
+    class="nova-social-img"
+  />
+  <figcaption>Figure 3: Local SVG share demonstration</figcaption>
+</figure>
+
+## Code Editor and Terminal
+
+```javascript title="src/styles/theme-loader.js" {2} ins={5} del={4}
+import { compileTheme } from '@knowledge-forge-ai/theme-forge-stellar-loom';
+// Load canonical specification
+const spec = await loadThemeSpec('terminal-nova.theme.json');
+// const compiled = legacyCompiler(spec);
+const compiled = compileTheme(spec, { accent: 'orange' });
+```
+
+```bash title="Terminal: Verification" frame="terminal"
+$ npm run test:browser
+[pass] Zero external runtime requests
+[pass] All 6 graphic assets verified
+```
+
+## Cards and Badges
+
+<CardGrid>
+  <Card title="Primary Worktree" icon="rocket">
+    First demonstration card with <Badge text="Active" variant="success" /> status.
+  </Card>
+  <Card title="Secondary Stash" icon="document">
+    Second demonstration card with <Badge text="Experimental" variant="caution" /> status.
+  </Card>
+</CardGrid>
+
+## Callout Asides
+
+:::note[General Note]
+Proportional reading column leaves room for technical explanation.
+:::
+
+:::tip[Best Practice]
+Keep runnable examples near the explanation they support.
+:::
+
+:::caution[Boundary Condition]
+Zero external runtime requests are permitted; all assets are served locally.
+:::
+
+## Tabbed Content and File Tree
+
+<Tabs>
+  <TabItem label="Project Layout">
+    <FileTree>
+    - themes/
+      - terminal-nova/
+        - v0.2/
+          - demo/
+          - tools/
+            - prepare-consumer.mjs
+            - qualify-browser.mjs
+            - consumer.test.mjs
+    </FileTree>
+  </TabItem>
+  <TabItem label="Component Details">
+    Component gallery demonstrates table, tabs, filetree, asides, and badges.
+  </TabItem>
+</Tabs>
+
+## Component Reference Table
+
+| Component | Starlight Element | Status |
+| :--- | :--- | :--- |
+| Cards | `.card` | Available |
+| Asides | `.starlight-aside` | Available |
+| Badges | `.sl-badge` | Available |
+| Tables | `table` | Available |
+| Tabs | `starlight-tabs` | Available |
+| File Tree | `starlight-file-tree` | Available |

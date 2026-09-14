@@ -1,0 +1,55 @@
+---
+title: Engine Workflow
+description: Labelled architecture and engine pipeline workflow for theme compilation and artifact verification.
+---
+
+import { Aside, Badge } from '@astrojs/starlight/components';
+
+## Engine Pipeline
+
+Stellar Burst compiles canonical scene JSON into local SVG assets. Stellar Loom compiles a canonical theme into the installable Starlight package. Nebular Fusion supplies the authoring, verification, and design-evidence workbench. The demo assembles the two generated outputs; neither engine embeds the other.
+
+<figure class="workflow-figure" aria-label="Theme Forge Engine Workflow">
+  <img
+    src="/art/engine-workflow.svg"
+    alt="Three parallel lanes: Burst produces SVG, Loom produces a theme package, and Nebular retains design evidence; the outputs support the Nova site."
+    width="1200"
+    height="675"
+    class="engine-workflow-img"
+  />
+  <figcaption>Figure 1: Labelled engine workflow and artifact pipeline</figcaption>
+</figure>
+
+### Technical Callout
+
+<figure class="callout-figure" aria-label="Technical Documentation Callout">
+  <img
+    src="/art/documentation-callout.svg"
+    alt="A geometric scene alongside five constraints: deterministic emission, closed grammar, resolved tokens, local glyphs, and zero remote dependencies."
+    width="960"
+    height="540"
+    class="documentation-callout-img"
+  />
+  <figcaption>Figure 2: Canonical scene constraints</figcaption>
+</figure>
+
+:::tip[Deterministic Verification]
+Every graphic asset is manifest-bound with SHA-256 digests validated before installation.
+:::
+
+## Read the figures
+
+1. **Scene JSON → Burst → SVG:** the scene stays editable; the SVG is generated output.
+2. **Theme specification → Loom → package:** the consumer installs the generated package through npm.
+3. **Nebular → evidence:** briefs, candidates, verification and adoption remain traceable.
+4. **Site assembly:** consumer-owned content combines local graphics with the installed theme.
+
+The technical callout uses bounded geometry, resolved colors and local glyph paths. No remote fonts, raster images or executable configuration belong in these canonical inputs.
+
+## Boundary Isolation Summary
+
+| Gate | Requirement | Status |
+| :--- | :--- | :--- |
+| Tarball Identity | Pure npm pack archive | <Badge text="Pinned" variant="success" /> |
+| Dependencies | Exact package-lock.json retention | <Badge text="Strict" variant="success" /> |
+| Runtime Requests | 0 external requests | <Badge text="Offline" variant="tip" /> |

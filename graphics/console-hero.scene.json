@@ -1,0 +1,915 @@
+{
+  "accessibility": {
+    "desc": "Dark ink terminal console deck with warm orange telemetry displays, glowing cool cyan orbital grids, and stellar burst vectors",
+    "focusable": false,
+    "mode": "labelled",
+    "title": "Terminal Nova Console Hero Illustration"
+  },
+  "artboard": {
+    "height": 720,
+    "policy": "contain",
+    "viewBox": [
+      0,
+      0,
+      1440,
+      720
+    ],
+    "width": 1440
+  },
+  "compatibility": 1,
+  "compilerLevel": 1,
+  "definitions": {
+    "gradients": [
+      {
+        "gradientUnits": "userSpaceOnUse",
+        "id": "heroBgGrad",
+        "spreadMethod": "pad",
+        "stops": [
+          {
+            "color": {
+              "color": "#111318",
+              "type": "solid"
+            },
+            "offset": 0
+          },
+          {
+            "color": {
+              "color": "#15181E",
+              "type": "solid"
+            },
+            "offset": 0.5
+          },
+          {
+            "color": {
+              "color": "#090E17",
+              "type": "solid"
+            },
+            "offset": 1
+          }
+        ],
+        "type": "linearGradient",
+        "x1": 0,
+        "x2": 1440,
+        "y1": 0,
+        "y2": 720
+      },
+      {
+        "gradientUnits": "userSpaceOnUse",
+        "id": "heroDeckBevel",
+        "spreadMethod": "pad",
+        "stops": [
+          {
+            "color": {
+              "color": "#262A33",
+              "type": "solid"
+            },
+            "offset": 0,
+            "opacity": 0.95
+          },
+          {
+            "color": {
+              "color": "#111318",
+              "type": "solid"
+            },
+            "offset": 1,
+            "opacity": 0.95
+          }
+        ],
+        "type": "linearGradient",
+        "x1": 0,
+        "x2": 0,
+        "y1": 560,
+        "y2": 720
+      },
+      {
+        "cx": 720,
+        "cy": 300,
+        "fx": 720,
+        "fy": 300,
+        "gradientUnits": "userSpaceOnUse",
+        "id": "heroStellarBurst",
+        "r": 380,
+        "spreadMethod": "pad",
+        "stops": [
+          {
+            "color": {
+              "color": "#FFF8F0",
+              "type": "solid"
+            },
+            "offset": 0,
+            "opacity": 0.9
+          },
+          {
+            "color": {
+              "color": "#FFCFAD",
+              "type": "solid"
+            },
+            "offset": 0.2,
+            "opacity": 0.65
+          },
+          {
+            "color": {
+              "color": "#FF8A3D",
+              "type": "solid"
+            },
+            "offset": 0.45,
+            "opacity": 0.35
+          },
+          {
+            "color": {
+              "color": "#00D2FF",
+              "type": "solid"
+            },
+            "offset": 0.7,
+            "opacity": 0.15
+          },
+          {
+            "color": {
+              "color": "#111318",
+              "type": "solid"
+            },
+            "offset": 1,
+            "opacity": 0
+          }
+        ],
+        "type": "radialGradient"
+      }
+    ],
+    "symbols": [
+      {
+        "elements": [
+          {
+            "cx": 20,
+            "cy": 20,
+            "presentation": {
+              "fill": {
+                "type": "none"
+              },
+              "stroke": {
+                "name": "cyan-glow",
+                "type": "token"
+              },
+              "strokeWidth": 1.5
+            },
+            "r": 12,
+            "type": "circle"
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-glow",
+                "type": "token"
+              },
+              "strokeWidth": 1.5
+            },
+            "type": "line",
+            "x1": 8,
+            "x2": 15,
+            "y1": 20,
+            "y2": 20
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-glow",
+                "type": "token"
+              },
+              "strokeWidth": 1.5
+            },
+            "type": "line",
+            "x1": 25,
+            "x2": 32,
+            "y1": 20,
+            "y2": 20
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-glow",
+                "type": "token"
+              },
+              "strokeWidth": 1.5
+            },
+            "type": "line",
+            "x1": 20,
+            "x2": 20,
+            "y1": 8,
+            "y2": 15
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-glow",
+                "type": "token"
+              },
+              "strokeWidth": 1.5
+            },
+            "type": "line",
+            "x1": 20,
+            "x2": 20,
+            "y1": 25,
+            "y2": 32
+          },
+          {
+            "cx": 20,
+            "cy": 20,
+            "presentation": {
+              "fill": {
+                "name": "orange-base",
+                "type": "token"
+              }
+            },
+            "r": 2,
+            "type": "circle"
+          }
+        ],
+        "id": "hudCrosshair",
+        "type": "symbol",
+        "viewBox": [
+          0,
+          0,
+          40,
+          40
+        ]
+      },
+      {
+        "elements": [
+          {
+            "height": 18,
+            "presentation": {
+              "fill": {
+                "name": "ink-code",
+                "type": "token"
+              },
+              "stroke": {
+                "name": "gray-border",
+                "type": "token"
+              },
+              "strokeWidth": 1
+            },
+            "rx": 3,
+            "ry": 3,
+            "type": "rect",
+            "width": 180,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "height": 14,
+            "presentation": {
+              "fill": {
+                "name": "orange-base",
+                "type": "token"
+              }
+            },
+            "rx": 2,
+            "ry": 2,
+            "type": "rect",
+            "width": 126,
+            "x": 2,
+            "y": 2
+          },
+          {
+            "presentation": {
+              "stroke": {
+                "name": "cyan-bright",
+                "type": "token"
+              },
+              "strokeWidth": 2
+            },
+            "type": "line",
+            "x1": 132,
+            "x2": 132,
+            "y1": 2,
+            "y2": 16
+          }
+        ],
+        "id": "telemetryBar",
+        "type": "symbol",
+        "viewBox": [
+          0,
+          0,
+          180,
+          18
+        ]
+      },
+      {
+        "elements": [
+          {
+            "cx": 8,
+            "cy": 8,
+            "presentation": {
+              "fill": {
+                "name": "ink-code",
+                "type": "token"
+              },
+              "stroke": {
+                "name": "orange-base",
+                "type": "token"
+              },
+              "strokeWidth": 1.5
+            },
+            "r": 6,
+            "type": "circle"
+          },
+          {
+            "cx": 8,
+            "cy": 8,
+            "presentation": {
+              "fill": {
+                "name": "orange-bright",
+                "type": "token"
+              }
+            },
+            "r": 3,
+            "type": "circle"
+          }
+        ],
+        "id": "statusLed",
+        "type": "symbol",
+        "viewBox": [
+          0,
+          0,
+          16,
+          16
+        ]
+      }
+    ]
+  },
+  "elements": [
+    {
+      "height": 720,
+      "id": "heroBg",
+      "presentation": {
+        "fill": {
+          "id": "heroBgGrad",
+          "type": "gradient"
+        }
+      },
+      "type": "rect",
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 600,
+      "id": "heroBurstArea",
+      "presentation": {
+        "fill": {
+          "id": "heroStellarBurst",
+          "type": "gradient"
+        }
+      },
+      "type": "rect",
+      "width": 760,
+      "x": 340,
+      "y": 0
+    },
+    {
+      "id": "gridLineH1",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          6,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 1440,
+      "y1": 120,
+      "y2": 120
+    },
+    {
+      "id": "gridLineH2",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          6,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 1440,
+      "y1": 240,
+      "y2": 240
+    },
+    {
+      "id": "gridLineH3",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          6,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 1440,
+      "y1": 360,
+      "y2": 360
+    },
+    {
+      "id": "gridLineH4",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          6,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 0,
+      "x2": 1440,
+      "y1": 480,
+      "y2": 480
+    },
+    {
+      "id": "gridLineV1",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          6,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 360,
+      "x2": 360,
+      "y1": 0,
+      "y2": 720
+    },
+    {
+      "id": "gridLineV2",
+      "presentation": {
+        "opacity": 0.4,
+        "stroke": {
+          "name": "cyan-dim",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          8,
+          4
+        ],
+        "strokeWidth": 1.5
+      },
+      "type": "line",
+      "x1": 720,
+      "x2": 720,
+      "y1": 0,
+      "y2": 720
+    },
+    {
+      "id": "gridLineV3",
+      "presentation": {
+        "opacity": 0.3,
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          6,
+          6
+        ],
+        "strokeWidth": 1
+      },
+      "type": "line",
+      "x1": 1080,
+      "x2": 1080,
+      "y1": 0,
+      "y2": 720
+    },
+    {
+      "cx": 720,
+      "cy": 300,
+      "id": "orbitalRingOuter",
+      "presentation": {
+        "fill": {
+          "type": "none"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeDasharray": [
+          8,
+          4
+        ],
+        "strokeWidth": 1.5
+      },
+      "rx": 340,
+      "ry": 130,
+      "transform": [
+        {
+          "angle": -12,
+          "cx": 720,
+          "cy": 300,
+          "type": "rotate"
+        }
+      ],
+      "type": "ellipse"
+    },
+    {
+      "cx": 720,
+      "cy": 300,
+      "id": "orbitalRingInner",
+      "presentation": {
+        "fill": {
+          "type": "none"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 1.5
+      },
+      "rx": 210,
+      "ry": 80,
+      "transform": [
+        {
+          "angle": 22,
+          "cx": 720,
+          "cy": 300,
+          "type": "rotate"
+        }
+      ],
+      "type": "ellipse"
+    },
+    {
+      "cx": 720,
+      "cy": 300,
+      "id": "centralOrb",
+      "presentation": {
+        "fill": {
+          "name": "ink-surface",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "cyan-bright",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "r": 44,
+      "type": "circle"
+    },
+    {
+      "cx": 720,
+      "cy": 300,
+      "id": "centralOrbCore",
+      "presentation": {
+        "fill": {
+          "name": "orange-bright",
+          "type": "token"
+        }
+      },
+      "r": 16,
+      "type": "circle"
+    },
+    {
+      "height": 40,
+      "href": "#hudCrosshair",
+      "id": "crosshairLeft",
+      "type": "use",
+      "width": 40,
+      "x": 360,
+      "y": 200
+    },
+    {
+      "height": 40,
+      "href": "#hudCrosshair",
+      "id": "crosshairRight",
+      "type": "use",
+      "width": 40,
+      "x": 1040,
+      "y": 200
+    },
+    {
+      "children": [
+        {
+          "height": 450,
+          "id": "hudLeftCardBg",
+          "presentation": {
+            "fill": {
+              "name": "ink-panel",
+              "type": "token"
+            },
+            "stroke": {
+              "name": "gray-border",
+              "type": "token"
+            },
+            "strokeWidth": 1.5
+          },
+          "rx": 8,
+          "ry": 8,
+          "type": "rect",
+          "width": 270,
+          "x": 70,
+          "y": 90
+        },
+        {
+          "height": 36,
+          "id": "hudLeftHeaderBg",
+          "presentation": {
+            "fill": {
+              "name": "ink-code",
+              "type": "token"
+            }
+          },
+          "rx": 8,
+          "ry": 8,
+          "type": "rect",
+          "width": 270,
+          "x": 70,
+          "y": 90
+        },
+        {
+          "height": 16,
+          "href": "#statusLed",
+          "id": "hudLeftLed",
+          "type": "use",
+          "width": 16,
+          "x": 82,
+          "y": 100
+        },
+        {
+          "height": 18,
+          "href": "#telemetryBar",
+          "id": "hudLeftBar1",
+          "type": "use",
+          "width": 180,
+          "x": 90,
+          "y": 172
+        },
+        {
+          "height": 18,
+          "href": "#telemetryBar",
+          "id": "hudLeftBar2",
+          "type": "use",
+          "width": 180,
+          "x": 90,
+          "y": 236
+        }
+      ],
+      "id": "hudLeftCard",
+      "type": "group"
+    },
+    {
+      "children": [
+        {
+          "height": 450,
+          "id": "hudRightCardBg",
+          "presentation": {
+            "fill": {
+              "name": "ink-panel",
+              "type": "token"
+            },
+            "stroke": {
+              "name": "gray-border",
+              "type": "token"
+            },
+            "strokeWidth": 1.5
+          },
+          "rx": 8,
+          "ry": 8,
+          "type": "rect",
+          "width": 270,
+          "x": 1100,
+          "y": 90
+        },
+        {
+          "height": 36,
+          "id": "hudRightHeaderBg",
+          "presentation": {
+            "fill": {
+              "name": "ink-code",
+              "type": "token"
+            }
+          },
+          "rx": 8,
+          "ry": 8,
+          "type": "rect",
+          "width": 270,
+          "x": 1100,
+          "y": 90
+        },
+        {
+          "height": 16,
+          "href": "#statusLed",
+          "id": "hudRightLed",
+          "type": "use",
+          "width": 16,
+          "x": 1112,
+          "y": 100
+        },
+        {
+          "height": 90,
+          "id": "hudRightWaveBg",
+          "presentation": {
+            "fill": {
+              "name": "ink-dark",
+              "type": "token"
+            },
+            "stroke": {
+              "name": "cyan-dim",
+              "type": "token"
+            },
+            "strokeWidth": 1
+          },
+          "rx": 4,
+          "ry": 4,
+          "type": "rect",
+          "width": 230,
+          "x": 1120,
+          "y": 145
+        },
+        {
+          "id": "hudRightWavePoly",
+          "points": [
+            [
+              1125,
+              205
+            ],
+            [
+              1150,
+              195
+            ],
+            [
+              1175,
+              160
+            ],
+            [
+              1200,
+              215
+            ],
+            [
+              1225,
+              175
+            ],
+            [
+              1250,
+              185
+            ],
+            [
+              1275,
+              155
+            ],
+            [
+              1300,
+              210
+            ],
+            [
+              1325,
+              180
+            ],
+            [
+              1345,
+              190
+            ]
+          ],
+          "presentation": {
+            "fill": {
+              "type": "none"
+            },
+            "stroke": {
+              "name": "cyan-base",
+              "type": "token"
+            },
+            "strokeWidth": 2
+          },
+          "type": "polyline"
+        }
+      ],
+      "id": "hudRightCard",
+      "type": "group"
+    },
+    {
+      "id": "consoleBevelDeck",
+      "points": [
+        [
+          0,
+          630
+        ],
+        [
+          200,
+          580
+        ],
+        [
+          1240,
+          580
+        ],
+        [
+          1440,
+          630
+        ],
+        [
+          1440,
+          720
+        ],
+        [
+          0,
+          720
+        ]
+      ],
+      "presentation": {
+        "fill": {
+          "id": "heroDeckBevel",
+          "type": "gradient"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "type": "polygon"
+    },
+    {
+      "height": 85,
+      "id": "consoleCenterPanel",
+      "presentation": {
+        "fill": {
+          "name": "ink-dark",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 1.5
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "rect",
+      "width": 560,
+      "x": 440,
+      "y": 605
+    },
+    {
+      "align": "center",
+      "color": {
+        "name": "text-light",
+        "type": "token"
+      },
+      "id": "consoleCenterTitle",
+      "scale": 1.5,
+      "text": "TERMINAL NOVA 0.2 // FORGE CONSOLE",
+      "type": "label",
+      "x": 720,
+      "y": 622
+    }
+  ],
+  "profile": "illustration",
+  "provenance": {
+    "author": "Knowledge Forge AI",
+    "created": "2026-09-09",
+    "license": "AGPL-3.0-or-later",
+    "note": "Terminal Nova 0.2 first-party console hero illustration"
+  },
+  "schema": "tfsb.vector-scene-v1",
+  "tokenBindings": {
+    "cyan-base": "#00D2FF",
+    "cyan-bright": "#B8F2FF",
+    "cyan-dim": "#082B40",
+    "cyan-glow": "#38BDF8",
+    "gray-border": "#50535D",
+    "gray-light": "#8E8B89",
+    "ink-code": "#262A33",
+    "ink-dark": "#111318",
+    "ink-panel": "#15181E",
+    "ink-surface": "#191C23",
+    "orange-base": "#FF8A3D",
+    "orange-bright": "#FFCFAD",
+    "orange-dark": "#3A231C",
+    "orange-light": "#FFAC75",
+    "text-dim": "#B9B4AD",
+    "text-light": "#EEE9E3",
+    "text-warm": "#FFCFAD"
+  }
+}

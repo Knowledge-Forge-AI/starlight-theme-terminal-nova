@@ -1,0 +1,608 @@
+{
+  "accessibility": {
+    "desc": "Technical architecture diagram illustrating parallel Burst vector compilation to SVG and Loom theme packaging to CSS, combined with Nebular authoring and evidence into Nova site assembly",
+    "focusable": false,
+    "mode": "labelled",
+    "title": "Theme Forge Engine Workflow Architecture Diagram"
+  },
+  "artboard": {
+    "height": 675,
+    "policy": "contain",
+    "viewBox": [
+      0,
+      0,
+      1200,
+      675
+    ],
+    "width": 1200
+  },
+  "compatibility": 1,
+  "compilerLevel": 1,
+  "elements": [
+    {
+      "height": 675,
+      "id": "diagBg",
+      "presentation": {
+        "fill": {
+          "name": "ink-dark",
+          "type": "token"
+        }
+      },
+      "type": "rect",
+      "width": 1200,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "align": "center",
+      "color": {
+        "name": "orange-base",
+        "type": "token"
+      },
+      "id": "diagHeaderTitle",
+      "scale": 1.8,
+      "text": "THEME FORGE WORKFLOW ENGINE",
+      "type": "label",
+      "x": 600,
+      "y": 45
+    },
+    {
+      "align": "center",
+      "color": {
+        "name": "cyan-glow",
+        "type": "token"
+      },
+      "id": "diagHeaderSub",
+      "scale": 1.5,
+      "text": "DETERMINISTIC COMPILATION AND PACKAGING PIPELINE",
+      "type": "label",
+      "x": 600,
+      "y": 80
+    },
+    {
+      "height": 120,
+      "id": "lane1Bg",
+      "presentation": {
+        "fill": {
+          "name": "ink-panel",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "rx": 8,
+      "ry": 8,
+      "type": "rect",
+      "width": 860,
+      "x": 50,
+      "y": 115
+    },
+    {
+      "color": {
+        "name": "orange-light",
+        "type": "token"
+      },
+      "id": "lane1Title",
+      "scale": 1.5,
+      "text": "BURST VECTOR PIPELINE",
+      "type": "label",
+      "x": 70,
+      "y": 128
+    },
+    {
+      "height": 120,
+      "id": "lane2Bg",
+      "presentation": {
+        "fill": {
+          "name": "ink-panel",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "rx": 8,
+      "ry": 8,
+      "type": "rect",
+      "width": 860,
+      "x": 50,
+      "y": 255
+    },
+    {
+      "color": {
+        "name": "cyan-base",
+        "type": "token"
+      },
+      "id": "lane2Title",
+      "scale": 1.5,
+      "text": "LOOM THEME PIPELINE",
+      "type": "label",
+      "x": 70,
+      "y": 268
+    },
+    {
+      "height": 120,
+      "id": "lane3Bg",
+      "presentation": {
+        "fill": {
+          "name": "ink-panel",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeWidth": 1
+      },
+      "rx": 8,
+      "ry": 8,
+      "type": "rect",
+      "width": 860,
+      "x": 50,
+      "y": 395
+    },
+    {
+      "color": {
+        "name": "text-warm",
+        "type": "token"
+      },
+      "id": "lane3Title",
+      "scale": 1.5,
+      "text": "NEBULAR WORKBENCH AND EVIDENCE",
+      "type": "label",
+      "x": 70,
+      "y": 408
+    },
+    {
+      "height": 65,
+      "id": "nodeBurstScene",
+      "label": "SCENE JSON",
+      "labelColor": {
+        "name": "text-light",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 1.5
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "diagramNode",
+      "width": 190,
+      "x": 80,
+      "y": 155
+    },
+    {
+      "height": 65,
+      "id": "nodeBurstCompiler",
+      "label": "BURST COMPILER",
+      "labelColor": {
+        "name": "orange-bright",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-surface",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "diagramNode",
+      "width": 220,
+      "x": 370,
+      "y": 155
+    },
+    {
+      "height": 65,
+      "id": "nodeDeterministicSvg",
+      "label": "SVG OUTPUT",
+      "labelColor": {
+        "name": "cyan-bright",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 1.5
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "diagramNode",
+      "width": 200,
+      "x": 690,
+      "y": 155
+    },
+    {
+      "arrowheadSize": 8,
+      "endArrowhead": "triangle",
+      "from": {
+        "anchor": "right",
+        "elementId": "nodeBurstScene"
+      },
+      "id": "connBurst1",
+      "presentation": {
+        "stroke": {
+          "name": "orange-light",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "routing": "straight",
+      "to": {
+        "anchor": "left",
+        "elementId": "nodeBurstCompiler"
+      },
+      "type": "connector"
+    },
+    {
+      "arrowheadSize": 8,
+      "endArrowhead": "triangle",
+      "from": {
+        "anchor": "right",
+        "elementId": "nodeBurstCompiler"
+      },
+      "id": "connBurst2",
+      "presentation": {
+        "stroke": {
+          "name": "orange-light",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "routing": "straight",
+      "to": {
+        "anchor": "left",
+        "elementId": "nodeDeterministicSvg"
+      },
+      "type": "connector"
+    },
+    {
+      "height": 65,
+      "id": "nodeLoomThemeSpec",
+      "label": "THEME SPEC",
+      "labelColor": {
+        "name": "text-light",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 1.5
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "diagramNode",
+      "width": 190,
+      "x": 80,
+      "y": 295
+    },
+    {
+      "height": 65,
+      "id": "nodeLoomCore",
+      "label": "LOOM ENGINE",
+      "labelColor": {
+        "name": "cyan-bright",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-surface",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "diagramNode",
+      "width": 220,
+      "x": 370,
+      "y": 295
+    },
+    {
+      "height": 65,
+      "id": "nodeThemePackage",
+      "label": "THEME PACKAGE",
+      "labelColor": {
+        "name": "orange-bright",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 1.5
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "diagramNode",
+      "width": 200,
+      "x": 690,
+      "y": 295
+    },
+    {
+      "arrowheadSize": 8,
+      "endArrowhead": "triangle",
+      "from": {
+        "anchor": "right",
+        "elementId": "nodeLoomThemeSpec"
+      },
+      "id": "connLoom1",
+      "presentation": {
+        "stroke": {
+          "name": "cyan-glow",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "routing": "straight",
+      "to": {
+        "anchor": "left",
+        "elementId": "nodeLoomCore"
+      },
+      "type": "connector"
+    },
+    {
+      "arrowheadSize": 8,
+      "endArrowhead": "triangle",
+      "from": {
+        "anchor": "right",
+        "elementId": "nodeLoomCore"
+      },
+      "id": "connLoom2",
+      "presentation": {
+        "stroke": {
+          "name": "cyan-glow",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "routing": "straight",
+      "to": {
+        "anchor": "left",
+        "elementId": "nodeThemePackage"
+      },
+      "type": "connector"
+    },
+    {
+      "height": 65,
+      "id": "nodeNebularAuthoring",
+      "label": "NEBULAR AUTHORING",
+      "labelColor": {
+        "name": "text-light",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-surface",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "text-warm",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "diagramNode",
+      "width": 510,
+      "x": 80,
+      "y": 435
+    },
+    {
+      "height": 65,
+      "id": "nodeEvidencePackets",
+      "label": "EVIDENCE",
+      "labelColor": {
+        "name": "text-light",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-code",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "gray-border",
+          "type": "token"
+        },
+        "strokeWidth": 1.5
+      },
+      "rx": 6,
+      "ry": 6,
+      "type": "diagramNode",
+      "width": 200,
+      "x": 690,
+      "y": 435
+    },
+    {
+      "arrowheadSize": 8,
+      "endArrowhead": "triangle",
+      "from": {
+        "anchor": "right",
+        "elementId": "nodeNebularAuthoring"
+      },
+      "id": "connNeb1",
+      "presentation": {
+        "stroke": {
+          "name": "text-dim",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "routing": "straight",
+      "to": {
+        "anchor": "left",
+        "elementId": "nodeEvidencePackets"
+      },
+      "type": "connector"
+    },
+    {
+      "height": 250,
+      "id": "nodeNovaSite",
+      "label": "NOVA SITE",
+      "labelColor": {
+        "name": "orange-bright",
+        "type": "token"
+      },
+      "labelScale": 2,
+      "presentation": {
+        "fill": {
+          "name": "ink-panel",
+          "type": "token"
+        },
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 2.5
+      },
+      "rx": 8,
+      "ry": 8,
+      "type": "diagramNode",
+      "width": 190,
+      "x": 960,
+      "y": 200
+    },
+    {
+      "arrowheadSize": 8,
+      "endArrowhead": "triangle",
+      "from": {
+        "anchor": "right",
+        "elementId": "nodeDeterministicSvg"
+      },
+      "id": "connSvgToSite",
+      "presentation": {
+        "stroke": {
+          "name": "cyan-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "routing": "straight",
+      "to": {
+        "anchor": "left",
+        "elementId": "nodeNovaSite"
+      },
+      "type": "connector"
+    },
+    {
+      "arrowheadSize": 8,
+      "endArrowhead": "triangle",
+      "from": {
+        "anchor": "right",
+        "elementId": "nodeThemePackage"
+      },
+      "id": "connPkgToSite",
+      "presentation": {
+        "stroke": {
+          "name": "orange-base",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "routing": "straight",
+      "to": {
+        "anchor": "left",
+        "elementId": "nodeNovaSite"
+      },
+      "type": "connector"
+    },
+    {
+      "arrowheadSize": 8,
+      "endArrowhead": "triangle",
+      "from": {
+        "anchor": "right",
+        "elementId": "nodeEvidencePackets"
+      },
+      "id": "connEvidenceToSite",
+      "presentation": {
+        "stroke": {
+          "name": "text-dim",
+          "type": "token"
+        },
+        "strokeWidth": 2
+      },
+      "routing": "straight",
+      "to": {
+        "anchor": "left",
+        "elementId": "nodeNovaSite"
+      },
+      "type": "connector"
+    }
+  ],
+  "profile": "diagram",
+  "provenance": {
+    "author": "Knowledge Forge AI",
+    "created": "2026-09-09",
+    "license": "AGPL-3.0-or-later",
+    "note": "Terminal Nova 0.2 first-party engine workflow diagram"
+  },
+  "schema": "tfsb.vector-scene-v1",
+  "tokenBindings": {
+    "cyan-base": "#00D2FF",
+    "cyan-bright": "#B8F2FF",
+    "cyan-dim": "#082B40",
+    "cyan-glow": "#38BDF8",
+    "gray-border": "#50535D",
+    "gray-light": "#8E8B89",
+    "ink-code": "#262A33",
+    "ink-dark": "#111318",
+    "ink-panel": "#15181E",
+    "ink-surface": "#191C23",
+    "orange-base": "#FF8A3D",
+    "orange-bright": "#FFCFAD",
+    "orange-dark": "#3A231C",
+    "orange-light": "#FFAC75",
+    "text-dim": "#B9B4AD",
+    "text-light": "#EEE9E3",
+    "text-warm": "#FFCFAD"
+  }
+}
