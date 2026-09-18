@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 // Explicit installed compiler, canonical input and fresh output directory.
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { readFile, mkdir, writeFile, lstat } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { readFile, mkdir, writeFile, lstat, readdir, symlink, rm } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 
@@ -16,7 +18,7 @@ const pkgRoot = resolve(installedRoot);
 assert.equal((await lstat(pkgRoot)).isSymbolicLink(), false);
 const pkg = JSON.parse(await readFile(join(pkgRoot, 'package.json'), 'utf8'));
 assert.equal(pkg.name, '@knowledge-forge-ai/theme-forge-stellar-loom');
-assert.equal(pkg.version, '0.2.0', 'Installed Loom RC compiler must be 0.2.0');
+assert.equal(pkg.version, '0.3.0', 'Installed Loom RC compiler must be 0.3.0');
 
 const api = await import(pathToFileURL(join(pkgRoot, pkg.exports['.'].import)).href);
 const themeBytes = await readFile(inputPath);
@@ -42,9 +44,9 @@ ${metadata.description}
 
 ## Overview
 
-Terminal Nova is an independent, first-party documentation theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). Forge Console is the 0.2.0 design, featuring warm surfaces, disciplined monospace chrome, and an approved page-title-frame component override. Nova Observatory is retained as an editorial alternative in the project history.
+Terminal Nova is an independent, first-party documentation theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). Forge Console is the 0.3.0 design, featuring warm surfaces, disciplined monospace chrome, and an approved page-title-frame component override. Nova Observatory is retained as an editorial alternative in the project history.
 
-Version 0.2.0 introduces the Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.1.0 released history is preserved.
+Version 0.3.0 introduces the TypeScript distribution pipeline and book-chrome layout compilation alongside Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.2.0 and 0.1.0 released history is preserved.
 
 [Repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova) · [Issues](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/issues) · [License](./LICENSE)
 
@@ -71,7 +73,7 @@ npm install --ignore-scripts ${metadata.name}
 Or install from a local packed tarball:
 
 \`\`\`bash
-npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.2.0.tgz
+npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.3.0.tgz
 \`\`\`
 
 ## Configuration
@@ -122,6 +124,21 @@ All notable changes to \`${metadata.name}\` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.3.0] - 2026-09-16
+
+Minor release advancing Terminal Nova to full TypeScript distribution and book-chrome layout compilation via Stellar Loom 0.3.0.
+
+### Added
+
+- **TypeScript Compilation Pipeline**: Compiles TypeScript sources to declaration files (\`dist/index.d.ts\`, \`dist/navigation.d.ts\`, \`dist/middleware.d.ts\`) and JavaScript modules.
+- **Book Chrome Support**: Enhanced book-chrome layout integration preserving navigation depth and reading flow.
+- **Loom 0.3.0 Provenance**: Strict package provenance bound to \`@knowledge-forge-ai/theme-forge-stellar-loom@0.3.0\`.
+
+### Changed
+
+- Updated dependency baseline and compiler toolchain.
+- Preserved historical 0.2.0 and 0.1.0 releases and assets.
 
 ## [0.2.0] - 2026-09-10
 
@@ -192,24 +209,29 @@ function finalizePublicPackage(result, compilerPkg) {
     '@astrojs/starlight': '^0.42.0',
     astro: '^7.3.1',
   };
+  rawPkg.peerDependenciesMeta = {
+    '@astrojs/starlight': { optional: true },
+    astro: { optional: true },
+  };
 
-  const hasMiddleware = result.files.has('middleware.js');
+  const hasMiddleware = result.files.has('middleware.js') || result.files.has('src/middleware.ts');
+  const isTs = result.provenance?.language === 'typescript' || result.files.has('src/index.ts');
   rawPkg.exports = {
-    '.': { types: './index.d.ts', import: './index.js' },
+    '.': isTs ? { types: './dist/index.d.ts', import: './dist/index.js' } : { types: './index.d.ts', import: './index.js' },
     './catalog-data.json': './catalog-data.json',
-    './navigation.js': './navigation.js',
+    './navigation.js': isTs ? { types: './dist/navigation.d.ts', import: './dist/navigation.js' } : './navigation.js',
     './styles/*': './styles/*',
     './components/*': './components/*',
     './assets/*': './assets/*',
     './licenses/*': './licenses/*',
-    ...(hasMiddleware ? { './middleware.js': './middleware.js', './middleware': './middleware.js' } : {}),
+    ...(hasMiddleware ? {
+      './middleware.js': isTs ? { types: './dist/middleware.d.ts', import: './dist/middleware.js' } : './middleware.js',
+      './middleware': isTs ? { types: './dist/middleware.d.ts', import: './dist/middleware.js' } : './middleware.js',
+    } : {}),
   };
 
   const fileList = [
-    'index.js',
-    'catalog-data.json',
-    'navigation.js',
-    'index.d.ts',
+    ...(isTs ? ['dist', 'src', 'tsconfig.json', 'catalog-data.json'] : ['index.js', 'catalog-data.json', 'navigation.js', 'index.d.ts']),
     'styles',
     'fonts',
     'components',
@@ -223,10 +245,11 @@ function finalizePublicPackage(result, compilerPkg) {
     'LICENSE',
     'NOTICE',
     'COMMERCIAL-LICENSE.md',
-    ...(hasMiddleware ? ['middleware.js'] : []),
+    ...(!isTs && hasMiddleware ? ['middleware.js'] : []),
   ];
-  rawPkg.files = fileList.filter(f => result.files.has(f) || ['styles', 'fonts', 'components', 'assets', 'licenses'].includes(f));
+  rawPkg.files = fileList.filter(f => result.files.has(f) || ['dist', 'src', 'styles', 'fonts', 'components', 'assets', 'licenses'].includes(f));
   delete rawPkg.scripts;
+  delete rawPkg.devDependencies;
 
   result.files.set('package.json', JSON.stringify(rawPkg, null, 2) + '\n');
 
@@ -259,6 +282,77 @@ function finalizePublicPackage(result, compilerPkg) {
   result.provenance = provenance;
 }
 
+async function updateDiskProvenance(targetDir, descriptor, compilerPkg, bookChrome) {
+  const files = [];
+  async function scan(currentDir, relativeDir = '') {
+    const entries = await readdir(currentDir, { withFileTypes: true });
+    for (const entry of entries) {
+      if (entry.name === 'provenance.json' && relativeDir === '') continue;
+      if (entry.name === 'node_modules') continue;
+      const fullPath = join(currentDir, entry.name);
+      const relPath = relativeDir ? `${relativeDir}/${entry.name}` : entry.name;
+      if (entry.isDirectory()) {
+        await scan(fullPath, relPath);
+      } else if (entry.isFile()) {
+        const content = await readFile(fullPath);
+        files.push({
+          path: relPath,
+          size: content.byteLength,
+          sha256: digest(content),
+        });
+      }
+    }
+  }
+  await scan(targetDir);
+  files.sort((a, b) => compareUtf8(a.path, b.path));
+
+  const provenance = {
+    schema: 'tfsl.package-provenance-v2',
+    producer: {
+      package: compilerPkg.name,
+      version: compilerPkg.version,
+    },
+    descriptor,
+    packageName: metadata.name,
+    packageVersion: metadata.version,
+    language: 'typescript',
+    bookChrome,
+    inventoryDigest: digest('tfsl.package-inventory-v2\n' + JSON.stringify(files)),
+    inventoryExcludes: ['provenance.json'],
+    files,
+    fonts: theme.fonts ?? [],
+    fontLicenses: theme.catalog?.fontLicenses ?? [],
+  };
+  await writeFile(join(targetDir, 'provenance.json'), JSON.stringify(provenance, null, 2) + '\n');
+  return { files, provenance };
+}
+
+const repoRoot = resolve(root, '../../..');
+let tscBin = process.env.TSC_BIN && existsSync(process.env.TSC_BIN) ? process.env.TSC_BIN : null;
+if (!tscBin) {
+  tscBin = resolve(repoRoot, 'node_modules/typescript/bin/tsc');
+  if (!existsSync(tscBin)) {
+    tscBin = resolve(installedRoot, '../../typescript/bin/tsc');
+  }
+}
+
+const candidateStarlightPaths = [
+  ...(process.env.STARLIGHT_PATH ? [process.env.STARLIGHT_PATH] : []),
+  resolve(repoRoot, 'packages/stellar-loom/consumer-fixture/node_modules/@astrojs/starlight'),
+  resolve(repoRoot, 'packages/stellar-loom/fixture/node_modules/@astrojs/starlight'),
+  resolve(repoRoot, 'node_modules/@astrojs/starlight'),
+  resolve(installedRoot, '../../@astrojs/starlight'),
+];
+const starlightPath = candidateStarlightPaths.find(p => existsSync(p));
+
+const buildNm = join(outputPath, 'node_modules/@astrojs');
+let cleanupNm = false;
+if (starlightPath && !existsSync(join(buildNm, 'starlight'))) {
+  await mkdir(buildNm, { recursive: true });
+  await symlink(starlightPath, join(buildNm, 'starlight'));
+  cleanupNm = true;
+}
+
 const receipt = {
   schema: 'tfsb65.theme-generation-v1',
   inputFileSha256: digest(themeBytes),
@@ -271,27 +365,45 @@ const receipt = {
   accents: {},
 };
 
-for (const accent of ['orange', 'cyan']) {
-  const options = { themeSpec: theme, metadata, accent };
-  const first = api.generateThemePackageCatalog(options);
-  const second = api.generateThemePackageCatalog(options);
+try {
+  for (const accent of ['orange', 'cyan']) {
+    const options = { themeSpec: theme, metadata, accent, language: 'typescript', bookChrome: true };
+    const first = api.generateThemePackageCatalog(options);
+    const second = api.generateThemePackageCatalog(options);
 
-  // Recompile fresh exchange-v2 candidate
-  const candidate = api.createThemeCatalogCandidate(theme, { metadata, accent, tarballDigest: `sha256:${loomTarballSha256}` });
-  const verification = api.verifyThemeCatalogCandidate(candidate);
-  assert.equal(verification.valid, true, JSON.stringify(verification.errors));
+    // Recompile fresh exchange-v2 candidate
+    const candidate = api.createThemeCatalogCandidate(theme, { metadata, accent, tarballDigest: `sha256:${loomTarballSha256}` });
+    const verification = api.verifyThemeCatalogCandidate(candidate);
+    assert.equal(verification.valid, true, JSON.stringify(verification.errors));
 
-  // Finalize public-ready package from source
-  finalizePublicPackage(first, pkg);
-  finalizePublicPackage(second, pkg);
+    // Finalize public-ready package from source
+    finalizePublicPackage(first, pkg);
+    finalizePublicPackage(second, pkg);
 
-  const inventory = result => [...result.files].map(([path, bytes]) => ({ path, sha256: digest(bytes) })).sort((a,b) => a.path.localeCompare(b.path, 'en'));
-  assert.deepEqual(inventory(first), inventory(second));
+    await api.writeThemePackage(first, join(outputPath, accent));
+    await api.writeThemePackage(second, join(outputPath, `${accent}-repeat`));
 
-  await api.writeThemePackage(first, join(outputPath, accent));
-  await api.writeThemePackage(second, join(outputPath, `${accent}-repeat`));
-  await writeFile(join(outputPath, `${accent}.candidate.json`), api.serializeThemeCatalogCandidate(candidate), { flag: 'wx' });
-  receipt.accents[accent] = { descriptor: first.descriptor, candidateDigest: candidate.candidateDigest, verification, inventory: inventory(first), deterministic: true };
+    execFileSync(process.execPath, [tscBin, "-p", "tsconfig.json"], { cwd: join(outputPath, accent), stdio: "pipe" });
+    execFileSync(process.execPath, [tscBin, "-p", "tsconfig.json"], { cwd: join(outputPath, `${accent}-repeat`), stdio: "pipe" });
+
+    const firstDisk = await updateDiskProvenance(join(outputPath, accent), first.descriptor, pkg, first.provenance.bookChrome);
+    const secondDisk = await updateDiskProvenance(join(outputPath, `${accent}-repeat`), second.descriptor, pkg, second.provenance.bookChrome);
+
+    assert.deepEqual(firstDisk.files, secondDisk.files);
+
+    await writeFile(join(outputPath, `${accent}.candidate.json`), api.serializeThemeCatalogCandidate(candidate), { flag: 'wx' });
+    receipt.accents[accent] = {
+      descriptor: first.descriptor,
+      candidateDigest: candidate.candidateDigest,
+      verification,
+      inventory: firstDisk.files.map(f => ({ path: f.path, sha256: f.sha256 })),
+      deterministic: true,
+    };
+  }
+} finally {
+  if (cleanupNm) {
+    await rm(join(outputPath, 'node_modules'), { recursive: true, force: true });
+  }
 }
 
 await writeFile(join(outputPath, 'receipt.json'), JSON.stringify(receipt, null, 2) + '\n', { flag: 'wx' });

@@ -5,6 +5,21 @@ All notable changes to `@knowledge-forge-ai/starlight-theme-terminal-nova` will 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-09-16
+
+Minor release advancing Terminal Nova to full TypeScript distribution and book-chrome layout compilation via Stellar Loom 0.3.0.
+
+### Added
+
+- **TypeScript Compilation Pipeline**: Compiles TypeScript sources to declaration files (`dist/index.d.ts`, `dist/navigation.d.ts`, `dist/middleware.d.ts`) and JavaScript modules.
+- **Book Chrome Support**: Enhanced book-chrome layout integration preserving navigation depth and reading flow.
+- **Loom 0.3.0 Provenance**: Strict package provenance bound to `@knowledge-forge-ai/theme-forge-stellar-loom@0.3.0`.
+
+### Changed
+
+- Updated dependency baseline and compiler toolchain.
+- Preserved historical 0.2.0 and 0.1.0 releases and assets.
+
 ## [0.2.0] - 2026-09-10
 
 Minor release advancing Terminal Nova to Theme v2 and catalog component architecture with dual accent support and original vector graphics.

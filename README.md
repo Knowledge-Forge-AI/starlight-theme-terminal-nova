@@ -1,12 +1,12 @@
 # @knowledge-forge-ai/starlight-theme-terminal-nova
 
-Independent Terminal Nova documentation theme; Forge Console 0.2.0 design
+Independent Terminal Nova documentation theme; Forge Console 0.3.0 design
 
 ## Overview
 
-Terminal Nova is an independent, first-party documentation theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). Forge Console is the 0.2.0 design, featuring warm surfaces, disciplined monospace chrome, and an approved page-title-frame component override. Nova Observatory is retained as an editorial alternative in the project history.
+Terminal Nova is an independent, first-party documentation theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). Forge Console is the 0.3.0 design, featuring warm surfaces, disciplined monospace chrome, and an approved page-title-frame component override. Nova Observatory is retained as an editorial alternative in the project history.
 
-Version 0.2.0 introduces the Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.1.0 released history is preserved.
+Version 0.3.0 introduces the TypeScript distribution pipeline and book-chrome layout compilation alongside Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.2.0 and 0.1.0 released history is preserved.
 
 [Repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova) · [Issues](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/issues) · [License](./LICENSE)
 
@@ -33,7 +33,7 @@ npm install --ignore-scripts @knowledge-forge-ai/starlight-theme-terminal-nova
 Or install from a local packed tarball:
 
 ```bash
-npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.2.0.tgz
+npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.3.0.tgz
 ```
 
 ## Configuration

@@ -1,6 +1,6 @@
 ---
 import DefaultHero from "@astrojs/starlight/components/Hero.astro";
-import { localHref } from "../navigation.js";
+import { localHref } from "../dist/navigation.js";
 const activeHero = (Astro.locals as any).tfslCatalogHero;
 const layout = activeHero?.layout;
 const base = import.meta.env.BASE_URL;

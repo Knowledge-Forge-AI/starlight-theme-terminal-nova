@@ -15,11 +15,11 @@ export async function verifyRelease(root) {
   const readJson = async path => JSON.parse(await readFile(join(root, path), "utf8"));
   const pkg = await readJson("package.json");
   assert.equal(pkg.name, "@knowledge-forge-ai/starlight-theme-terminal-nova");
-  assert.equal(pkg.version, "0.2.0");
+  assert.equal(pkg.version, "0.3.0");
   assert(!/release candidate/i.test(pkg.description));
   assert.equal(Object.keys(pkg.dependencies ?? {}).length, 0);
   const provenance = await readJson("provenance.json");
-  assert.equal(provenance.producer.version, "0.2.0");
+  assert.equal(provenance.producer.version, "0.3.0");
   assert.equal(new Set(provenance.files.map(file => file.path)).size, provenance.files.length);
   for (const file of provenance.files) {
     const bytes = await readFile(join(root, localPath(file.path)));
@@ -34,7 +34,7 @@ export async function verifyRelease(root) {
   assert.equal(new Set(manifest.scenes.map(scene => scene.id)).size, 6);
   assert.equal(qualification.compilerVersion, "0.5.0");
   assert.equal(qualification.artifactSha256, inputs.burst.sha256);
-  assert.equal(inputs.compiler.version, "0.2.0");
+  assert.equal(inputs.compiler.version, "0.3.0");
   for (const scene of manifest.scenes) {
     assert.equal(basename(scene.svgFile), scene.svgFile);
     const bytes = await readFile(join(root, "graphics", scene.svgFile));

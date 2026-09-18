@@ -1,0 +1,58 @@
+/* Book chrome layout preset: sequential chapter navigation, keyboard shortcuts, and deep document reading chrome. */
+@layer tfsl.overrides {
+  .tfsl-book-chrome {
+    --tfsl-book-nav-width: 3.5rem;
+  }
+  .tfsl-book-nav-arrow {
+    display: none;
+  }
+  @media (min-width: 80rem) {
+    .tfsl-book-nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 5rem;
+      color: var(--sl-color-gray-3, #94a3b8);
+      background: var(--sl-color-bg-inline-code, rgba(0, 0, 0, 0.2));
+      border: 1px solid var(--sl-color-hairline, rgba(255, 255, 255, 0.1));
+      border-radius: var(--tfsl-radius-small, 0.25rem);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+    }
+    .tfsl-book-nav-arrow:hover,
+    .tfsl-book-nav-arrow:focus-visible {
+      opacity: 1;
+      color: var(--sl-color-accent-high, #38bdf8);
+      background: var(--sl-color-accent-low, rgba(56, 189, 248, 0.1));
+      border-color: var(--sl-color-accent, #38bdf8);
+      outline: 2px solid var(--sl-color-accent, #38bdf8);
+      outline-offset: 2px;
+    }
+    .tfsl-book-nav-prev {
+      left: max(1rem, calc((100vw - var(--sl-content-width, 48rem)) / 4));
+    }
+    .tfsl-book-nav-next {
+      right: max(1rem, calc((100vw - var(--sl-content-width, 48rem)) / 4));
+    }
+  }
+  .tfsl-nav-tree [data-tfsl-chapter-active="true"] {
+    font-weight: 600;
+    position: relative;
+  }
+  .tfsl-nav-tree [data-tfsl-chapter-active="true"]::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -0.5rem;
+    top: 25%;
+    bottom: 25%;
+    width: 3px;
+    background: var(--sl-color-accent-high, #38bdf8);
+    border-radius: 2px;
+  }
+}

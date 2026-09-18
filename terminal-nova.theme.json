@@ -1,6 +1,6 @@
 {
   "name": "terminal-nova",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "schemaVersion": "tfsl.theme-v2",
   "adapter": "starlight-v0.42",
   "tokenSets": {

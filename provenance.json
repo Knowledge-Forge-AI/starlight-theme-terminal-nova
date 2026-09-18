@@ -2,18 +2,18 @@
   "schema": "tfsl.package-provenance-v2",
   "producer": {
     "package": "@knowledge-forge-ai/theme-forge-stellar-loom",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "descriptor": {
     "schema": "tfsl.theme-descriptor-v2",
     "schemaVersion": 2,
     "themeSchemaVersion": "tfsl.theme-v2",
     "themeName": "terminal-nova",
-    "themeVersion": "0.2.0",
+    "themeVersion": "0.3.0",
     "adapter": "starlight-v0.42",
     "selectedAccent": "orange",
     "accent": "orange",
-    "inputDigest": "a71a1df0c03c82fc2c5253602aad1bc3493f94ef2553fe547dbd11df7d7f4a68",
+    "inputDigest": "d47cc634f03613690d8535e2e8fa340a053484652356f918ddff20855b76e702",
     "outputDigest": "328439213f29cf6e05ac7df7323d2dda5336bce9228825b26a16b34a1beadcb7",
     "inventoryDigest": "27185445712f03de4d27060660f95827cb49d5bfd553bf07db93b99ab20304cb",
     "catalogIdentity": "tfsl.starlight-component-catalog-v1",
@@ -31,20 +31,21 @@
       ],
       "semantic": "tfsl.theme-compiler-v2-catalog-1",
       "compiler": "@knowledge-forge-ai/theme-forge-stellar-loom",
-      "compilerVersion": "0.2.0"
+      "compilerVersion": "0.3.0"
     }
   },
   "packageName": "@knowledge-forge-ai/starlight-theme-terminal-nova",
-  "packageVersion": "0.2.0",
-  "inventoryDigest": "6a3363cef51f7175c1444ea9730d6efbeec3dcb1b1649fcc20ee8f050f998913",
+  "packageVersion": "0.3.0",
+  "language": "typescript",
+  "inventoryDigest": "23c43de3113eed93c073d9c4df880b9882c3a43278cb4efc5543d7f15e58bfd9",
   "inventoryExcludes": [
     "provenance.json"
   ],
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 1800,
-      "sha256": "1c3ec58b35e328347856a284e696b87bb76594a57fd7df69b9eca599ad3147cc"
+      "size": 2506,
+      "sha256": "746264e9ad184f42576875d3daa32bf7bc173c1b1b7f7776896f5205e517c15b"
     },
     {
       "path": "COMMERCIAL-LICENSE.md",
@@ -63,8 +64,8 @@
     },
     {
       "path": "README.md",
-      "size": 3369,
-      "sha256": "67049f7057dcd391cac9986727ff9c7baace641dd70f51dde9e3d75aefdfda58"
+      "size": 3457,
+      "sha256": "056603d1439f10874ef5600833612672efa41a1181dfdbfb90e3293924dae387"
     },
     {
       "path": "assets/loom-orbit.svg",
@@ -78,8 +79,8 @@
     },
     {
       "path": "components/Hero.astro",
-      "size": 8267,
-      "sha256": "75a5751333b28f5e36a838230b26f5dae1ff771e4d36e31bf69e8cc26cacb821"
+      "size": 8272,
+      "sha256": "72a10d7d7be3aeb2369e03b284d99cf0b0408a4d1122fb6587447252fffa3f61"
     },
     {
       "path": "components/PageTitle.astro",
@@ -93,43 +94,98 @@
     },
     {
       "path": "components/Pagination.astro",
-      "size": 4739,
-      "sha256": "7af7f7a2ce4ad3267bba7e5ba6298b28385080bdd431f1ffd49fc3fcad323313"
+      "size": 6917,
+      "sha256": "c8d1b1bb55c6a0e756c4d33bae67171196809c64bce574fa7a9bac4b39cb62ea"
     },
     {
       "path": "components/Sidebar.astro",
-      "size": 3953,
-      "sha256": "0c38cae7d4d3e82935008e5e5c7f6190a6b6448d33593f3902607346d8c8429e"
+      "size": 4004,
+      "sha256": "7d24bf2f69f4c319b0699ccc3c8c6e6321baca27e95107a5d5788f197cb2423e"
     },
     {
       "path": "components/SidebarTree.astro",
-      "size": 801,
-      "sha256": "42c1f0826eb6a7b3813e990cff8ec5aad5d22c7fc73bceded069235e79aefc90"
+      "size": 862,
+      "sha256": "269a83e21f5dff45a0b9f5a79fdeb956517d8fb44800e30f5e4f105b5b758c01"
     },
     {
-      "path": "index.d.ts",
-      "size": 400,
-      "sha256": "409f548874fd2a900b8a617079aed19687965af168c10bfcab1f0dfdcb576e4d"
+      "path": "dist/index.d.ts",
+      "size": 156,
+      "sha256": "739209402b79f6a8470396c821bfe40697711204a60d2e3ec1734220c4d11d78"
     },
     {
-      "path": "index.js",
-      "size": 5923,
-      "sha256": "ca815070518ce444dd1cf60dac62a0aad1cd1296ae805ead06b6e121958c6f84"
+      "path": "dist/index.d.ts.map",
+      "size": 201,
+      "sha256": "3dcdda9e9593e6f343a87fe77a95e5bd99e3953030e891f70be1061f7a460b09"
     },
     {
-      "path": "middleware.js",
-      "size": 678,
-      "sha256": "9462f9be616655e1560bcafed8f6cfdbf39c0368a5e56758e7558ceb0fb4ebd9"
+      "path": "dist/index.js",
+      "size": 6661,
+      "sha256": "96447b4b38c1e76761274aaafb76e9de74f28a75e724aa0de5cc7e9a791f178e"
     },
     {
-      "path": "navigation.js",
-      "size": 1788,
-      "sha256": "efb148424f8625016dcaaa5dd964ade8172f56f90e7e07fb9310d1a110a0f1d0"
+      "path": "dist/index.js.map",
+      "size": 5780,
+      "sha256": "06efbb84fb5b9d2e56c4c0a292980cab2c51349e579681dedf98b65333c9974d"
+    },
+    {
+      "path": "dist/middleware.d.ts",
+      "size": 484,
+      "sha256": "4a4c15211ae63f1e0355bd06fc91c89c40e4db81b913c2ef4e99f9f63bc831a2"
+    },
+    {
+      "path": "dist/middleware.d.ts.map",
+      "size": 507,
+      "sha256": "41b660883bb8db1249f5450f67dd7e2a817d13a78bf80866476a25bace1c121b"
+    },
+    {
+      "path": "dist/middleware.js",
+      "size": 761,
+      "sha256": "6888f748eae08c1effe68ec63e1b2dcea1da2120f1f16e5110b008ca5008382c"
+    },
+    {
+      "path": "dist/middleware.js.map",
+      "size": 1003,
+      "sha256": "8cce8f92bebcb3750278760d00c360b7080d96a1c3fb2db200b19be7c716d98d"
+    },
+    {
+      "path": "dist/navigation.d.ts",
+      "size": 706,
+      "sha256": "95e9c8eb1494fde87bcf9c8b98f0206853d44294911002cc2f327264db3bfe9b"
+    },
+    {
+      "path": "dist/navigation.d.ts.map",
+      "size": 777,
+      "sha256": "ef8d2832c87f22e84febcde1d633d8b0ec1ec88bda214c2f92cad3e852cb3c5e"
+    },
+    {
+      "path": "dist/navigation.js",
+      "size": 2155,
+      "sha256": "945efb9b2abe160623351c4aa7b9e9813908994d6f05a6f22fd746189a81c96d"
+    },
+    {
+      "path": "dist/navigation.js.map",
+      "size": 2629,
+      "sha256": "e9025c2943ce8579e7bee4b6a5f3429f9e237c6c5e8f1a7a12c9ed319c872c2f"
     },
     {
       "path": "package.json",
-      "size": 1618,
-      "sha256": "3cd965583169de12d4228f2efd6b14f1e8b437f9bb5410f8c15d5d9b728452bf"
+      "size": 1941,
+      "sha256": "ab078dffe182838ce425b09a2254643db65ed0b3703bb27db93bfeff3fa4dbcc"
+    },
+    {
+      "path": "src/index.ts",
+      "size": 6596,
+      "sha256": "72ef9a29ada0d1e939564c2ff4b02bc571659dafa6db87387435c47a1915145f"
+    },
+    {
+      "path": "src/middleware.ts",
+      "size": 1043,
+      "sha256": "7da64f15bc9714208bf87215b5a630b9de517c474a684e61add71b57d5af8381"
+    },
+    {
+      "path": "src/navigation.ts",
+      "size": 2424,
+      "sha256": "d3f3459902f17e1a64d527e844640cdf500392cc798fdea97e4219bded645ebd"
     },
     {
       "path": "styles/accent.css",
@@ -140,6 +196,11 @@
       "path": "styles/base.css",
       "size": 2378,
       "sha256": "bfce7094679830b2e3d030127d4ed74390fd51f5d504c62fd21f529776b139c7"
+    },
+    {
+      "path": "styles/book.css",
+      "size": 1852,
+      "sha256": "1cd84f9e4c817aa0c28cb26147891e5a6aef968fdb61fd397f5f434002fa176b"
     },
     {
       "path": "styles/code.css",
@@ -169,12 +230,17 @@
     {
       "path": "theme.descriptor.json",
       "size": 1152,
-      "sha256": "e51c6357ea3aa9eb0c679b38ad627079ad4f6d56adaaa8df1d89650366834c8d"
+      "sha256": "759f31935d245f5f9d0c01bd97d1c37a247cf82b54efc6e2a87e318e9374b0d4"
     },
     {
       "path": "theme.json",
       "size": 11140,
-      "sha256": "a71a1df0c03c82fc2c5253602aad1bc3493f94ef2553fe547dbd11df7d7f4a68"
+      "sha256": "d47cc634f03613690d8535e2e8fa340a053484652356f918ddff20855b76e702"
+    },
+    {
+      "path": "tsconfig.json",
+      "size": 375,
+      "sha256": "a63fb0638a1ae60d269cb226005046ac94055a06864113483dca906b4804286d"
     }
   ],
   "fonts": [],
