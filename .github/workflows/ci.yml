@@ -17,7 +17,8 @@ jobs:
       - run: npm pack --ignore-scripts
       - run: npm ci --ignore-scripts --prefix demo
       # Installs the verified package packed above; demo dependencies came from npm ci.
-      - run: npm install --ignore-scripts --prefix demo ./knowledge-forge-ai-starlight-theme-terminal-nova-0.2.0.tgz # zizmor: ignore[adhoc-packages] -- exact local candidate under test
+      - run: npm install --ignore-scripts --prefix demo ./knowledge-forge-ai-starlight-theme-terminal-nova-0.3.0.tgz # zizmor: ignore[adhoc-packages] -- exact local candidate under test
       - run: npm run build --prefix demo
       - run: npm audit --omit=dev --prefix demo
-      - run: node tools/ci/run-syft-grype.mjs --target knowledge-forge-ai-starlight-theme-terminal-nova-0.2.0.tgz --output-dir .test-reports/supply-chain --tools-dir "$RUNNER_TEMP/security-tools" --name terminal-nova
+      - run: node tools/ci/run-syft-grype.mjs --target knowledge-forge-ai-starlight-theme-terminal-nova-0.3.0.tgz --output-dir .test-reports/supply-chain --tools-dir "$RUNNER_TEMP/security-tools" --name terminal-nova
+      - run: node tools/ci/finding-ratchet.mjs --baseline tools/ci/finding-ratchet-baseline.json --input .test-reports/supply-chain/terminal-nova.grype.sarif --product terminal-nova --tool grype --check

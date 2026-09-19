@@ -5,7 +5,7 @@ const {entries} = Astro.props;
   {entries.map((item: any) => <li>
     {item.type === "group" ? <details open={item.current || !item.collapsed}>
       <summary>{item.label}</summary><Astro.self entries={item.entries} />
-    </details> : <a href={item.href} aria-current={item.current ? "page" : undefined} title={item.title} aria-label={item.ariaLabel}>{item.label}</a>}
+    </details> : <a href={item.href} aria-current={item.current ? "page" : undefined} title={item.title} aria-label={item.ariaLabel} data-tfsl-chapter-active={item.current ? "true" : undefined}>{item.label}</a>}
   </li>)}
 </ul>
 <style>

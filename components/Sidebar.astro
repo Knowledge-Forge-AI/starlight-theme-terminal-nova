@@ -2,7 +2,7 @@
 import MobileMenuFooter from "@astrojs/starlight/components/MobileMenuFooter.astro";
 import Tree from "./SidebarTree.astro";
 import data from "../catalog-data.json";
-import { projectNavigation } from "../navigation.js";
+import { projectNavigation } from "../dist/navigation.js";
 const mode = data.sidebar.mode;
 const entries = projectNavigation(Astro.locals.starlightRoute.sidebar);
 const ids = data.sidebar.groupIds;
@@ -13,7 +13,7 @@ if (mode !== "nested" && active.length > 1) throw new Error("Ambiguous active si
 const selected = active[0] ?? 0;
 const groups = entries.map((entry,i)=>({entry,id:ids[i] || String(i),active:i===selected}));
 ---
-<nav class="tfsl-sidebar-container" data-tfsl-sidebar-mode={mode} aria-label="Documentation navigation">
+<nav class="tfsl-sidebar-container tfsl-book-chrome" data-tfsl-sidebar-mode={mode} data-tfsl-book-chrome="true" aria-label="Documentation navigation">
   {mode === "nested" ? <Tree entries={entries} /> : <>
     {mode === "tabs" && <div role="tablist" class="tfsl-roving-tablist" aria-label="Documentation sections">
       {groups.map(g=><button type="button" role="tab" id={`tfsl-nav-tab-${g.id}`} aria-controls={`tfsl-nav-panel-${g.id}`} aria-selected={g.active ? "true":"false"} tabindex={g.active?0:-1}>{g.entry.label}</button>)}

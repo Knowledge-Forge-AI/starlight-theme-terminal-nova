@@ -2,13 +2,13 @@
   "schema": "tfsb.nova-rc-inputs-v1",
   "compiler": {
     "name": "@knowledge-forge-ai/theme-forge-stellar-loom",
-    "version": "0.2.0",
-    "sha256": "4ec53cfe3c48a1d5b44e5fc695fe8c07b4f72dc4076a91ae10efa7d579818b34"
+    "version": "0.3.0",
+    "sha256": "a1363ad628c2e9dc73c8a44f5d841d18ea44fd4d27217dbe4711b3a2e491aaf0"
   },
   "burst": {
     "name": "@knowledge-forge-ai/theme-forge-stellar-burst",
     "version": "0.5.0",
     "sha256": "1222b613b119f785061ac61e25eccf3af9810f2b118a4669481c23cd390c661e"
   },
-  "generatedPackageTreeDigest": "e6a0d4c8fe30e617301e65c566fe54f2b1658d29ce42c9f5954a8b1d71b5cd43"
+  "generatedPackageTreeDigest": "d19d543c419b9f84499680f4355053d798d3cb3729d6cc64cfc22ffc07bd922f"
 }
