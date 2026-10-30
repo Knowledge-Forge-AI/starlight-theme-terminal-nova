@@ -5,6 +5,20 @@ All notable changes to `@knowledge-forge-ai/starlight-theme-terminal-nova` will 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-10-30
+
+Minor release regenerating the unchanged Forge Console theme with Stellar Loom 0.5.0 and requalifying the six canonical graphics with Stellar Burst 0.7.0.
+
+### Added
+
+- **Loom 0.5.0 Provenance**: Strict package provenance bound to `@knowledge-forge-ai/theme-forge-stellar-loom@0.5.0`.
+- **Burst 0.7.0 Graphics Requalification**: Current requalification of the six canonical graphics appended alongside preserved historical receipts.
+
+### Changed
+
+- Regenerated the TypeScript distribution and book-chrome layout from the unchanged canonical theme.
+- Preserved historical 0.3.0, 0.2.0 and 0.1.0 releases and assets.
+
 ## [0.3.0] - 2026-09-16
 
 Minor release advancing Terminal Nova to full TypeScript distribution and book-chrome layout compilation via Stellar Loom 0.3.0.

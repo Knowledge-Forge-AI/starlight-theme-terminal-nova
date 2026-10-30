@@ -18,7 +18,7 @@ const pkgRoot = resolve(installedRoot);
 assert.equal((await lstat(pkgRoot)).isSymbolicLink(), false);
 const pkg = JSON.parse(await readFile(join(pkgRoot, 'package.json'), 'utf8'));
 assert.equal(pkg.name, '@knowledge-forge-ai/theme-forge-stellar-loom');
-assert.equal(pkg.version, '0.3.0', 'Installed Loom RC compiler must be 0.3.0');
+assert.equal(pkg.version, '0.5.0', 'Installed Loom RC compiler must be 0.5.0');
 
 const api = await import(pathToFileURL(join(pkgRoot, pkg.exports['.'].import)).href);
 const themeBytes = await readFile(inputPath);
@@ -44,9 +44,9 @@ ${metadata.description}
 
 ## Overview
 
-Terminal Nova is an independent, first-party documentation theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). Forge Console is the 0.3.0 design, featuring warm surfaces, disciplined monospace chrome, and an approved page-title-frame component override. Nova Observatory is retained as an editorial alternative in the project history.
+Terminal Nova is an independent, first-party documentation theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). Forge Console is the 0.4.0 design, featuring warm surfaces, disciplined monospace chrome, and an approved page-title-frame component override. Nova Observatory is retained as an editorial alternative in the project history.
 
-Version 0.3.0 introduces the TypeScript distribution pipeline and book-chrome layout compilation alongside Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.2.0 and 0.1.0 released history is preserved.
+Version 0.4.0 regenerates the unchanged Forge Console theme with Stellar Loom 0.5.0, retaining the TypeScript distribution pipeline and book-chrome layout compilation alongside Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.3.0, 0.2.0 and 0.1.0 released history is preserved.
 
 [Repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova) · [Issues](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/issues) · [License](./LICENSE)
 
@@ -73,7 +73,7 @@ npm install --ignore-scripts ${metadata.name}
 Or install from a local packed tarball:
 
 \`\`\`bash
-npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.3.0.tgz
+npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.4.0.tgz
 \`\`\`
 
 ## Configuration
@@ -124,6 +124,20 @@ All notable changes to \`${metadata.name}\` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.4.0] - 2026-10-30
+
+Minor release regenerating the unchanged Forge Console theme with Stellar Loom 0.5.0 and requalifying the six canonical graphics with Stellar Burst 0.7.0.
+
+### Added
+
+- **Loom 0.5.0 Provenance**: Strict package provenance bound to \`@knowledge-forge-ai/theme-forge-stellar-loom@0.5.0\`.
+- **Burst 0.7.0 Graphics Requalification**: Current requalification of the six canonical graphics appended alongside preserved historical receipts.
+
+### Changed
+
+- Regenerated the TypeScript distribution and book-chrome layout from the unchanged canonical theme.
+- Preserved historical 0.3.0, 0.2.0 and 0.1.0 releases and assets.
 
 ## [0.3.0] - 2026-09-16
 
