@@ -11,7 +11,7 @@
     "compatibility": 1,
     "compilerLevel": 1,
     "glyphCatalogDigest": "sha256:8ec3bc8e99cf1cda2cdc362f5a0b6e1f94a8e1c544853d9af46bd999f8a0941a",
-    "packageVersion": "0.4.0",
+    "packageVersion": "0.5.0",
     "packageExport": "./scene/v1"
   },
   "scenes": [

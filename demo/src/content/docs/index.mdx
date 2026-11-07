@@ -1,23 +1,29 @@
 ---
-title: Terminal Nova
-description: A quiet forge for technical ideas, working notes, and useful documentation.
+title: Starlight Theme Terminal Nova
+description: A practical Starlight theme for readable documentation, careful code presentation, and terminal-inspired chrome.
 ---
 
 import { Card, CardGrid, Tabs, TabItem, Aside, Badge, FileTree } from '@astrojs/starlight/components';
 
-<section class="consumer-landing-hero" aria-label="Forge Console Landing Hero">
+<section class="consumer-landing-hero" aria-label="Terminal Nova landing hero">
   <div class="hero-content">
-    <p class="hero-tagline">Theme Forge · Installed Documentation Workspace</p>
+  <p class="hero-tagline">Theme Forge · Starlight Theme Terminal Nova 0.5.0 candidate · published 0.4.0 baseline</p>
+    <h2>Documentation with a calm terminal edge.</h2>
+    <p>
+      Terminal Nova is an independent theme for Astro Starlight. It keeps long-form documentation
+      comfortable to read, gives code a bounded editor frame, and adds a small amount of deliberate
+      console chrome without taking ownership of your content.
+    </p>
     <div class="hero-actions" style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block: 1rem;">
-      <a href="/overview/" class="action-link primary">Architecture Overview</a>
-      <a href="/docs/workflow/" class="action-link secondary">Engine Workflow</a>
-      <a href="/docs/components/" class="action-link secondary">Component Gallery</a>
+      <a href="/docs/getting-started/" class="action-link primary">Install the theme</a>
+      <a href="/overview/" class="action-link secondary">See the architecture</a>
+      <a href="/docs/components/" class="action-link secondary">Browse the components</a>
     </div>
   </div>
   <div class="hero-media-wrapper">
     <img
       src="/art/console-hero.svg"
-      alt="Terminal Nova Console Hero visual workspace showing terminal chrome and warm orange palette"
+      alt="Terminal Nova console hero visual showing terminal chrome and a warm orange palette"
       width="1440"
       height="720"
       class="console-hero-img"
@@ -32,86 +38,170 @@ import { Card, CardGrid, Tabs, TabItem, Aside, Badge, FileTree } from '@astrojs/
   style="background-image: url('/art/console-pattern.svg'); background-repeat: repeat; height: 64px; max-width: 100%; border: 1px solid var(--sl-color-hairline, #50535d); border-radius: 6px; margin: 2rem 0;"
 ></div>
 
-## Workspace Features
+:::note[Published package]
 
-Terminal Nova pairs disciplined terminal-inspired chrome with comfortable, proportional reading prose.
+These pages describe the published `@knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0`
+package and this consumer example. The requested product destination is
+`https://sttn.knowledge-forge.ai`; this source describes the product and does not make a hosting
+or deployment claim.
 
-<section class="orbital-feature-section" aria-label="Orbital Engine Section">
+:::
+
+## What you get
+
+Terminal Nova pairs system-sans reading prose with monospace navigation and code boundaries. The
+theme plugin supplies package-local styles, a framed page title, a responsive sidebar, card-style
+pagination, local middleware, and light/dark code presentation. Your Starlight content, routes,
+component overrides, and custom CSS remain consumer-owned.
+
+<section class="orbital-feature-section" aria-label="Orbital engine section">
   <figure class="orbital-figure">
     <img
       src="/art/orbital-section.svg"
-      alt="Three small satellites follow orange and cyan orbital paths above a curved horizon."
+      alt="Three small satellites follow orange and cyan orbital paths above a curved horizon"
       width="960"
       height="360"
       class="orbital-section-img"
     />
-    <figcaption>Figure: Room to explore — an original orbital composition</figcaption>
+    <figcaption>Room to explore — an original orbital composition included with the demo.</figcaption>
   </figure>
 </section>
 
-## Quick Start
+## Quick start
 
-This private development candidate is not published. Given its locally generated tarball, install with script execution disabled:
+Install the published peer versions and theme together in an Astro Starlight project:
 
-```sh title="Terminal: Installation"
-npm install --ignore-scripts ./starlight-theme-terminal-nova-candidate.tgz
+```sh title="Terminal: install the published baseline"
+npm install astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0
 ```
 
-```js title="astro.config.mjs" {3} ins={5} del={4}
+If your environment deliberately disables package installation scripts, the same package can be
+installed with `--ignore-scripts`:
+
+```sh title="Terminal: install without package scripts"
+npm install --ignore-scripts astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0
+```
+
+Register the plugin in `astro.config.mjs`:
+
+```js title="astro.config.mjs"
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import terminalNova from '@knowledge-forge-ai/starlight-theme-terminal-nova';
-// const legacyTheme = 'v0.1-candidate';
-const currentTheme = terminalNova();
+
+export default defineConfig({
+  integrations: [
+    starlight({
+      title: 'My Documentation',
+      plugins: [terminalNova()],
+    }),
+  ],
+});
 ```
 
-## System Components
+The plugin takes no accent or family argument at runtime. Continue to [Getting
+Started](/docs/getting-started/) for custom CSS, component overrides, and a consumer checklist.
+
+## How the products fit together
 
 <CardGrid>
   <Card title="Stellar Burst" icon="star">
-    Deterministic SVG vector generation and glyph catalog engine.
+    Generates deterministic SVG scenes and glyph assets used by selected Theme Forge
+    demonstrations. Burst is an asset producer, not a runtime dependency of this theme.
   </Card>
   <Card title="Stellar Loom" icon="setting">
-    Typed theme compiler, contrast analyzer, and package generator.
+    Compiles maintained theme specifications into target outputs. The published STTN package is a
+    generated Starlight target; its consumers do not run Loom at page-request time.
   </Card>
   <Card title="Nebular Fusion" icon="pencil">
-    Desktop workbench for interactive preview and design review.
+    A desktop authoring and preview workbench for Theme Forge profiles. Nebular can help inspect
+    shared appearances, but STTN remains usable as an independent npm package.
   </Card>
-  <Card title="Terminal Nova" icon="approve-check">
-    Documentation theme consuming compiled Loom design tokens.
+  <Card title="Starlight Theme Terminal Nova" icon="approve-check">
+    The Astro/Starlight target documented here: a package for navigation, prose, code presentation,
+    and theme chrome in a documentation site.
+  </Card>
+  <Card title="shadcn Theme Terminal Nova" icon="document">
+    CTTN is the sibling shadcn/Tailwind target. It maps the shared design intent to a different
+    component system; it is not an additional dependency of an STTN consumer.
   </Card>
 </CardGrid>
 
-## Feature Matrix
+<Aside type="tip" title="Choose the target that matches your site">
 
-| Feature | Specification | Status |
+Use STTN when your product is an Astro Starlight documentation site. Choose CTTN when the target
+is a shadcn/Tailwind application. Nebular is the authoring and preview surface for shared Theme
+Forge work; it is not required to build or serve STTN documentation.
+
+</Aside>
+
+## Published baseline and development previews
+
+The published 0.4.0 package is the Forge Console design with the orange primary output. The source
+also retains a separate cyan generation path described in [Appearance
+Families](/docs/appearance-families/). The shared next-cycle collection has six visual families,
+each with light and dark appearances, but that twelve-appearance collection is still a
+development preview. It is not silently included in the current npm package, and STTN 0.4.0 does
+not provide a persisted family-selection workflow.
+
+The source tree also carries the unreleased 0.5.0 package metadata candidate. This documentation
+continues to describe the published 0.4.0 install and runtime boundary until the candidate is
+separately published.
+
+| Capability | Published 0.4.0 | Development preview boundary |
 | :--- | :--- | :--- |
-| Prose Typography | System sans, 1.65 line height | <Badge text="Verified" variant="success" /> |
-| Code Chrome | System monospace, bounded frame | <Badge text="Verified" variant="success" /> |
-| Navigation | Nested sidebar with card pagination | <Badge text="Active" variant="tip" /> |
-| Brand Assets | Six manifest-bound SVGs in public/art | <Badge text="Loaded" variant="note" /> |
+| Astro/Starlight integration | `astro@7.3.3` and `@astrojs/starlight@0.42.0` consumer baseline | Future site or package revisions may broaden the tested range |
+| Primary appearance | Forge Console with orange accent | Shared family work may introduce additional pairs |
+| Alternate accent | Cyan output selected during generation | Not a runtime `terminalNova({ accent })` option |
+| Navigation and code chrome | Nested sidebar, card pagination, framed title, expressive code defaults | New catalog composition is maintained separately from this content slice |
+| Family selection and persistence | Not provided by the published plugin | Twelve appearances and persisted choices remain development work |
+
+## Feature matrix
+
+| Feature | What a consumer can use | Status |
+| :--- | :--- | :--- |
+| Prose typography | System sans with a spacious reading column | <Badge text="Published" variant="success" /> |
+| Code presentation | Light/dark syntax themes, editor or terminal frames, marks, and copy controls | <Badge text="Published" variant="success" /> |
+| Navigation | Nested sidebar, responsive shell, and card-style pagination | <Badge text="Published" variant="tip" /> |
+| Customization | Consumer CSS and Starlight component overrides take precedence | <Badge text="Supported" variant="tip" /> |
+| Local graphics | Six consumer-local demo SVG scenes in this consumer | <Badge text="Demo" variant="note" /> |
+| Shared appearance catalog | Six families × two modes | <Badge text="Preview" variant="caution" /> |
 
 <Tabs>
-  <TabItem label="File Structure">
+  <TabItem label="Consumer layout">
     <FileTree>
-    - themes/
-      - terminal-nova/
-        - v0.2/
-          - demo/
-            - src/
-            - public/
-              - art/
-                - console-hero.svg
-                - orbital-section.svg
-                - console-pattern.svg
-              - brand/
-                - favicon-on-dark.svg
-                - favicon-on-light.svg
+    - my-docs/
+      - astro.config.mjs
+      - package.json
+      - src/
+        - content/
+          - docs/
+            - index.mdx
+            - docs/
+              - getting-started.mdx
+        - styles/
+          - site.css
+      - public/
+        - brand/
     </FileTree>
   </TabItem>
-  <TabItem label="Integration Notes">
-    :::note[Forge Console Chrome]
-    Forge Console preserves sans prose typography with warm orange accents, while navigation and code blocks suggest a disciplined terminal workspace.
+  <TabItem label="Integration note">
+    :::note[Keep identity assets separate]
+    Appearance tokens can change the surrounding interface, but the supplied Nova Ingot marks and
+    favicons retain their approved artwork treatments. See [Brand and License](/docs/brand-and-license/)
+    before copying identity artwork into another surface.
     :::
   </TabItem>
 </Tabs>
+
+## Continue
+
+- [Architecture overview](/overview/) explains the target boundaries and generated outputs.
+- [Getting started](/docs/getting-started/) walks through installation and configuration.
+- [Engine workflow](/docs/workflow/) shows how source specifications become consumer artifacts.
+- [Component gallery](/docs/components/) demonstrates code, cards, tabs, file trees, tables, and callouts.
+- [Appearance families](/docs/appearance-families/) separates published accents from development previews.
+- [Brand and License](/docs/brand-and-license/) records approved artwork treatments and software links.
+
+The public source is available in the [Terminal Nova GitHub repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova),
+and the published package is listed on [npm](https://www.npmjs.com/package/@knowledge-forge-ai/starlight-theme-terminal-nova).

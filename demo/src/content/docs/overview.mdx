@@ -1,35 +1,131 @@
 ---
 title: Architecture Overview
-description: Architecture overview and design system of Terminal Nova.
+description: How Terminal Nova, Stellar Loom, Nebular Fusion, and sibling consumer targets fit together.
 ---
 
 import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
 
-## Overview Details
+## A theme target, not an application shell
 
-The overview route exercises the catalog banner Hero layout when rendered by the catalog-enabled Starlight theme plugin.
+Terminal Nova is the Starlight target in the Theme Forge family. It packages a visual system,
+layout chrome, component integrations, and code presentation defaults for an Astro documentation
+site. It does not replace Starlight's content model, run a compiler in the browser, or provide the
+application behavior that belongs to your product.
 
-### Architectural Principles
+The package is published as `@knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0`. Its demo is a
+consumer project pinned to Astro 7.3.3 and Starlight 0.42.0 so the adoption path is concrete. Start
+with [Getting Started](/docs/getting-started/) if you are adding it to a new site.
 
-1. **Proportional Typography**: Readable system sans prose at 1.65 line height.
-2. **Disciplined Chrome**: Monospace navigation and code boundaries.
-3. **Contrast Fidelity**: Verified WCAG contrast diagnostics across light and dark modes.
-4. **Offline Isolation**: Zero external network requests at runtime.
+This source tree also prepares an unreleased 0.5.0 candidate. It does not change the published
+0.4.0 install guidance or claim registry availability before a separate publication decision.
+
+## The four boundaries
+
+| Boundary | Owns | Does not own |
+| :--- | :--- | :--- |
+| Content | Markdown/MDX pages, links, examples, and your information architecture | Theme generation or product data |
+| Starlight adapter | Plugin registration, package-local CSS, component mapping, middleware, and code defaults | Your route content or business logic |
+| Shared Theme Forge source | Theme profiles, resolved tokens, and target-specific generated outputs | Runtime family switching in a 0.4.0 consumer |
+| Consumer site | Site CSS, content, custom components, metadata, and deployment | The license or approved treatment of protected identity artwork |
+
+This separation lets a documentation author customize a page without editing generated theme
+files. It also makes it clear where a request belongs: STTN for an Astro/Starlight site, CTTN for a
+shadcn/Tailwind consumer, and Nebular Fusion for desktop authoring and preview workflows.
+
+## Architectural principles
+
+1. **Readable first:** system-sans prose, a proportional column, and clear heading hierarchy keep
+   long technical pages usable.
+2. **Disciplined chrome:** navigation and code frames borrow terminal cues while leaving the
+   document itself in control of the reading flow.
+3. **Resolved tokens:** light and dark surface roles are emitted by the theme output rather than
+   asking a page to recalculate them at runtime.
+4. **Consumer precedence:** a site's custom CSS and explicit Starlight component overrides load
+   after the theme defaults.
+5. **Local by default:** package assets and the demo's SVG scenes are local; the package does not
+   generate runtime network requests.
 
 <CardGrid>
-  <Card title="Primary Accent" icon="star">
-    Warm orange accent (#ff8a3d dark / #9c3e0b light) with high-contrast tone derivations.
+  <Card title="Primary accent" icon="star">
+    The published Forge Console output uses warm orange roles: `#ff8a3d` in dark mode and
+    `#9c3e0b` in light mode, with derived high/low and focus colors.
   </Card>
-  <Card title="Alternate Accent" icon="moon">
-    Cyan is selected at Loom generation time and installed as a separate generated candidate package. The generated plugin takes no accent option.
+  <Card title="Alternate accent" icon="moon">
+    Cyan is an existing generation-time variant. It is a separate generated output, not an
+    `accent` option accepted by the published plugin function.
+  </Card>
+  <Card title="Code presentation" icon="document">
+    Expressive Code receives light/dark syntax themes, bounded editor and terminal frames, and
+    consumer-mergeable style defaults.
+  </Card>
+  <Card title="Target adapters" icon="setting">
+    STTN and CTTN share design intent where it is useful, but each target maps roles to its own
+    component system. Pixel-identical CSS is not a requirement.
   </Card>
 </CardGrid>
 
-## Candidate Lineage
+## A day in the life of an STTN page
 
-| Candidate | Prose Font | Column Width | Line Height | UI Tone |
-| :--- | :--- | :--- | :--- | :--- |
-| Forge Console (Flagship) | System sans | 44rem | 1.65 | Warm orange |
-| Nova Observatory (History) | System serif | 48rem | 1.80 | Soft violet |
+The consumer supplies an MDX page and an Astro/Starlight configuration. Starlight loads the
+Terminal Nova plugin, which registers the package styles and default component map. During site
+build, the page is composed with those defaults and any consumer-owned overrides. At request time,
+the site serves the generated page and package-local assets; it does not invoke Stellar Loom or
+Nebular.
 
-The Forge Console design remains the canonical flagship for technical documentation.
+```text
+MDX page + Starlight config
+        |
+        v
+Terminal Nova plugin  --->  CSS layers, code defaults, components, middleware
+        |
+        v
+Astro build           --->  static or server-rendered Starlight site
+```
+
+:::tip[Keep generated output at the boundary]
+
+If you need a different family or a new token role, change the maintained profile and regenerate
+the target output through the appropriate Theme Forge path. If you need a site-specific spacing or
+component adjustment, use your project's `customCss` or a Starlight component override. Do not
+hand-edit package `dist/` files as a customization strategy.
+
+:::
+
+## Published behavior and the next collection
+
+Version 0.4.0 is the published Forge Console baseline. It carries the orange primary output and
+Starlight-compatible light/dark tokens. The source retains a separate cyan generation path, but
+the installed plugin does not expose it as a runtime option.
+The shared next-cycle collection is broader: six visual families with a light and dark appearance
+for each. That collection is a development preview, not a capability claim about the current npm
+package. In particular, 0.4.0 does not ship a twelve-entry appearance picker, persisted family
+preferences, or a working save/reopen appearance workflow.
+
+The distinction matters for product relationships:
+
+- **Nebular Fusion** can author, compare, or preview shared profiles as its desktop workbench.
+- **STTN** consumes a generated Starlight target and gives documentation authors a stable package
+  integration.
+- **CTTN** consumes the same design intent in a shadcn/Tailwind target with different component
+  mappings.
+
+The shared family catalog can grow without changing the fact that a published STTN consumer is a
+normal Astro/Starlight project with ordinary source, build, and deployment ownership.
+
+## Source and package links
+
+Read the [Terminal Nova source repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova),
+the [published npm package](https://www.npmjs.com/package/@knowledge-forge-ai/starlight-theme-terminal-nova),
+and the [Astro Starlight documentation](https://starlight.astro.build/) for the surrounding platform
+contract. The package's own [README](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova#readme)
+contains release notes, peer compatibility, cascade order, and license pointers.
+
+## Architectural status table
+
+| Surface | Description | Status |
+| :--- | :--- | :--- |
+| STTN 0.4.0 package | Published Astro/Starlight theme output | <Badge text="Published" variant="success" /> |
+| Forge Console pair | Warm orange light/dark token sets and code theme | <Badge text="Published" variant="success" /> |
+| Cyan alternate | Separate generation-time output | <Badge text="Available" variant="tip" /> |
+| Twelve-appearance catalog | Six families with light/dark pairs | <Badge text="Development" variant="caution" /> |
+| Persisted family preferences | Select, save, reopen, and reset behavior | <Badge text="Not in 0.4.0" variant="note" /> |

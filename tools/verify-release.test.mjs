@@ -1,12 +1,12 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { chmod, cp, mkdtemp, readFile, rm, symlink, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
 import { verifyRelease } from "./verify-release.mjs";
 
-const root = process.cwd();
+const root = process.env.STTN_RELEASE_ROOT ? resolve(process.env.STTN_RELEASE_ROOT) : process.cwd();
 async function fixture(run) {
   const temporary = await mkdtemp(join(tmpdir(), "nova-release-negative-"));
   try {
@@ -19,7 +19,9 @@ async function fixture(run) {
 }
 
 test("release members, generated tree binding and six served graphics verify", async () => {
-  assert.equal((await verifyRelease(root)).canonicalGraphics, 6);
+  const result = await verifyRelease(root);
+  assert.equal(result.canonicalGraphics, 6);
+  assert.equal(result.appearanceFamilies, process.env.STTN_RELEASE_ROOT ? 6 : 0);
 });
 
 test("stale generated package tree binding fails", async () => fixture(async temporary => {
@@ -73,4 +75,9 @@ test("provenance cannot omit an actual member even with a recomputed inventory d
 test("generated package symlinks fail", async () => fixture(async temporary => {
   await symlink("index.js", join(temporary, "dist/unlisted.js"));
   await assert.rejects(verifyRelease(temporary), /Unexpected generated package symlink/);
+}));
+
+test("appearance projection member tampering fails", { skip: !process.env.STTN_RELEASE_ROOT }, async () => fixture(async temporary => {
+  await writeFile(join(temporary, "styles/appearances-sttn/anime.css"), "tampered");
+  await assert.rejects(verifyRelease(temporary), /Generated member (?:size|digest) mismatch/);
 }));

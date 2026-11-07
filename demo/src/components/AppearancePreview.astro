@@ -1,0 +1,56 @@
+---
+import { APPEARANCE_CATALOG, APPEARANCE_MODES } from "../data/appearance-catalog";
+
+const initialFamily = APPEARANCE_CATALOG[0];
+const initialMode = APPEARANCE_MODES[0];
+---
+
+<section class="appearance-preview" aria-labelledby="appearance-preview-heading">
+  <h2 id="appearance-preview-heading">Compare appearance families</h2>
+  <p>Explore six development candidates in static Starlight specimens. Each frame keeps this site's branding and preferences separate from its fixed preview mode.</p>
+  <div class="preview-controls">
+    <label for="appearance-preview-family">Preview family
+      <select id="appearance-preview-family">
+        {APPEARANCE_CATALOG.map((family) => <option value={family.id}>{family.label}</option>)}
+      </select>
+    </label>
+    <label for="appearance-preview-mode">Preview mode
+      <select id="appearance-preview-mode">
+        {APPEARANCE_MODES.map((mode) => <option value={mode}>{mode === "light" ? "Light" : "Dark"}</option>)}
+      </select>
+    </label>
+  </div>
+  <iframe id="appearance-preview-frame" src={`/appearance-preview/${initialFamily.id}/${initialMode}/`} title={`${initialFamily.label} ${initialMode} Starlight specimen`} sandbox="" loading="lazy"></iframe>
+  <p id="appearance-preview-status" role="status" aria-live="polite">{initialFamily.label} {initialMode} specimen selected.</p>
+  <p><a id="appearance-preview-source" href={`/appearance-preview/profiles/${initialFamily.id}.profile.json`} download>Download the selected v2 source profile JSON</a> <small>(development preview input)</small></p>
+</section>
+
+<script>
+  const family = document.querySelector<HTMLSelectElement>('#appearance-preview-family');
+  const mode = document.querySelector<HTMLSelectElement>('#appearance-preview-mode');
+  const frame = document.querySelector<HTMLIFrameElement>('#appearance-preview-frame');
+  const status = document.querySelector<HTMLElement>('#appearance-preview-status');
+  const source = document.querySelector<HTMLAnchorElement>('#appearance-preview-source');
+  const familyIds = new Set(Array.from(family?.options ?? [], option => option.value));
+  const modeIds = new Set(Array.from(mode?.options ?? [], option => option.value));
+  function update() {
+    if (!family || !mode || !frame || !status) return;
+    const name = family.selectedOptions[0]?.textContent?.trim();
+    if (!name || !familyIds.has(family.value) || !modeIds.has(mode.value)) return;
+    frame.src = `/appearance-preview/${family.value}/${mode.value}/`;
+    frame.title = `${name} ${mode.value} Starlight specimen`;
+    status.textContent = `${name} ${mode.value} specimen selected.`;
+    if (source) source.href = `/appearance-preview/profiles/${family.value}.profile.json`;
+  }
+  family?.addEventListener('change', update);
+  mode?.addEventListener('change', update);
+</script>
+
+<style>
+  .appearance-preview { padding: 1.25rem; border: 1px solid var(--sl-color-hairline); border-radius: var(--tfsl-radius, .5rem); background: var(--sl-color-bg); }
+  .preview-controls { display: flex; flex-wrap: wrap; gap: 1rem; margin-block: 1rem; }
+  .appearance-preview label { display: grid; gap: .4rem; font-weight: 600; }
+  .appearance-preview select { max-width: 100%; padding: .65rem; border: 1px solid var(--sl-color-hairline); border-radius: var(--tfsl-radius-small, .3rem); color: var(--sl-color-text); background: var(--sl-color-bg-nav); }
+  .appearance-preview select:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 3px; }
+  .appearance-preview iframe { width: 100%; height: 42rem; border: 1px solid var(--sl-color-hairline); border-radius: .25rem; }
+</style>

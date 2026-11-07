@@ -1,0 +1,69 @@
+---
+title: Appearance Families
+description: Try shared light and dark family candidates in this Starlight documentation site.
+---
+
+import AppearancePreview from '../../../components/AppearancePreview.astro';
+
+<AppearancePreview />
+
+## One family, two appearances
+
+A family combines its palette, type, surfaces and geometry. Light and dark are the two sides of
+that family. The site's Auto mode follows your system; each separate specimen has an explicit light
+or dark choice. Switching it does not compile anything or contact an external service.
+
+Terminal Nova keeps its cyan, orange and amber vocabulary. Nebular explores purple work surfaces
+and gold highlights. The six families above are development candidates pending final acceptance;
+the published STTN 0.4.0 package still contains the Forge Console design and does not include this
+gallery selector.
+
+The source tree's 0.5.0 package metadata is an unreleased candidate; this gallery remains a
+development preview and does not imply that candidate or its selector is published.
+
+## The collection
+
+| Family direction | Design intent | Preview status |
+| :--- | :--- | :--- |
+| Terminal Nova | Terminal-inspired hierarchy, cyan, orange and amber | Light and dark development candidate |
+| Nebular | Purple and gold for a desktop workspace | Light and dark development candidate |
+| Developer | Restrained code, logs, forms and operational states | Light and dark development candidate |
+| Graphic Designer | Neutral work areas that let artwork and color samples speak | Light and dark development candidate |
+| Anime | Original illustration, expressive type and readable dense screens | Light and dark development candidate |
+| Gamer | Energetic accents, deliberate geometry and clear focus | Light and dark development candidate |
+
+## Shared intent, different components
+
+STTN maps the intent to Starlight navigation, reading layouts, code and documentation components.
+CTTN maps the same intent to Tailwind and shadcn components. These targets need different CSS and
+component behavior; their outputs are not expected to be pixel-identical. Not every semantic leaf
+is mapped in this preview: some Starlight surfaces still retain the existing Forge Console
+template, and code syntax keeps its current presentation. Those differences remain visible so
+they can be evaluated accessibly rather than being treated as completed mappings.
+
+The Anime and Graphic Designer v2 profiles request serif headings, but the current STTN adapter
+marks that heading-family leaf as unsupported and emits its existing system-monospace heading
+stack. The preview therefore records the intent without presenting that leaf as a completed target
+mapping.
+
+The specimens retain the current Starlight header and sidebar heredity while dedicated
+family-specific component roles are still being mapped. This keeps navigation and orientation
+familiar without implying that every component role has a finished family treatment.
+
+Each static variant page exposes the exact v2 source profile used for that development preview. The
+download is an input for review and handoff; it does not add family editing or selection to the
+published STTN 0.4.0 package.
+
+Appearance choices affect interface surfaces. They do not recolor protected identity artwork or
+change a document being authored in Nebular. The existing Terminal Nova mark keeps its approved
+light and dark treatments.
+
+## Use the published theme
+
+Follow [Getting Started](/docs/getting-started/) to install STTN 0.4.0 and integrate its Starlight
+plugin. The plugin takes no family option. [Engine Workflow](/docs/workflow/) explains generation
+and customization; [Component Gallery](/docs/components/) shows the documentation components.
+
+See [Brand and License](/docs/brand-and-license/) for the distinction between software and official
+identity artwork. Source is maintained on [GitHub](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova),
+with published packages on [npm](https://www.npmjs.com/package/@knowledge-forge-ai/starlight-theme-terminal-nova).
