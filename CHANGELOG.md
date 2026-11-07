@@ -5,6 +5,14 @@ All notable changes to `@knowledge-forge-ai/starlight-theme-terminal-nova` will 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - Unreleased
+
+Minor package release retaining the Forge Console 0.4.0 theme/profile and the existing Loom 0.5.0 and Burst 0.7.0 inputs.
+
+### Added
+
+- **Shared appearance family styles**: Six opt-in Loom CSS projections with light and dark surfaces, bound to the common appearance catalog and replay inventory.
+
 ## [0.4.0] - 2026-10-30
 
 Minor release regenerating the unchanged Forge Console theme with Stellar Loom 0.5.0 and requalifying the six canonical graphics with Stellar Burst 0.7.0.

@@ -6,7 +6,7 @@ Independent Terminal Nova documentation theme; Forge Console 0.4.0 design
 
 Terminal Nova is an independent, first-party documentation theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). Forge Console is the 0.4.0 design, featuring warm surfaces, disciplined monospace chrome, and an approved page-title-frame component override. Nova Observatory is retained as an editorial alternative in the project history.
 
-Version 0.4.0 regenerates the unchanged Forge Console theme with Stellar Loom 0.5.0, retaining the TypeScript distribution pipeline and book-chrome layout compilation alongside Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.3.0, 0.2.0 and 0.1.0 released history is preserved.
+Version 0.5.0 is an unreleased candidate that regenerates the unchanged Forge Console 0.4.0 theme with Stellar Loom 0.5.0, retaining the TypeScript distribution pipeline and book-chrome layout compilation alongside Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.4.0 remains the published baseline; its release history is preserved.
 
 [Repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova) · [Issues](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/issues) · [License](./LICENSE)
 
@@ -33,7 +33,7 @@ npm install --ignore-scripts @knowledge-forge-ai/starlight-theme-terminal-nova
 Or install from a local packed tarball:
 
 ```bash
-npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.4.0.tgz
+npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.5.0.tgz
 ```
 
 ## Configuration
@@ -66,6 +66,17 @@ The adapter declares Starlight before Loom layers. Unlayered compat CSS ensures 
 ## Component Overrides
 
 This package provides an opt-in `page-title-frame` component override wrapping Starlight's `PageTitle.astro`. If your Starlight configuration already specifies a `components.PageTitle` override, your override is preserved and takes precedence.
+
+## Appearance Family Styles
+
+The 0.5.0 candidate also carries six opt-in shared family stylesheets:
+`terminal-nova`, `nebular`, `developer`, `graphic-designer`, `anime`, and `gamer`. Each stylesheet contains its light and dark family surfaces and is loaded only when explicitly selected by the consumer. For example:
+
+```css
+@import "@knowledge-forge-ai/starlight-theme-terminal-nova/styles/appearances-sttn/nebular.css";
+```
+
+The default plugin continues to load the legacy Forge Console 0.4.0 styles only; family files do not replace that default or select a family implicitly.
 
 ## Licensing & Permissions
 

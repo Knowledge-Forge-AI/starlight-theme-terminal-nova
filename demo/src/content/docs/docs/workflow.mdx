@@ -1,55 +1,139 @@
 ---
 title: Engine Workflow
-description: Labelled architecture and engine pipeline workflow for theme compilation and artifact verification.
+description: How maintained theme source becomes a Starlight package and a useful consumer site.
 ---
 
 import { Aside, Badge } from '@astrojs/starlight/components';
 
-## Engine Pipeline
+## From profile to page
 
-Stellar Burst compiles canonical scene JSON into local SVG assets. Stellar Loom compiles a canonical theme into the installable Starlight package. Nebular Fusion supplies the authoring, verification, and design-evidence workbench. The demo assembles the two generated outputs; neither engine embeds the other.
+Terminal Nova is one target in a wider Theme Forge workflow. A maintained theme profile describes
+roles such as page, panel, border, focus, code, and accent. Stellar Loom resolves that profile into
+target output; STTN packages the Starlight adapter, styles, components, middleware, and metadata;
+an Astro consumer then supplies its own content and site configuration.
 
-<figure class="workflow-figure" aria-label="Theme Forge Engine Workflow">
+<figure class="workflow-figure" aria-label="Theme Forge engine workflow">
   <img
     src="/art/engine-workflow.svg"
-    alt="Three parallel lanes: Burst produces SVG, Loom produces a theme package, and Nebular retains design evidence; the outputs support the Nova site."
+    alt="Three parallel lanes: Burst produces SVG, Loom produces a theme package, and Nebular retains design evidence; the outputs support the Nova site"
     width="1200"
     height="675"
     class="engine-workflow-img"
   />
-  <figcaption>Figure 1: Labelled engine workflow and artifact pipeline</figcaption>
+  <figcaption>Figure 1: The asset, theme, and authoring paths meet at a consumer site.</figcaption>
 </figure>
 
-### Technical Callout
+### The three paths
 
-<figure class="callout-figure" aria-label="Technical Documentation Callout">
+1. **Stellar Burst → SVG:** editable scene data becomes a local vector asset. The SVG is a
+   production output; the scene remains the maintainable source when a graphic needs revision.
+2. **Stellar Loom → package:** a theme specification becomes target-specific CSS, component
+   modules, code defaults, and package metadata. STTN is the Astro/Starlight target; CTTN is the
+   sibling shadcn/Tailwind target.
+3. **Nebular → review context:** the desktop workbench can show a profile in a real editing or
+   preview context. A Nebular preview is useful for design work, but it is not a prerequisite for
+   serving an STTN site.
+
+<figure class="callout-figure" aria-label="Technical documentation callout">
   <img
     src="/art/documentation-callout.svg"
-    alt="A geometric scene alongside five constraints: deterministic emission, closed grammar, resolved tokens, local glyphs, and zero remote dependencies."
+    alt="A geometric scene alongside five constraints: deterministic emission, closed grammar, resolved tokens, local glyphs, and zero remote dependencies"
     width="960"
     height="540"
     class="documentation-callout-img"
   />
-  <figcaption>Figure 2: Canonical scene constraints</figcaption>
+  <figcaption>Figure 2: The consumer boundary keeps generated resources explicit.</figcaption>
 </figure>
 
-:::tip[Deterministic Verification]
-Every graphic asset is manifest-bound with SHA-256 digests validated before installation.
+:::tip[Deterministic resources]
+
+The published package carries package-local resources and does not generate runtime network
+requests. The demo's SVGs are local examples; a site can add its own assets through ordinary Astro
+content and public files.
+
 :::
 
-## Read the figures
+## A consumer's workflow
 
-1. **Scene JSON → Burst → SVG:** the scene stays editable; the SVG is generated output.
-2. **Theme specification → Loom → package:** the consumer installs the generated package through npm.
-3. **Nebular → evidence:** briefs, candidates, verification and adoption remain traceable.
-4. **Site assembly:** consumer-owned content combines local graphics with the installed theme.
+The practical path for a documentation author is intentionally short:
 
-The technical callout uses bounded geometry, resolved colors and local glyph paths. No remote fonts, raster images or executable configuration belong in these canonical inputs.
+1. Install the published versions in [Getting Started](/docs/getting-started/).
+2. Register `terminalNova()` in `astro.config.mjs`.
+3. Add pages, navigation, and site-owned styles in the consumer project.
+4. Use the built-in light/dark Starlight mode and code frames, then add a component override only
+   where the site's information architecture needs one.
+5. Build and deploy through the consumer's existing Astro process.
 
-## Boundary Isolation Summary
+```js title="Consumer configuration"
+import { defineConfig } from 'astro/config';
+import starlight from '@astrojs/starlight';
+import terminalNova from '@knowledge-forge-ai/starlight-theme-terminal-nova';
 
-| Gate | Requirement | Status |
+export default defineConfig({
+  integrations: [
+    starlight({
+      title: 'Example Docs',
+      plugins: [terminalNova()],
+      customCss: ['./src/styles/site.css'],
+    }),
+  ],
+});
+```
+
+The theme's defaults are loaded before consumer CSS, so `site.css` can adjust a token or add a
+site-specific component treatment without copying the package's generated styles.
+
+## What belongs where
+
+| Input or result | Maintained by | Consumer-facing meaning |
 | :--- | :--- | :--- |
-| Tarball Identity | Pure npm pack archive | <Badge text="Pinned" variant="success" /> |
-| Dependencies | Exact package-lock.json retention | <Badge text="Strict" variant="success" /> |
-| Runtime Requests | 0 external requests | <Badge text="Offline" variant="tip" /> |
+| Theme profile and resolved roles | Theme Forge source | The design intent from which targets are generated |
+| SVG scene source and output | Stellar Burst path | A local, reproducible illustration or decoration |
+| STTN package output | Stellar Loom target | Installable Astro/Starlight theme resources |
+| MDX page and navigation | Site author | Product information and route structure |
+| Custom CSS/component override | Site author | A deliberate local adaptation with consumer precedence |
+| Appearance-family preview | Shared development work | Direction for future outputs, not an npm 0.4.0 runtime feature |
+
+<Aside type="caution" title="Generation is not runtime selection">
+
+The existing orange and cyan accents are generation-time outputs. Calling `terminalNova()` in a
+published consumer does not select among six families or twelve appearances, persist a family choice, or start a
+compiler. See [Appearance Families](/docs/appearance-families/) for the exact published boundary.
+
+</Aside>
+
+## Boundary isolation summary
+
+| Boundary | Requirement | What this demo illustrates |
+| :--- | :--- | :--- |
+| Package identity | Install a published STTN package | Versioned npm install and plugin registration |
+| Site ownership | Keep content and custom CSS in the consumer | MDX pages, `customCss`, and explicit overrides |
+| Asset locality | Serve demo art from the consumer's public files | Local SVG figures with accessible descriptions |
+| Code presentation | Keep examples near the explanation they support | Expressive Code fences with titles and frames |
+| Product relationship | Keep STTN, CTTN, and Nebular roles distinct | Target, sibling target, and authoring workbench |
+
+## Read the figures as a maintainer
+
+The editable input is not the same artifact as the package output. When a page references
+`/art/engine-workflow.svg`, it is consuming a finished local asset. When a consumer installs the
+STTN package, it is consuming target output produced elsewhere. Keeping those seams visible makes
+it possible to update a source profile or illustration without treating generated files as the
+design brief.
+
+The same rule applies to appearance families. The six-family collection is useful for design
+exploration and future target work, but it must not be described as a capability already present in
+the 0.4.0 plugin. A site can document a preview while continuing to install the published baseline.
+
+## Source links
+
+The [Terminal Nova source repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova)
+contains the package, consumer demo, release notes, and license files. The package is available on
+[npm](https://www.npmjs.com/package/@knowledge-forge-ai/starlight-theme-terminal-nova). For the host
+framework, see [Astro](https://astro.build/) and [Starlight](https://starlight.astro.build/).
+
+| Surface | Current documentation signal |
+| :--- | :--- |
+| Published STTN package | <Badge text="0.4.0" variant="success" /> |
+| Astro consumer baseline | <Badge text="7.3.3" variant="success" /> |
+| Starlight consumer baseline | <Badge text="0.42.0" variant="success" /> |
+| Shared twelve-appearance collection | <Badge text="Development preview" variant="caution" /> |

@@ -5,11 +5,34 @@ import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const digest = bytes => createHash("sha256").update(bytes).digest("hex");
+const APPEARANCE_IDS = ["terminal-nova", "nebular", "developer", "graphic-designer", "anime", "gamer"];
 const localPath = path => {
   assert(typeof path === "string" && !path.startsWith("/") && !path.includes("\\") &&
     path.split("/").every(part => part && part !== "." && part !== ".."), "Invalid release member path");
   return path;
 };
+
+export async function verifyAppearanceProjection(root, provenance) {
+  const projection = provenance.appearanceProjection;
+  if (projection === undefined) return null;
+  assert.equal(projection.schema, "tfsl.sttn-appearance-projection-v1");
+  assert.equal(typeof projection.inventoryDigest, "string");
+  assert.deepEqual(projection.members.map(member => member.id), APPEARANCE_IDS);
+  assert.deepEqual(projection.members.map(member => member.output), APPEARANCE_IDS.map(id => `styles/appearances-sttn/${id}.css`));
+  const packageMembers = new Map(provenance.files.map(member => [member.path, member]));
+  const appearanceMembers = provenance.files.filter(member => member.path.startsWith("styles/appearances-sttn/"));
+  assert.deepEqual(appearanceMembers.map(member => member.path).sort(), projection.members.map(member => member.output).sort());
+  for (const member of projection.members) {
+    const packageMember = packageMembers.get(member.output);
+    assert(packageMember, `Missing appearance package member: ${member.output}`);
+    assert.equal(packageMember.size, member.bytes, `Appearance package size mismatch: ${member.output}`);
+    assert.equal(packageMember.sha256, member.sha256, `Appearance package digest mismatch: ${member.output}`);
+    const bytes = await readFile(join(root, localPath(member.output)));
+    assert.equal(bytes.length, member.bytes, `Appearance member byte length mismatch: ${member.output}`);
+    assert.equal(digest(bytes), member.sha256, `Appearance member digest mismatch: ${member.output}`);
+  }
+  return projection;
+}
 
 // Match composition-policy.mjs computeTreeInventory: sorted path/size/mode/sha256
 // records, actual permission bits masked by 0777, JSON bytes and no hash prefix.
@@ -50,7 +73,7 @@ export async function verifyRelease(root) {
   const readJson = async path => JSON.parse(await readFile(join(root, path), "utf8"));
   const pkg = await readJson("package.json");
   assert.equal(pkg.name, "@knowledge-forge-ai/starlight-theme-terminal-nova");
-  assert.equal(pkg.version, "0.4.0");
+  assert.equal(pkg.version, "0.5.0");
   assert(!/release candidate/i.test(pkg.description));
   assert.equal(Object.keys(pkg.dependencies ?? {}).length, 0);
   const provenance = await readJson("provenance.json");
@@ -59,13 +82,14 @@ export async function verifyRelease(root) {
   assert.equal(provenance.producer.version, "0.5.0");
   assert.equal(provenance.packageName, pkg.name);
   assert.deepEqual(provenance.inventoryExcludes, ["provenance.json"]);
-  assert.equal(provenance.packageVersion, "0.4.0");
+  assert.equal(provenance.packageVersion, "0.5.0");
   assert.equal(new Set(provenance.files.map(file => file.path)).size, provenance.files.length);
   for (const file of provenance.files) {
     const bytes = await readFile(join(root, localPath(file.path)));
     assert.equal(bytes.length, file.size, "Generated member size mismatch");
     assert.equal(digest(bytes), file.sha256, "Generated member digest mismatch");
   }
+  const appearanceProjection = await verifyAppearanceProjection(root, provenance);
   assert.equal(digest("tfsl.package-inventory-v2\n" + JSON.stringify(provenance.files)), provenance.inventoryDigest);
   const inputs = await readJson("rc-inputs.json");
   const generatedFiles = await generatedPackageInventory(root, pkg);
@@ -94,7 +118,7 @@ export async function verifyRelease(root) {
     assert.equal(qualification.scenes.find(item => item.id === scene.id)?.svgDigest, scene.svgDigest);
     assert.equal(currentQualification.scenes.find(item => item.id === scene.id)?.svgDigest, scene.svgDigest);
   }
-  return { version: pkg.version, generatedMembers: provenance.files.length, canonicalGraphics: 6 };
+  return { version: pkg.version, generatedMembers: provenance.files.length, canonicalGraphics: 6, appearanceFamilies: appearanceProjection?.members.length ?? 0 };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

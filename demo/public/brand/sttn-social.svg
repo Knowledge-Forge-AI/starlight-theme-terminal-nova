@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="sttn-social-title sttn-social-desc">
+  <title id="sttn-social-title">Starlight Theme Terminal Nova</title>
+  <desc id="sttn-social-desc">An Astro Starlight theme for readable technical documentation, focused code, and terminal-inspired navigation.</desc>
+  <rect width="1200" height="630" fill="#0b1118" />
+  <path d="M0 94H1200M0 536H1200M92 0V630M1108 0V630" stroke="#182936" stroke-width="2" />
+  <rect x="72" y="72" width="1056" height="486" rx="18" fill="#101a24" stroke="#2e596c" stroke-width="2" />
+  <path d="M72 124H1128" stroke="#ff8a3d" stroke-width="3" />
+  <circle cx="104" cy="98" r="7" fill="#ff8a3d" />
+  <circle cx="128" cy="98" r="7" fill="#57d5ff" />
+  <text x="168" y="108" fill="#9bb8c5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="3">STTN · DOCUMENTATION THEME</text>
+  <text x="128" y="248" fill="#f3f7fa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="66" font-weight="700">Starlight Theme</text>
+  <text x="128" y="330" fill="#57d5ff" font-family="ui-sans-serif, system-ui, sans-serif" font-size="74" font-weight="700">Terminal Nova</text>
+  <text x="128" y="408" fill="#c1d2da" font-family="ui-sans-serif, system-ui, sans-serif" font-size="27">Readable documentation · focused code · terminal-inspired navigation</text>
+  <path d="M128 474H432" stroke="#ff8a3d" stroke-width="4" />
+  <text x="128" y="518" fill="#ffb17c" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" letter-spacing="2">https://sttn.knowledge-forge.ai</text>
+</svg>

@@ -5,20 +5,133 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { readFile, mkdir, writeFile, lstat, readdir, symlink, rm } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { dirname, isAbsolute, join, relative, resolve } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const root = fileURLToPath(new URL('../', import.meta.url));
-const [installedRoot, inputPath, outputPath, tarballPath] = process.argv.slice(2);
+const [installedRoot, inputPath, outputPath, tarballPath, projectionPathArg] = process.argv.slice(2);
 if (!installedRoot || !inputPath || !outputPath || !tarballPath) {
-  throw new Error('Usage: generate-theme.mjs <installed-loom-root> <theme.json> <fresh-output> <loom.tgz>');
+  throw new Error('Usage: generate-theme.mjs <installed-loom-root> <theme.json> <fresh-output> <loom.tgz> [appearance-projection.json]');
 }
 const pkgRoot = resolve(installedRoot);
 assert.equal((await lstat(pkgRoot)).isSymbolicLink(), false);
 const pkg = JSON.parse(await readFile(join(pkgRoot, 'package.json'), 'utf8'));
 assert.equal(pkg.name, '@knowledge-forge-ai/theme-forge-stellar-loom');
 assert.equal(pkg.version, '0.5.0', 'Installed Loom RC compiler must be 0.5.0');
+
+const DEFAULT_PROJECTION_PATH = resolve(root, 'tools/source/appearance-family/projection.json');
+const projectionPath = projectionPathArg ? resolve(projectionPathArg) : DEFAULT_PROJECTION_PATH;
+const projectionRelation = relative(root, projectionPath);
+assert(projectionRelation && projectionRelation !== '..' && !projectionRelation.startsWith(`..${'/'}`) && !isAbsolute(projectionRelation), 'Appearance projection manifest escaped the STTN source root');
+
+function safeRelativePath(value, label, allowParents = false) {
+  assert.equal(typeof value, 'string', `${label} must be a string`);
+  assert(value.length > 0 && !isAbsolute(value) && !value.includes('\\') &&
+    value.split('/').every(part => part && part !== '.' && (allowParents || part !== '..')), `${label} must be a safe relative path`);
+  return value;
+}
+
+function containedPath(base, value, label) {
+  const candidate = resolve(base, value);
+  const relation = relative(root, candidate);
+  assert(relation && relation !== '..' && !relation.startsWith(`..${'/'}`) && !isAbsolute(relation), `${label} escaped the STTN source root`);
+  return candidate;
+}
+
+async function readRegularFile(path, label) {
+  const info = await lstat(path);
+  assert(info.isFile() && !info.isSymbolicLink(), `${label} must be a regular file`);
+  return readFile(path);
+}
+
+function compareProjectionMembers(actual, expected, label) {
+  assert.deepEqual(actual, expected, `${label} drifted`);
+}
+
+async function loadAppearanceProjection(manifestPath) {
+  const manifestRoot = dirname(manifestPath);
+  const manifestBytes = await readRegularFile(manifestPath, 'Appearance projection manifest');
+  const manifest = JSON.parse(manifestBytes.toString('utf8'));
+  assert.equal(manifest.schema, 'theme-forge.sttn-appearance-projection.v1');
+  assert.deepEqual(manifest.modes, ['light', 'dark']);
+  assert.equal(typeof manifest.inventoryDigest, 'string');
+  const sourceRoot = containedPath(manifestRoot, safeRelativePath(manifest.sourceRoot, 'Appearance source root', true), 'Appearance source root');
+  const sourceRootInfo = await lstat(sourceRoot);
+  assert(sourceRootInfo.isDirectory() && !sourceRootInfo.isSymbolicLink(), 'Appearance source root must be a directory');
+
+  const sourceCatalogPath = join(sourceRoot, safeRelativePath(manifest.sourceCatalog.path, 'Appearance catalog path'));
+  const sourceProfilesPath = join(sourceRoot, safeRelativePath(manifest.sourceProfiles.path, 'Appearance profiles path'));
+  const sourceProvenancePath = join(sourceRoot, safeRelativePath(manifest.sourceProvenance.path, 'Appearance provenance path'));
+  const [catalogBytes, profilesBytes, provenanceBytes] = await Promise.all([
+    readRegularFile(sourceCatalogPath, 'Appearance catalog'),
+    readRegularFile(sourceProfilesPath, 'Appearance profiles manifest'),
+    readRegularFile(sourceProvenancePath, 'Appearance source provenance'),
+  ]);
+  assert.equal(digest(catalogBytes), manifest.sourceCatalog.sha256, 'Appearance catalog bytes drifted');
+  assert.equal(digest(profilesBytes), manifest.sourceProfiles.sha256, 'Appearance profiles bytes drifted');
+  assert.equal(digest(provenanceBytes), manifest.sourceProvenance.sha256, 'Appearance source provenance bytes drifted');
+
+  const catalog = JSON.parse(catalogBytes.toString('utf8'));
+  const profiles = JSON.parse(profilesBytes.toString('utf8'));
+  const provenance = JSON.parse(provenanceBytes.toString('utf8'));
+  const expectedIds = manifest.members.map(member => member.id);
+  assert.deepEqual(expectedIds, ['terminal-nova', 'nebular', 'developer', 'graphic-designer', 'anime', 'gamer']);
+  assert.deepEqual(catalog.families?.map(family => family.id), expectedIds, 'Appearance catalog family order drifted');
+  assert.equal(profiles.schema, 'theme-forge.appearance-source-manifest.v1');
+  assert.equal(profiles.inventoryDigest, manifest.inventoryDigest, 'Appearance profile inventory drifted');
+  const profileRecords = manifest.profiles.map(profile => ({ id: profile.id, sha256: profile.sha256 }));
+  const profileById = new Map(profiles.members.map(member => [member.name, member]));
+  const actualProfileRecords = expectedIds.map(id => {
+    const member = profileById.get(id);
+    assert(member, `Appearance profile ${id} is absent from source inventory`);
+    return { id: member.name, sha256: member.sha256 };
+  });
+  compareProjectionMembers(actualProfileRecords, profileRecords, 'Appearance profile records');
+
+  assert.equal(provenance.schema, 'theme-forge.site-appearance-projection.v1');
+  assert.equal(provenance.inventoryDigest, manifest.inventoryDigest, 'Appearance projection inventory drifted');
+  assert.equal(provenance.sourceCatalogSha256, manifest.sourceCatalog.generatedSha256, 'Generated appearance catalog identity drifted');
+  const provenanceMembers = new Map(provenance.members.map(member => [member.output, member]));
+  assert.equal(provenanceMembers.size, manifest.members.length + 1, 'Appearance source member count drifted');
+  assert.equal(provenanceMembers.get('catalog.json')?.sha256, manifest.sourceCatalog.sha256, 'Appearance source catalog member drifted');
+
+  const files = [];
+  for (const member of manifest.members) {
+    assert.equal(typeof member.id, 'string');
+    assert.equal(safeRelativePath(member.source, `Appearance ${member.id} source`), member.source);
+    assert.equal(member.output, `styles/appearances-sttn/${member.id}.css`);
+    assert.equal(member.bytes, Number(member.bytes));
+    assert.match(member.sha256, /^[0-9a-f]{64}$/);
+    const sourcePath = join(sourceRoot, member.source);
+    const bytes = await readRegularFile(sourcePath, `Appearance ${member.id} CSS`);
+    assert.equal(bytes.length, member.bytes, `Appearance ${member.id} size drifted`);
+    assert.equal(digest(bytes), member.sha256, `Appearance ${member.id} bytes drifted`);
+    const content = bytes.toString('utf8');
+    assert.deepEqual(Buffer.from(content, 'utf8'), bytes, `Appearance ${member.id} is not stable UTF-8`);
+    const sourceRecord = provenanceMembers.get(member.source);
+    assert(sourceRecord, `Appearance ${member.id} is absent from source provenance`);
+    assert.equal(sourceRecord.bytes, member.bytes, `Appearance ${member.id} provenance size drifted`);
+    assert.equal(sourceRecord.sha256, member.sha256, `Appearance ${member.id} provenance digest drifted`);
+    files.push({ id: member.id, output: member.output, bytes: member.bytes, sha256: member.sha256, content });
+  }
+
+  const receipt = {
+    schema: 'tfsl.sttn-appearance-projection-v1',
+    inventoryDigest: manifest.inventoryDigest,
+    sourceCatalogSha256: manifest.sourceCatalog.generatedSha256,
+    sourceCatalogRawSha256: manifest.sourceCatalog.rawSha256,
+    sourceInventoryDigest: manifest.sharedSource.sourceInventoryDigest,
+    producerInventoryDigest: manifest.sharedSource.producerInventoryDigest,
+    templateSha256: manifest.sharedSource.templateSha256,
+    engines: manifest.sharedSource.engines,
+    profiles: profileRecords,
+    members: manifest.members.map(({ id, output, bytes, sha256 }) => ({ id, output, bytes, sha256 })),
+  };
+  return { receipt, files };
+}
+
+const appearanceProjection = await loadAppearanceProjection(projectionPath);
 
 const api = await import(pathToFileURL(join(pkgRoot, pkg.exports['.'].import)).href);
 const themeBytes = await readFile(inputPath);
@@ -46,7 +159,7 @@ ${metadata.description}
 
 Terminal Nova is an independent, first-party documentation theme built with Stellar Loom for [Astro Starlight](https://starlight.astro.build). Forge Console is the 0.4.0 design, featuring warm surfaces, disciplined monospace chrome, and an approved page-title-frame component override. Nova Observatory is retained as an editorial alternative in the project history.
 
-Version 0.4.0 regenerates the unchanged Forge Console theme with Stellar Loom 0.5.0, retaining the TypeScript distribution pipeline and book-chrome layout compilation alongside Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.3.0, 0.2.0 and 0.1.0 released history is preserved.
+Version 0.5.0 is an unreleased candidate that regenerates the unchanged Forge Console 0.4.0 theme with Stellar Loom 0.5.0, retaining the TypeScript distribution pipeline and book-chrome layout compilation alongside Theme v2 and catalog specification with orange primary and cyan alternate accents, responsive sidebar, catalog hero banner, and six canonical graphics. Version 0.4.0 remains the published baseline; its release history is preserved.
 
 [Repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova) · [Issues](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/issues) · [License](./LICENSE)
 
@@ -73,7 +186,7 @@ npm install --ignore-scripts ${metadata.name}
 Or install from a local packed tarball:
 
 \`\`\`bash
-npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.4.0.tgz
+npm install --ignore-scripts /path/to/knowledge-forge-ai-starlight-theme-terminal-nova-0.5.0.tgz
 \`\`\`
 
 ## Configuration
@@ -107,6 +220,17 @@ The adapter declares Starlight before Loom layers. Unlayered compat CSS ensures 
 
 This package provides an opt-in \`page-title-frame\` component override wrapping Starlight's \`PageTitle.astro\`. If your Starlight configuration already specifies a \`components.PageTitle\` override, your override is preserved and takes precedence.
 
+## Appearance Family Styles
+
+The 0.5.0 candidate also carries six opt-in shared family stylesheets:
+\`terminal-nova\`, \`nebular\`, \`developer\`, \`graphic-designer\`, \`anime\`, and \`gamer\`. Each stylesheet contains its light and dark family surfaces and is loaded only when explicitly selected by the consumer. For example:
+
+\`\`\`css
+@import "${metadata.name}/styles/appearances-sttn/nebular.css";
+\`\`\`
+
+The default plugin continues to load the legacy Forge Console 0.4.0 styles only; family files do not replace that default or select a family implicitly.
+
 ## Licensing & Permissions
 
 First-party software is dual-licensed under the GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later) and commercial license terms. See \`LICENSE\`, \`NOTICE\`, and \`COMMERCIAL-LICENSE.md\`.
@@ -124,6 +248,14 @@ All notable changes to \`${metadata.name}\` will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.5.0] - Unreleased
+
+Minor package release retaining the Forge Console 0.4.0 theme/profile and the existing Loom 0.5.0 and Burst 0.7.0 inputs.
+
+### Added
+
+- **Shared appearance family styles**: Six opt-in Loom CSS projections with light and dark surfaces, bound to the common appearance catalog and replay inventory.
 
 ## [0.4.0] - 2026-10-30
 
@@ -182,6 +314,16 @@ Initial published release on npm registry and GitHub Releases.
 - **Starlight Compatibility**: Validated against Astro 7.3.1 and Starlight 0.42.0.
 - **Dual Licensing**: AGPL-3.0-or-later and commercial license options.
 `;
+
+function attachAppearanceProjection(result, projection) {
+  for (const member of projection.files) {
+    if (result.files.has(member.output)) {
+      throw new Error(`Appearance projection member collision: ${member.output}`);
+    }
+    result.files.set(member.output, member.content);
+  }
+  result.appearanceProjection = projection.receipt;
+}
 
 function finalizePublicPackage(result, compilerPkg) {
   const commercial = result.files.get('COMMERCIAL-LICENSE.md');
@@ -291,12 +433,13 @@ function finalizePublicPackage(result, compilerPkg) {
     files: records,
     fonts: result.themeSpec?.fonts ?? [],
     fontLicenses: result.themeSpec?.catalog?.fontLicenses ?? [],
+    ...(result.appearanceProjection ? { appearanceProjection: result.appearanceProjection } : {}),
   };
   result.files.set('provenance.json', JSON.stringify(provenance, null, 2) + '\n');
   result.provenance = provenance;
 }
 
-async function updateDiskProvenance(targetDir, descriptor, compilerPkg, bookChrome) {
+async function updateDiskProvenance(targetDir, descriptor, compilerPkg, bookChrome, appearanceProjection) {
   const files = [];
   async function scan(currentDir, relativeDir = '') {
     const entries = await readdir(currentDir, { withFileTypes: true });
@@ -336,6 +479,7 @@ async function updateDiskProvenance(targetDir, descriptor, compilerPkg, bookChro
     files,
     fonts: theme.fonts ?? [],
     fontLicenses: theme.catalog?.fontLicenses ?? [],
+    ...(appearanceProjection ? { appearanceProjection } : {}),
   };
   await writeFile(join(targetDir, 'provenance.json'), JSON.stringify(provenance, null, 2) + '\n');
   return { files, provenance };
@@ -376,6 +520,7 @@ const receipt = {
     version: pkg.version,
   },
   themeTargetVersion: metadata.version,
+  appearanceProjection: appearanceProjection.receipt,
   accents: {},
 };
 
@@ -391,6 +536,8 @@ try {
     assert.equal(verification.valid, true, JSON.stringify(verification.errors));
 
     // Finalize public-ready package from source
+    attachAppearanceProjection(first, appearanceProjection);
+    attachAppearanceProjection(second, appearanceProjection);
     finalizePublicPackage(first, pkg);
     finalizePublicPackage(second, pkg);
 
@@ -400,8 +547,8 @@ try {
     execFileSync(process.execPath, [tscBin, "-p", "tsconfig.json"], { cwd: join(outputPath, accent), stdio: "pipe" });
     execFileSync(process.execPath, [tscBin, "-p", "tsconfig.json"], { cwd: join(outputPath, `${accent}-repeat`), stdio: "pipe" });
 
-    const firstDisk = await updateDiskProvenance(join(outputPath, accent), first.descriptor, pkg, first.provenance.bookChrome);
-    const secondDisk = await updateDiskProvenance(join(outputPath, `${accent}-repeat`), second.descriptor, pkg, second.provenance.bookChrome);
+    const firstDisk = await updateDiskProvenance(join(outputPath, accent), first.descriptor, pkg, first.provenance.bookChrome, first.appearanceProjection);
+    const secondDisk = await updateDiskProvenance(join(outputPath, `${accent}-repeat`), second.descriptor, pkg, second.provenance.bookChrome, second.appearanceProjection);
 
     assert.deepEqual(firstDisk.files, secondDisk.files);
 

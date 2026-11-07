@@ -1,0 +1,109 @@
+---
+title: Brand and License
+description: Use Terminal Nova identity artwork as approved while keeping brand presentation separate from software licensing.
+---
+
+import { Card, CardGrid, Aside, Badge } from '@astrojs/starlight/components';
+
+## Two kinds of permission
+
+Terminal Nova has a software project and a product identity. They are related, but they are not the
+same permission:
+
+| Surface | Guidance |
+| :--- | :--- |
+| Software and reusable theme resources | Follow the repository's `LICENSE`, `NOTICE`, and any applicable commercial terms. |
+| Product name, Nova Ingot marks, favicons, and custom lettering | Follow the brand-use guidance for the identity asset and its actual surface. Software distribution does not automatically grant trademark or endorsement rights. |
+| Third-party material | Preserve the terms and attribution that apply to that material. |
+
+This page documents the existing relationship. It does not change `NOTICE`, `LICENSE`, or
+commercial grants, and it does not retroactively revoke permission already granted under those
+terms.
+
+## Existing approved demo artwork
+
+The STTN demo's brand directory contains four identity SVG files: two dedicated favicons and two
+Nova Ingot mark treatments. Keep their geometry, colors, and surface treatments unchanged. The
+cross-site protected-SVG receipt is a separate exact set: the two Nova Ingot marks plus the
+text-only `sttn-social.svg` and sibling `cttn-social.svg` social sources. The social sources are
+site metadata assets, not additional Nova Ingot treatments; the favicon files remain in this
+consumer's local inventory.
+
+| File | Intended surface | Treatment |
+| :--- | :--- | :--- |
+| `favicon-on-light.svg` | Light favicon surface | Use the dedicated light favicon at small sizes |
+| `favicon-on-dark.svg` | Dark favicon surface | Use the dedicated dark favicon at small sizes |
+| `theme-forge-terminal-nova-mark-on-light.svg` | Light page or header surface | Standalone Nova Ingot mark for an on-light treatment |
+| `theme-forge-terminal-nova-mark-on-dark.svg` | Dark page or header surface | Standalone Nova Ingot mark for an on-dark treatment |
+
+<CardGrid>
+  <Card title="Choose by surface" icon="star">
+    Select the on-light or on-dark asset for the actual background. Do not apply an appearance
+    token, CSS filter, or automatic recoloring step to the protected mark.
+  </Card>
+  <Card title="Preserve clear identity" icon="document">
+    Keep proportions and clear space, use the dedicated favicon at icon sizes, and do not add
+    decoration that changes the approved treatment.
+  </Card>
+  <Card title="Avoid implied endorsement" icon="pencil">
+    Showing a mark identifies the project. It does not imply that Theme Forge endorses a product,
+    integration, or publication unless that use has been authorized.
+  </Card>
+</CardGrid>
+
+:::caution[Do not mix mark selection with accent selection]
+
+Generation-time accent selection concerns generated theme output. It is not permission to recolor a
+Nova Ingot mark. Choose an approved asset for the surface and keep appearance-token changes around
+it.
+
+:::
+
+## Source and policy links
+
+The demo carries its [brand-use guidance](/brand/README-BRAND.md) and
+[four-file asset inventory](/brand/BRAND-ASSETS.md) beside the unchanged artwork.
+
+The maintained source collection's [Terminal Nova brand guidance](https://github.com/Knowledge-Forge-AI/theme-forge-terminal-nova/blob/461d9add96ed6c04b341e31305697a9046eed1a8/README-BRAND.md)
+describes approved presentation, minimum-size and clear-space considerations, and the separation
+from the upstream terminal-window/face identity. The demo copies retain the repository terms that
+apply to the files here.
+
+For software terms, read the [STTN `LICENSE`](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/blob/main/LICENSE),
+[`NOTICE`](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/blob/main/NOTICE),
+and [commercial license](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova/blob/main/COMMERCIAL-LICENSE.md).
+The software README explains the first-party package's AGPL-3.0-or-later and commercial-license
+options; brand permissions remain a separate question.
+
+<Aside type="note" title="Keep provenance discoverable">
+
+If you copy an existing identity asset into another site or package, keep a short inventory that
+names the file, intended role, source collection, and applicable guidance. Do not invent a blanket
+artwork license from the fact that a generator produced an SVG.
+
+</Aside>
+
+## Product-site usage checklist
+
+Before publishing a product page or package that displays the identity:
+
+1. Pick the light/dark artwork that matches the surface.
+2. Preserve the artwork bytes, proportions, and approved treatment.
+3. Keep the software license and brand guidance linked separately.
+4. Preserve third-party notices where they apply.
+5. Avoid language that suggests endorsement or official status beyond the authorized use.
+
+The public contact for questions about official identity use is
+[sam.lair@knowledge-forge.ai](mailto:sam.lair@knowledge-forge.ai).
+
+## Product relationship
+
+The mark identifies the Terminal Nova family; it does not collapse the product boundaries described
+in [Architecture Overview](/overview/). STTN is the Astro/Starlight target, CTTN is the sibling
+shadcn/Tailwind target, and Nebular Fusion is the desktop authoring and preview workbench. Their
+surrounding appearance can differ while each product keeps its own identity guidance.
+
+<Badge text="Brand guidance" variant="tip" />
+<Badge text="Software terms" variant="success" />
+<Badge text="Third-party terms preserved" variant="note" />
+

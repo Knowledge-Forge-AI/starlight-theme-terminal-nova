@@ -1,15 +1,23 @@
 ---
 title: Component Gallery
-description: Full component gallery demonstrating Starlight and Terminal Nova components.
+description: Starlight content patterns that exercise Terminal Nova's code, cards, tabs, callouts, and navigation-friendly layout.
 ---
 
 import { Card, CardGrid, Tabs, TabItem, Aside, Badge, FileTree } from '@astrojs/starlight/components';
 
-## Social Share Demonstration
+## A gallery for real documentation
 
-The social share demonstration illustrates local SVG presentation without relying on remote network requests or platform-specific endpoints.
+The gallery is intentionally made from ordinary Starlight content primitives. Cards summarize a
+decision, tabs keep related views together, file trees orient a reader, tables compare exact
+choices, and callouts mark a boundary without interrupting the main explanation. These are
+consumer-facing examples, not a replacement component library.
 
-<figure class="social-card-figure" aria-label="Terminal Nova Social Card">
+## Social share demonstration
+
+The social share demonstration uses a local SVG supplied by the consumer demo. It is a self-contained
+example of presenting a branded visual without relying on a remote endpoint.
+
+<figure class="social-card-figure" aria-label="Terminal Nova social card">
   <img
     src="/art/nova-social.svg"
     alt="Terminal Nova local SVG social share card demonstration"
@@ -17,77 +25,196 @@ The social share demonstration illustrates local SVG presentation without relyin
     height="630"
     class="nova-social-img"
   />
-  <figcaption>Figure 3: Local SVG share demonstration</figcaption>
+  <figcaption>Figure 3: A local SVG social-card example.</figcaption>
 </figure>
 
-## Code Editor and Terminal
+## Consumer configuration
 
-```javascript title="src/styles/theme-loader.js" {2} ins={5} del={4}
+This is the published integration surface. The plugin is a function with no runtime accent or
+family argument; customization happens in Starlight's own configuration and in consumer-owned CSS.
+
+```javascript title="astro.config.mjs" {3}
+import { defineConfig } from 'astro/config';
+import starlight from '@astrojs/starlight';
+import terminalNova from '@knowledge-forge-ai/starlight-theme-terminal-nova';
+
+export default defineConfig({
+  integrations: [
+    starlight({
+      title: 'Example Documentation',
+      plugins: [terminalNova()],
+      customCss: ['./src/styles/site.css'],
+    }),
+  ],
+});
+```
+
+The theme registers package styles before the paths listed in `customCss`. A consumer can also
+override a Starlight component explicitly:
+
+```javascript title="astro.config.mjs: component override"
+starlight({
+  components: {
+    PageTitle: './src/components/ConsumerPageTitle.astro',
+  },
+});
+```
+
+The override is site-owned and wins over the theme's default `PageTitle` mapping. It does not
+change the package's license or its protected identity artwork.
+
+## Code editor and terminal
+
+The package supplies light and dark syntax themes and bounded frames through Expressive Code.
+These fences show the two common presentation modes:
+
+```javascript title="src/styles/site.css: consumer token adjustment" {2} ins={5} del={4}
+:root {
+  --tfsl-color-accent-base: #69d3e4;
+  --tfsl-color-focus: var(--tfsl-color-accent-base);
+  color-scheme: light dark;
+}
+```
+
+```bash title="Terminal: build a consumer site" frame="terminal"
+$ npm run build
+[site] Astro builds the Starlight project with Terminal Nova styles
+[site] Package-local assets remain available to the generated site
+```
+
+The command is a representative consumer action. The theme package does not prescribe a site's
+hosting command or deployment provider.
+
+## Theme-authoring example: generation-time accents
+
+This second example belongs to the theme-generation side of the system, not to the published
+consumer API:
+
+```javascript title="Generator-side example" {2} ins={5} del={4}
 import { compileTheme } from '@knowledge-forge-ai/theme-forge-stellar-loom';
-// Load canonical specification
+
 const spec = await loadThemeSpec('terminal-nova.theme.json');
-// const compiled = legacyCompiler(spec);
+// The accent is selected while generating a target output.
 const compiled = compileTheme(spec, { accent: 'orange' });
 ```
 
-```bash title="Terminal: Verification" frame="terminal"
-$ npm run test:browser
-[pass] Zero external runtime requests
-[pass] All 6 graphic assets verified
-```
+The existing `orange` and `cyan` accent variants are generation-time choices. A consumer cannot
+turn a published 0.4.0 plugin into a twelve-appearance runtime selector by passing an `accent` option.
+For the broader preview boundary, read [Appearance Families](/docs/appearance-families/).
 
-## Cards and Badges
+The package source also contains an unreleased 0.5.0 candidate; the published consumer boundary
+described here remains 0.4.0 until that candidate is separately published.
+
+## Cards and badges
 
 <CardGrid>
-  <Card title="Primary Worktree" icon="rocket">
-    First demonstration card with <Badge text="Active" variant="success" /> status.
+  <Card title="Primary target" icon="rocket">
+    STTN is the Astro/Starlight consumer target with <Badge text="Published 0.4.0" variant="success" />
+    package guidance.
   </Card>
-  <Card title="Secondary Stash" icon="document">
-    Second demonstration card with <Badge text="Experimental" variant="caution" /> status.
+  <Card title="Sibling target" icon="document">
+    CTTN maps shared intent to shadcn/Tailwind with <Badge text="Separate target" variant="tip" />
+    component conventions.
+  </Card>
+  <Card title="Authoring surface" icon="pencil">
+    Nebular Fusion helps preview shared profiles with <Badge text="Workbench" variant="note" />
+    context; it is not a runtime STTN dependency.
   </Card>
 </CardGrid>
 
-## Callout Asides
+## Callout asides
 
-:::note[General Note]
-Proportional reading column leaves room for technical explanation.
+:::note[General note]
+
+Keep a callout close to the decision it explains. A reader should not have to search another page
+to discover that a code snippet is a consumer example or that a family is still a preview.
+
 :::
 
-:::tip[Best Practice]
-Keep runnable examples near the explanation they support.
+:::tip[Best practice]
+
+Prefer a small, explicit component override to copying the theme's generated implementation into a
+site. The consumer keeps ownership of the change while the package can continue to receive updates.
+
 :::
 
-:::caution[Boundary Condition]
-Zero external runtime requests are permitted; all assets are served locally.
+:::caution[Boundary condition]
+
+The published package includes local theme resources; the six demo SVGs belong to this consumer
+demo. Neither includes the shared twelve-appearance catalog or a persisted family-selection flow.
+
 :::
 
-## Tabbed Content and File Tree
+<Aside type="note" title="Callout semantics">
+
+Use a note for context, a tip for a recommended practice, and a caution for a limitation that
+could change how a reader adopts the example. The surrounding text remains the source of detail.
+
+</Aside>
+
+## Tabbed content and file tree
 
 <Tabs>
-  <TabItem label="Project Layout">
+  <TabItem label="Project layout">
     <FileTree>
-    - themes/
-      - terminal-nova/
-        - v0.2/
-          - demo/
-          - tools/
-            - prepare-consumer.mjs
-            - qualify-browser.mjs
-            - consumer.test.mjs
+    - docs-site/
+      - astro.config.mjs
+      - src/
+        - components/
+          - ConsumerPageTitle.astro
+        - content/
+          - docs/
+            - index.mdx
+            - docs/
+              - getting-started.mdx
+              - components.mdx
+        - styles/
+          - site.css
+      - public/
+        - brand/
+          - favicon-on-dark.svg
+          - favicon-on-light.svg
     </FileTree>
   </TabItem>
-  <TabItem label="Component Details">
-    Component gallery demonstrates table, tabs, filetree, asides, and badges.
+  <TabItem label="Content strategy">
+    Keep installation, configuration, and customization near the front door. Put target
+    relationships and preview boundaries where a reader can make an informed adoption choice.
+  </TabItem>
+  <TabItem label="Identity assets">
+    Use the light or dark approved mark for its actual surface. Do not route a protected mark through
+    an accent-token filter; see [Brand and License](/docs/brand-and-license/).
   </TabItem>
 </Tabs>
 
-## Component Reference Table
+## Component reference table
 
-| Component | Starlight Element | Status |
+| Component or pattern | Starlight surface | Good use in a product page |
 | :--- | :--- | :--- |
-| Cards | `.card` | Available |
-| Asides | `.starlight-aside` | Available |
-| Badges | `.sl-badge` | Available |
-| Tables | `table` | Available |
-| Tabs | `starlight-tabs` | Available |
-| File Tree | `starlight-file-tree` | Available |
+| Cards | `Card`, `CardGrid` | Summarize products, targets, or status with short copy |
+| Asides | `Aside` and `:::note`/`:::tip` directives | Explain a boundary beside the relevant section |
+| Badges | `Badge` | Mark a published, preview, or separate-target distinction |
+| Tables | Markdown table syntax | Compare versions, capabilities, and responsibilities |
+| Tabs | `Tabs`, `TabItem` | Keep alternate layouts or implementation notes together |
+| File tree | `FileTree` | Show where a consumer owns configuration and content |
+| Code fences | Expressive Code defaults | Present commands and configuration with a clear frame |
+
+## Building a long page without losing the reader
+
+Long technical pages work best when each section answers one question. Start with the outcome,
+show the smallest useful example, then explain the edge or ownership boundary. A table can hold
+exact mappings that would make a paragraph unwieldy, while a callout can keep a limitation visible
+without turning every sentence into a warning. This gallery deliberately repeats the same content
+ideas—installation, customization, target choice, and identity handling—in different Starlight
+primitives so a site author can compare the reading experience.
+
+When a page grows beyond one task, split it into linked routes rather than hiding a second manual
+inside a tab. The demo's navigation keeps the front door, architecture, workflow, components,
+appearance families, getting started, and brand guidance as separate concerns. That structure is
+also friendly to deep links and card-style pagination.
+
+## Source links
+
+Browse the [Terminal Nova source repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova),
+the [published npm package](https://www.npmjs.com/package/@knowledge-forge-ai/starlight-theme-terminal-nova),
+and the [Starlight component documentation](https://starlight.astro.build/components/). The demo's
+other pages provide the [installation path](/docs/getting-started/) and [workflow explanation](/docs/workflow/).

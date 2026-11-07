@@ -1,0 +1,114 @@
+{
+  "schema": "theme-forge.sttn-appearance-projection.v1",
+  "sourceRoot": "../../../demo/public/appearance-preview",
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "inventoryDigest": "d9f94a7f5ce0730098d840e409ca588caefc2e05c45fbec02d749d25f418fb51",
+  "sourceCatalog": {
+    "path": "catalog.json",
+    "sha256": "617979da9045eca6864e974b797a387a0bf324eeb12904360152639b3a68f6a5",
+    "rawSha256": "5d06b5803a0c68e2dc1c979a5ace407eb417c5358372c2f96319a112945a1a01",
+    "generatedSha256": "0e635f5efc8d0df6867601530c26a919e992f9dc5170666b39fbbb0847a39351"
+  },
+  "sourceProfiles": {
+    "path": "source-profiles.json",
+    "sha256": "bf64c4e3ad1a6d0d655caead37da3de3635173146dc480bd00e00cf7f32af2f4"
+  },
+  "sourceProvenance": {
+    "path": "provenance.json",
+    "sha256": "c76a537483ca4fc9eb42b502a8a17867a7a610dffab845787c185ed77d9caa5b"
+  },
+  "sharedSource": {
+    "sourceInventoryDigest": "2fe8c19a31de88c01ebb50e331c53132aecbe704849be80497e5408cdff9f69f",
+    "producerInventoryDigest": "f9c9a4868aa8ecc0340cc428546743657094df41caf9dd8db19727f4b4c7f47e",
+    "templateSha256": "436e278cdbe3a37e06048504df3897d65230318f17b7ebd754060c2866703324",
+    "engines": [
+      {
+        "role": "solar",
+        "package": "@knowledge-forge-ai/theme-forge-solar-sail",
+        "version": "0.3.0",
+        "sha256": "65070c3478a1d55476c1b09fbe1dcadfdf7c3d3aa54a154bc9ac9e299411f415",
+        "integrity": "sha512-UFXyo3upUlj7x7eCMn9Aay9OlvnDhNZ4recQhl9YWA2OSAKnjNQGJZBfbYS6Q0XUO+nZY+oEG1Nvu3xAOuo8vg=="
+      },
+      {
+        "role": "loom",
+        "package": "@knowledge-forge-ai/theme-forge-stellar-loom",
+        "version": "0.5.0",
+        "sha256": "4e7a7d436c09ba111f5dca8101876c6e085ad15859d96bab8f728c5669880b5f",
+        "integrity": "sha512-1tgZbcrBCxLZj0rkhCX7XnEVUCAmecS2FefY7TPnjP9o82vSjKnj3h6g3DX/QT7u3CWn+pXfPzQokrlrp6Q8iQ=="
+      }
+    ]
+  },
+  "profiles": [
+    {
+      "id": "terminal-nova",
+      "sha256": "fe3c5e92ef17171bb018356e72d31e825291d81bb225a167885adea5dcf330bf"
+    },
+    {
+      "id": "nebular",
+      "sha256": "fbe0dd3e46ca587f15e3ff221cf24b23e16321b7cca32c28bd1a7d31c20f9c88"
+    },
+    {
+      "id": "developer",
+      "sha256": "7b873b36bf4f0d141e70b72a11dbc6dac7f8250de0b2479b84fe014d629597a8"
+    },
+    {
+      "id": "graphic-designer",
+      "sha256": "a8e06be7ebda519fcc2181d7daa8f4dbb86ca473cc3245ea710af27ba0c56232"
+    },
+    {
+      "id": "anime",
+      "sha256": "af5a25686b15935226937209e2e4d020a3a5db229bd087dcc82637128ec6edda"
+    },
+    {
+      "id": "gamer",
+      "sha256": "f5880e7d49d6f8f3550c7ad2f338b0fc6036c7b70f053534da1947428cd4a303"
+    }
+  ],
+  "members": [
+    {
+      "id": "terminal-nova",
+      "source": "terminal-nova.css",
+      "output": "styles/appearances-sttn/terminal-nova.css",
+      "bytes": 10922,
+      "sha256": "328439213f29cf6e05ac7df7323d2dda5336bce9228825b26a16b34a1beadcb7"
+    },
+    {
+      "id": "nebular",
+      "source": "nebular.css",
+      "output": "styles/appearances-sttn/nebular.css",
+      "bytes": 10907,
+      "sha256": "b6e74c12cd4eed6dd6e7cba28bead4892dee6fafc24af96ab57349ea51ec26cc"
+    },
+    {
+      "id": "developer",
+      "source": "developer.css",
+      "output": "styles/appearances-sttn/developer.css",
+      "bytes": 10917,
+      "sha256": "2c12f2220958e9233570c51ebb5b13e8c0caa4523aa1cd88a34cc6c2ba589fcf"
+    },
+    {
+      "id": "graphic-designer",
+      "source": "graphic-designer.css",
+      "output": "styles/appearances-sttn/graphic-designer.css",
+      "bytes": 10916,
+      "sha256": "dede2e61fe3ae76bf93f09a93daaba03c5fe95cf7f260ea68290efc8f3595f4c"
+    },
+    {
+      "id": "anime",
+      "source": "anime.css",
+      "output": "styles/appearances-sttn/anime.css",
+      "bytes": 10915,
+      "sha256": "99b3d65d28a2a7612f253971ab30c8f746c6aff3d2695db82e52156082dd9c93"
+    },
+    {
+      "id": "gamer",
+      "source": "gamer.css",
+      "output": "styles/appearances-sttn/gamer.css",
+      "bytes": 10915,
+      "sha256": "6cd6fbcda1124d47383b8f99fec7b5cba1564677333fcd833d18d0b313eb6b8e"
+    }
+  ]
+}
