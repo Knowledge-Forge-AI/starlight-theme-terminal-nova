@@ -21,7 +21,7 @@ async function fixture(run) {
 test("release members, generated tree binding and six served graphics verify", async () => {
   const result = await verifyRelease(root);
   assert.equal(result.canonicalGraphics, 6);
-  assert.equal(result.appearanceFamilies, process.env.STTN_RELEASE_ROOT ? 6 : 0);
+  assert.equal(result.appearanceFamilies, 6);
 });
 
 test("stale generated package tree binding fails", async () => fixture(async temporary => {
@@ -77,7 +77,7 @@ test("generated package symlinks fail", async () => fixture(async temporary => {
   await assert.rejects(verifyRelease(temporary), /Unexpected generated package symlink/);
 }));
 
-test("appearance projection member tampering fails", { skip: !process.env.STTN_RELEASE_ROOT }, async () => fixture(async temporary => {
+test("appearance projection member tampering fails", async () => fixture(async temporary => {
   await writeFile(join(temporary, "styles/appearances-sttn/anime.css"), "tampered");
   await assert.rejects(verifyRelease(temporary), /Generated member (?:size|digest) mismatch/);
 }));
