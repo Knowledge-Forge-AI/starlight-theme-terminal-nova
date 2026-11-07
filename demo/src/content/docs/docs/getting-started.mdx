@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Install Terminal Nova 0.4.0, register it with Astro Starlight, and make a small consumer-owned customization.
+description: Install Terminal Nova 0.5.0, register it with Astro Starlight, and make a small consumer-owned customization.
 ---
 
 import { Tabs, TabItem, Aside, Badge, FileTree } from '@astrojs/starlight/components';
@@ -14,27 +14,24 @@ Use the published baseline below for the documented adoption path:
 | Node.js | `>=22.12.0` |
 | Astro | `7.3.3` |
 | `@astrojs/starlight` | `0.42.0` |
-| `@knowledge-forge-ai/starlight-theme-terminal-nova` | `0.4.0` |
+| `@knowledge-forge-ai/starlight-theme-terminal-nova` | `0.5.0` |
 
 Terminal Nova's package declares compatible Astro and Starlight peer ranges, but pinning the
 versions above gives a reproducible starting point for the current public instructions. The theme
 is a Starlight integration; it does not replace Astro or Starlight.
 
-The source tree also carries the 0.5.0 package metadata candidate. It is not published to npm yet,
-so the install commands below intentionally remain on the published 0.4.0 baseline.
-
 ## Install the published package
 
 From an existing Astro project, install the peer versions and theme:
 
-```sh title="Terminal: install published Terminal Nova 0.4.0 baseline"
-npm install astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0
+```sh title="Terminal: install published Terminal Nova 0.5.0"
+npm install astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.5.0
 ```
 
 If your package policy disables lifecycle scripts, use the same versions with `--ignore-scripts`:
 
 ```sh title="Terminal: install with scripts disabled"
-npm install --ignore-scripts astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0
+npm install --ignore-scripts astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.5.0
 ```
 
 The package is also available from [npm](https://www.npmjs.com/package/@knowledge-forge-ai/starlight-theme-terminal-nova)
@@ -128,6 +125,32 @@ starlight({
 The published package already defines light and dark roles. A local override should preserve
 readability and visible focus in both modes; do not assume a single color works on every surface.
 
+## Opt into a published family stylesheet
+
+Version 0.5.0 publishes six opt-in family stylesheets: `terminal-nova`, `nebular`, `developer`,
+`graphic-designer`, `anime`, and `gamer`. Add one to the consumer's Starlight `customCss` list when
+that family is the intended static site treatment:
+
+```js title="astro.config.mjs: opt into the Developer family"
+starlight({
+  plugins: [terminalNova()],
+  customCss: [
+    '@knowledge-forge-ai/starlight-theme-terminal-nova/styles/appearances-sttn/developer.css',
+    './src/styles/site.css',
+  ],
+});
+```
+
+Each stylesheet contains its light and dark family roles. This is an explicit stylesheet choice,
+not a runtime family picker or persisted preference; `terminalNova()` still accepts no family or
+accent option. The demo gallery shows separate static specimens for these family directions, with
+remaining component-boundary differences called out on each route; it does not establish byte
+identity with the package tar members. Consumer `site.css` remains last so local rules retain
+consumer precedence. The `terminal-nova` family stylesheet is opt-in too; omitting all family
+stylesheets keeps the unchanged Forge Console design. Family styles layer over the default shell,
+and some semantic leaves remain unmapped in the demo specimens, including the serif-heading intent
+noted for Anime and Graphic Designer.
+
 ## Override a component deliberately
 
 When a site's title treatment or metadata needs a different layout, use Starlight's component map:
@@ -183,11 +206,13 @@ The demo's source layout is representative:
 
 ## Published behavior and preview boundaries
 
-The still-published 0.4.0 package uses the Forge Console design with the orange primary accent. Cyan is an
-existing alternate output selected during generation; it is not a runtime `accent` option passed
-to `terminalNova()`. The shared next-cycle collection contains six visual families with light and
-dark appearances, but it is still development work. The published package does not ship all six
-families, a twelve-entry runtime picker, or persisted family selection.
+The published 0.5.0 package uses the unchanged Forge Console design (as in 0.4.0, regenerated),
+with the orange primary accent.
+Cyan remains an existing generation-time output; it is not a runtime `accent` option passed to
+`terminalNova()`. The package also ships the six opt-in family stylesheets described above, but no
+twelve-entry runtime picker, persisted family selection, or save/reopen appearance workflow.
+The demo's twelve static routes are a separate demo review surface for the family directions, not a
+final native or visual qualification claim. The 0.4.0 release is retained as historical context.
 
 For the relationship to the other Theme Forge products, see [Architecture
 Overview](/overview/) and [Engine Workflow](/docs/workflow/). STTN is the Astro/Starlight target;
@@ -196,7 +221,7 @@ workbench.
 
 <Aside type="caution" title="When the theme is not visible">
 
-Check that the package is installed at the published `0.4.0` baseline, the plugin is present in the `starlight({ plugins
+Check that the package is installed at the published `0.5.0` baseline, the plugin is present in the `starlight({ plugins
 })` array, and the consumer is actually using the intended Astro configuration. If a consumer
 override is too broad, temporarily remove it to isolate the site rule from the package default.
 
@@ -207,6 +232,6 @@ override is too broad, temporarily remove it to isolate the site rule from the p
 - [Architecture Overview](/overview/) explains target boundaries and ownership.
 - [Engine Workflow](/docs/workflow/) explains source, package, and consumer seams.
 - [Component Gallery](/docs/components/) shows code, cards, tabs, tables, and callouts.
-- [Appearance Families](/docs/appearance-families/) distinguishes published accents from previews.
+- [Appearance Families](/docs/appearance-families/) distinguishes published family styles from static review specimens.
 - [Brand and License](/docs/brand-and-license/) describes approved artwork use and software links.
 

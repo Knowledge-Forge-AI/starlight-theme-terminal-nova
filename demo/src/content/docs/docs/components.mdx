@@ -99,17 +99,20 @@ const compiled = compileTheme(spec, { accent: 'orange' });
 ```
 
 The existing `orange` and `cyan` accent variants are generation-time choices. A consumer cannot
-turn a published 0.4.0 plugin into a twelve-appearance runtime selector by passing an `accent` option.
+turn the published 0.5.0 plugin into a twelve-appearance runtime selector by passing an `accent`
+option. The six family stylesheets are separate opt-in package resources; they do not add runtime
+selection or persistence.
 For the broader preview boundary, read [Appearance Families](/docs/appearance-families/).
 
-The package source also contains an unreleased 0.5.0 candidate; the published consumer boundary
-described here remains 0.4.0 until that candidate is separately published.
+The published consumer boundary described here is 0.5.0. The 0.4.0 Forge Console release remains
+historical context, while the current package adds opt-in family stylesheets without changing the
+plugin's no-runtime-picker contract.
 
 ## Cards and badges
 
 <CardGrid>
   <Card title="Primary target" icon="rocket">
-    STTN is the Astro/Starlight consumer target with <Badge text="Published 0.4.0" variant="success" />
+    STTN is the Astro/Starlight consumer target with <Badge text="Published 0.5.0" variant="success" />
     package guidance.
   </Card>
   <Card title="Sibling target" icon="document">
@@ -127,7 +130,8 @@ described here remains 0.4.0 until that candidate is separately published.
 :::note[General note]
 
 Keep a callout close to the decision it explains. A reader should not have to search another page
-to discover that a code snippet is a consumer example or that a family is still a preview.
+to discover that a code snippet is a consumer example or that a family route is a static demo
+preview rather than a runtime picker.
 
 :::
 
@@ -140,8 +144,9 @@ site. The consumer keeps ownership of the change while the package can continue 
 
 :::caution[Boundary condition]
 
-The published package includes local theme resources; the six demo SVGs belong to this consumer
-demo. Neither includes the shared twelve-appearance catalog or a persisted family-selection flow.
+The published package includes local theme resources and six opt-in family stylesheets; the six demo
+SVGs and static gallery belong to this consumer demo. Neither adds a persisted family-selection or
+save/reopen flow to the plugin.
 
 :::
 

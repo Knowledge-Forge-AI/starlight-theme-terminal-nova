@@ -92,13 +92,15 @@ site-specific component treatment without copying the package's generated styles
 | STTN package output | Stellar Loom target | Installable Astro/Starlight theme resources |
 | MDX page and navigation | Site author | Product information and route structure |
 | Custom CSS/component override | Site author | A deliberate local adaptation with consumer precedence |
-| Appearance-family preview | Shared development work | Direction for future outputs, not an npm 0.4.0 runtime feature |
+| Appearance-family preview | STTN package (family styles); demo site (gallery routes) | Review surface, not an npm runtime picker |
 
-<Aside type="caution" title="Generation is not runtime selection">
+<Aside type="caution" title="Published styles are not runtime selection">
 
-The existing orange and cyan accents are generation-time outputs. Calling `terminalNova()` in a
-published consumer does not select among six families or twelve appearances, persist a family choice, or start a
-compiler. See [Appearance Families](/docs/appearance-families/) for the exact published boundary.
+The default orange and the existing cyan alternate are generated outputs. Calling `terminalNova()`
+in a published consumer does not select among six families or twelve appearances, persist a family
+choice, or start a compiler. A consumer can opt into one of the published family stylesheets
+explicitly; the demo gallery's controls only navigate among static routes. See [Appearance
+Families](/docs/appearance-families/) for the exact boundary.
 
 </Aside>
 
@@ -120,9 +122,10 @@ STTN package, it is consuming target output produced elsewhere. Keeping those se
 it possible to update a source profile or illustration without treating generated files as the
 design brief.
 
-The same rule applies to appearance families. The six-family collection is useful for design
-exploration and future target work, but it must not be described as a capability already present in
-the 0.4.0 plugin. A site can document a preview while continuing to install the published baseline.
+The same rule applies to appearance families. The six-family stylesheets are published opt-in
+resources, while the gallery is a static review surface with documented component differences. The
+package still has no runtime family picker or persisted selection, and no native or final visual
+qualification is implied by the gallery.
 
 ## Source links
 
@@ -133,7 +136,7 @@ framework, see [Astro](https://astro.build/) and [Starlight](https://starlight.a
 
 | Surface | Current documentation signal |
 | :--- | :--- |
-| Published STTN package | <Badge text="0.4.0" variant="success" /> |
+| Published STTN package | <Badge text="0.5.0" variant="success" /> |
 | Astro consumer baseline | <Badge text="7.3.3" variant="success" /> |
 | Starlight consumer baseline | <Badge text="0.42.0" variant="success" /> |
-| Shared twelve-appearance collection | <Badge text="Development preview" variant="caution" /> |
+| Shared twelve-appearance gallery | <Badge text="Demo static preview" variant="caution" /> |

@@ -12,12 +12,10 @@ layout chrome, component integrations, and code presentation defaults for an Ast
 site. It does not replace Starlight's content model, run a compiler in the browser, or provide the
 application behavior that belongs to your product.
 
-The package is published as `@knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0`. Its demo is a
-consumer project pinned to Astro 7.3.3 and Starlight 0.42.0 so the adoption path is concrete. Start
-with [Getting Started](/docs/getting-started/) if you are adding it to a new site.
-
-This source tree also prepares an unreleased 0.5.0 candidate. It does not change the published
-0.4.0 install guidance or claim registry availability before a separate publication decision.
+The package is published as `@knowledge-forge-ai/starlight-theme-terminal-nova@0.5.0`. Its demo is a
+consumer project pinned to Astro 7.3.3 and Starlight 0.42.0 so the adoption path is concrete. The
+0.4.0 Forge Console release remains useful historical context. Start with [Getting
+Started](/docs/getting-started/) if you are adding the current package to a new site.
 
 ## The four boundaries
 
@@ -25,7 +23,7 @@ This source tree also prepares an unreleased 0.5.0 candidate. It does not change
 | :--- | :--- | :--- |
 | Content | Markdown/MDX pages, links, examples, and your information architecture | Theme generation or product data |
 | Starlight adapter | Plugin registration, package-local CSS, component mapping, middleware, and code defaults | Your route content or business logic |
-| Shared Theme Forge source | Theme profiles, resolved tokens, and target-specific generated outputs | Runtime family switching in a 0.4.0 consumer |
+| Shared Theme Forge source | Theme profiles, resolved tokens, and target-specific generated outputs | Runtime family switching or persistence in a 0.5.0 consumer |
 | Consumer site | Site CSS, content, custom components, metadata, and deployment | The license or approved treatment of protected identity artwork |
 
 This separation lets a documentation author customize a page without editing generated theme
@@ -91,15 +89,18 @@ hand-edit package `dist/` files as a customization strategy.
 
 :::
 
-## Published behavior and the next collection
+## Published behavior and the six-family collection
 
-Version 0.4.0 is the published Forge Console baseline. It carries the orange primary output and
-Starlight-compatible light/dark tokens. The source retains a separate cyan generation path, but
-the installed plugin does not expose it as a runtime option.
-The shared next-cycle collection is broader: six visual families with a light and dark appearance
-for each. That collection is a development preview, not a capability claim about the current npm
-package. In particular, 0.4.0 does not ship a twelve-entry appearance picker, persisted family
-preferences, or a working save/reopen appearance workflow.
+Version 0.5.0 publishes the unchanged Forge Console design (as in 0.4.0, regenerated). It carries
+the orange default output and Starlight-compatible light/dark tokens, and it publishes six opt-in
+family stylesheets under `styles/appearances-sttn/`. The installed plugin still does not expose a
+runtime family or accent argument, and it does not persist family preferences or provide a
+save/reopen workflow.
+
+The demo's six-family gallery uses a closed catalog of twelve static routes (six families × light
+and dark). It is a separate static demo review surface; the package stylesheets are published
+independently. It is not a runtime picker and not a claim of final native or visual qualification.
+The 0.4.0 release remains the historical package baseline for the unchanged design.
 
 The distinction matters for product relationships:
 
@@ -124,8 +125,9 @@ contains release notes, peer compatibility, cascade order, and license pointers.
 
 | Surface | Description | Status |
 | :--- | :--- | :--- |
-| STTN 0.4.0 package | Published Astro/Starlight theme output | <Badge text="Published" variant="success" /> |
-| Forge Console pair | Warm orange light/dark token sets and code theme | <Badge text="Published" variant="success" /> |
+| STTN 0.5.0 package | Published Astro/Starlight theme output | <Badge text="Published" variant="success" /> |
+| Unchanged Forge Console design (0.4.0, regenerated) | Warm orange light/dark token sets and code theme | <Badge text="Published" variant="success" /> |
 | Cyan alternate | Separate generation-time output | <Badge text="Available" variant="tip" /> |
-| Twelve-appearance catalog | Six families with light/dark pairs | <Badge text="Development" variant="caution" /> |
-| Persisted family preferences | Select, save, reopen, and reset behavior | <Badge text="Not in 0.4.0" variant="note" /> |
+| Six family stylesheets | Opt-in light/dark family projections | <Badge text="Published" variant="tip" /> |
+| Twelve-route gallery | Six static family/mode specimens | <Badge text="Demo static preview" variant="caution" /> |
+| Persisted family preferences | Select, save, reopen, and reset behavior | <Badge text="Not in 0.5.0" variant="note" /> |

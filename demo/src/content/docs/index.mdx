@@ -7,7 +7,7 @@ import { Card, CardGrid, Tabs, TabItem, Aside, Badge, FileTree } from '@astrojs/
 
 <section class="consumer-landing-hero" aria-label="Terminal Nova landing hero">
   <div class="hero-content">
-  <p class="hero-tagline">Theme Forge · Starlight Theme Terminal Nova 0.5.0 candidate · published 0.4.0 baseline</p>
+  <p class="hero-tagline">Theme Forge · Starlight Theme Terminal Nova 0.5.0 · published package</p>
     <h2>Documentation with a calm terminal edge.</h2>
     <p>
       Terminal Nova is an independent theme for Astro Starlight. It keeps long-form documentation
@@ -40,8 +40,9 @@ import { Card, CardGrid, Tabs, TabItem, Aside, Badge, FileTree } from '@astrojs/
 
 :::note[Published package]
 
-These pages describe the published `@knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0`
-package and this consumer example. The requested product destination is
+These pages describe the published `@knowledge-forge-ai/starlight-theme-terminal-nova@0.5.0`
+package and this consumer example. The 0.4.0 Forge Console release is retained as historical
+context. The requested product destination is
 `https://sttn.knowledge-forge.ai`; this source describes the product and does not make a hosting
 or deployment claim.
 
@@ -71,15 +72,15 @@ component overrides, and custom CSS remain consumer-owned.
 
 Install the published peer versions and theme together in an Astro Starlight project:
 
-```sh title="Terminal: install the published baseline"
-npm install astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0
+```sh title="Terminal: install the published package"
+npm install astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.5.0
 ```
 
 If your environment deliberately disables package installation scripts, the same package can be
 installed with `--ignore-scripts`:
 
 ```sh title="Terminal: install without package scripts"
-npm install --ignore-scripts astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.4.0
+npm install --ignore-scripts astro@7.3.3 @astrojs/starlight@0.42.0 @knowledge-forge-ai/starlight-theme-terminal-nova@0.5.0
 ```
 
 Register the plugin in `astro.config.mjs`:
@@ -135,26 +136,33 @@ Forge work; it is not required to build or serve STTN documentation.
 
 </Aside>
 
-## Published baseline and development previews
+## Published package and family previews
 
-The published 0.4.0 package is the Forge Console design with the orange primary output. The source
-also retains a separate cyan generation path described in [Appearance
-Families](/docs/appearance-families/). The shared next-cycle collection has six visual families,
-each with light and dark appearances, but that twelve-appearance collection is still a
-development preview. It is not silently included in the current npm package, and STTN 0.4.0 does
-not provide a persisted family-selection workflow.
+The published 0.5.0 package keeps the unchanged Forge Console design (as in 0.4.0, regenerated):
+warm orange roles, Starlight navigation and code presentation, local middleware, and consumer-owned
+CSS and component overrides. The 0.4.0 release is historical package context, not the current
+installation target.
 
-The source tree also carries the unreleased 0.5.0 package metadata candidate. This documentation
-continues to describe the published 0.4.0 install and runtime boundary until the candidate is
-separately published.
+The package also publishes six opt-in family stylesheets under
+`styles/appearances-sttn/`: `terminal-nova`, `nebular`, `developer`, `graphic-designer`, `anime`,
+and `gamer`. Adding one stylesheet is an explicit consumer choice; `terminalNova()` still has no
+runtime family argument, picker, persistence, or save/reopen workflow.
 
-| Capability | Published 0.4.0 | Development preview boundary |
+This demo's gallery provides six families × two static Starlight routes. Its controls navigate
+among prebuilt specimens and do not turn the package into a runtime selector. The gallery is a
+separate demo review surface alongside the package stylesheets; this guidance does not assert byte
+identity between route assets and package tar members. The specimens retain the documented
+component-boundary differences, so the gallery is not a claim of final native or visual
+qualification.
+
+| Capability | Published 0.5.0 | Demo / preview boundary |
 | :--- | :--- | :--- |
 | Astro/Starlight integration | `astro@7.3.3` and `@astrojs/starlight@0.42.0` consumer baseline | Future site or package revisions may broaden the tested range |
-| Primary appearance | Forge Console with orange accent | Shared family work may introduce additional pairs |
+| Primary appearance | Unchanged Forge Console design (0.4.0, regenerated) with orange accent | Demo gallery is a separate static review surface |
+| Family stylesheets | Six opt-in published package CSS files | Six static family/mode specimen routes |
 | Alternate accent | Cyan output selected during generation | Not a runtime `terminalNova({ accent })` option |
 | Navigation and code chrome | Nested sidebar, card pagination, framed title, expressive code defaults | New catalog composition is maintained separately from this content slice |
-| Family selection and persistence | Not provided by the published plugin | Twelve appearances and persisted choices remain development work |
+| Family selection and persistence | No runtime picker or persisted choice | Gallery controls select a prebuilt static route only |
 
 ## Feature matrix
 
@@ -165,7 +173,8 @@ separately published.
 | Navigation | Nested sidebar, responsive shell, and card-style pagination | <Badge text="Published" variant="tip" /> |
 | Customization | Consumer CSS and Starlight component overrides take precedence | <Badge text="Supported" variant="tip" /> |
 | Local graphics | Six consumer-local demo SVG scenes in this consumer | <Badge text="Demo" variant="note" /> |
-| Shared appearance catalog | Six families × two modes | <Badge text="Preview" variant="caution" /> |
+| Family stylesheets | Six opt-in published package CSS files | <Badge text="Published" variant="success" /> |
+| Appearance gallery | Twelve static demo routes | <Badge text="Demo static preview" variant="caution" /> |
 
 <Tabs>
   <TabItem label="Consumer layout">
@@ -200,7 +209,7 @@ separately published.
 - [Getting started](/docs/getting-started/) walks through installation and configuration.
 - [Engine workflow](/docs/workflow/) shows how source specifications become consumer artifacts.
 - [Component gallery](/docs/components/) demonstrates code, cards, tabs, file trees, tables, and callouts.
-- [Appearance families](/docs/appearance-families/) separates published accents from development previews.
+- [Appearance families](/docs/appearance-families/) separates published family styles from static review specimens.
 - [Brand and License](/docs/brand-and-license/) records approved artwork treatments and software links.
 
 The public source is available in the [Terminal Nova GitHub repository](https://github.com/Knowledge-Forge-AI/starlight-theme-terminal-nova),

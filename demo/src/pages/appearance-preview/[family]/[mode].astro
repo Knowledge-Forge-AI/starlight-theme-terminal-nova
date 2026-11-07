@@ -34,16 +34,16 @@ if (!family || !isAppearanceMode(mode)) {
     ],
   }}
 >
-  <p>A static Starlight specimen for the {family.label} development candidate. In the gallery's sandboxed frame, its {mode} appearance is fixed at build time and does not follow this site's Auto mode or saved preference. Opened directly, Starlight's theme script may apply your saved or system preference instead.</p>
-  <p><a href={`/appearance-preview/profiles/${family.id}.profile.json`} download>Download the {family.label} v2 source profile JSON</a> <small>(development preview input; use the gallery's download link if the sandbox blocks downloads)</small></p>
+  <p>A static Starlight specimen for the {family.label} family direction. STTN 0.5.0 publishes a separate opt-in stylesheet for this family. In the gallery's sandboxed frame, its {mode} appearance is fixed at build time and does not follow this site's Auto mode or saved preference. Opened directly, Starlight's theme script may apply your saved or system preference instead.</p>
+  <p><a href={`/appearance-preview/profiles/${family.id}.profile.json`} download>Download the {family.label} v2 source profile JSON</a> <small>(demo review input; use the gallery's download link if the sandbox blocks downloads)</small></p>
   <h2>Clear documentation, in context</h2>
   <p>Body copy, <strong>emphasis</strong>, <code>inline code</code> and <a href="#components">links</a> share the same palette and hierarchy.</p>
-  <Aside type="note" title="Current component boundary">Information has a label and symbol as well as color. The specimen keeps the current Starlight header and sidebar heredity; family-specific component roles remain future mapping work.</Aside>
+  <Aside type="note" title="Current component boundary">Information has a label and symbol as well as color. The specimen keeps the current Starlight header and sidebar heredity; family-specific component roles remain review work and are not presented as a final visual or native qualification.</Aside>
   <CardGrid>
-    <Card title="Shared intent" icon="document">The candidates carry palette, type, surface and geometry intent across documentation surfaces.</Card>
+    <Card title="Shared intent" icon="document">The family direction carries palette, type, surface and geometry intent across documentation surfaces; the package and this demo remain separate resources.</Card>
     <Card title="Target differences" icon="setting">STTN and CTTN use different component systems, so their semantic leaves and visual details are not expected to map one-for-one.</Card>
   </CardGrid>
   <h2 id="components">Component states</h2>
-  <table><thead><tr><th>Surface</th><th>State</th><th>Mode</th></tr></thead><tbody><tr><td>Documentation shell</td><td>Development candidate</td><td>{mode}</td></tr><tr><td>Component specimen</td><td>Development candidate</td><td>{mode}</td></tr></tbody></table>
+  <table><thead><tr><th>Surface</th><th>State</th><th>Mode</th></tr></thead><tbody><tr><td>Documentation shell</td><td>Static demo specimen</td><td>{mode}</td></tr><tr><td>Component specimen</td><td>Static demo specimen</td><td>{mode}</td></tr></tbody></table>
   <details><summary>Inspect the theme boundary</summary><p>When embedded in the gallery's sandboxed frame, this specimen cannot execute scripts or access the parent page's storage. When opened directly, it is a normal public Starlight route. Its native details control remains usable.</p></details>
 </StarlightPage>
