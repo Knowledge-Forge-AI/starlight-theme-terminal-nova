@@ -1,0 +1,127 @@
+name: STTN Pages
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/sttn-pages.yml"
+      - "package.json"
+      - "src/**"
+      - "components/**"
+      - "styles/**"
+      - "assets/**"
+      - "catalog-data.json"
+      - "LICENSE"
+      - "NOTICE"
+      - "COMMERCIAL-LICENSE.md"
+      - "demo/**"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/sttn-pages.yml"
+      - "package.json"
+      - "src/**"
+      - "components/**"
+      - "styles/**"
+      - "assets/**"
+      - "catalog-data.json"
+      - "LICENSE"
+      - "NOTICE"
+      - "COMMERCIAL-LICENSE.md"
+      - "demo/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sttn-pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate-and-build:
+    name: Validate and build STTN demo
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: 22.23.4
+          cache: npm
+          cache-dependency-path: demo/package-lock.json
+
+      - name: Require candidate 0.5.0 package identity and legal files
+        run: |
+          test -f LICENSE
+          test -f NOTICE
+          test -f COMMERCIAL-LICENSE.md
+          node --input-type=module <<'NODE'
+          import { readFileSync } from "node:fs";
+          const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
+          if (packageJson.name !== "@knowledge-forge-ai/starlight-theme-terminal-nova" || packageJson.version !== "0.5.0") {
+            throw new Error("STTN package identity is not the owner-approved 0.5.0 candidate source");
+          }
+          NODE
+
+      - name: Pack and bind the exact 0.5.0 candidate tarball
+        run: |
+          npm pack --ignore-scripts --json > "$RUNNER_TEMP/sttn-pack.json"
+          node --input-type=module <<'NODE'
+          import { readFileSync } from "node:fs";
+          import path from "node:path";
+          const records = JSON.parse(readFileSync(`${process.env.RUNNER_TEMP}/sttn-pack.json`, "utf8"));
+          const expectedFilename = "knowledge-forge-ai-starlight-theme-terminal-nova-0.5.0.tgz";
+          if (!Array.isArray(records) || records.length !== 1) throw new Error("unexpected npm pack record count");
+          const record = records[0];
+          if (record.name !== "@knowledge-forge-ai/starlight-theme-terminal-nova" || record.version !== "0.5.0" || record.filename !== expectedFilename || record.size <= 0) {
+            throw new Error(`unexpected STTN pack identity: ${JSON.stringify({ name: record.name, version: record.version, filename: record.filename, size: record.size })}`);
+          }
+          if (path.basename(record.filename) !== expectedFilename) throw new Error("STTN pack filename is not stable");
+          NODE
+          test -s "$GITHUB_WORKSPACE/knowledge-forge-ai-starlight-theme-terminal-nova-0.5.0.tgz"
+          echo "STTN_TARBALL=$GITHUB_WORKSPACE/knowledge-forge-ai-starlight-theme-terminal-nova-0.5.0.tgz" >> "$GITHUB_ENV"
+
+      - name: Install demo dependencies
+        run: npm ci --ignore-scripts --prefix demo
+
+      - name: Install the absolute packed product tarball
+        run: npm install --ignore-scripts --prefix demo "$STTN_TARBALL"
+
+      - name: Build the demo site
+        run: npm run build --prefix demo
+
+      - name: Check the static entrypoints
+        run: |
+          test -f demo/dist/index.html
+          test -f demo/dist/404.html
+
+      - name: Audit demo production dependencies
+        run: npm audit --omit=dev --prefix demo
+
+      - name: Upload STTN Pages artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: demo/dist
+
+  deploy:
+    name: Deploy STTN Pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate-and-build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the reviewed artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
