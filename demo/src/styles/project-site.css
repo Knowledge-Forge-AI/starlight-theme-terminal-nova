@@ -1,10 +1,10 @@
 /* Pages-only presentation; not part of the theme package. */
-html:root {
+html:root:not([data-appearance-preview]) {
   --sl-font: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', sans-serif;
   --tfsl-font-body: var(--sl-font);
   --sl-font-mono: ui-monospace, 'SFMono-Regular', Menlo, 'Cascadia Code', Consolas, monospace;
 }
-html:root[data-theme='light'] {
+html:root:not([data-appearance-preview])[data-theme='light'] {
   --sl-color-bg: #d3e1d8;
   --sl-color-bg-nav: #c5d8cd;
   --sl-color-bg-sidebar: #c9dbd0;
@@ -28,3 +28,13 @@ html:root[data-theme='light'] {
   --sl-color-white: #20372e;
 }
 .consumer-landing-hero h2 { font-family: var(--sl-font-mono); letter-spacing: -0.05em; }
+
+/* Original project mascot: website presentation only. */
+.project-mascot { display: grid; grid-template-columns: minmax(12rem, .8fr) minmax(0, 1.2fr); align-items: center; gap: clamp(1.5rem, 5vw, 5rem); margin-block: 3rem; padding-block: 2rem; border-block: 1px solid currentColor; }
+.project-mascot figure { margin: 0; text-align: center; }
+.project-mascot img { display: block; width: auto; height: auto; max-width: 100%; max-height: 28rem; margin-inline: auto; object-fit: contain; }
+.project-mascot figcaption { margin-top: .8rem; font-size: .875rem; line-height: 1.5; }
+.project-mascot h2 { margin: 0 0 1rem; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; }
+.project-mascot p { max-width: 38rem; line-height: 1.65; }
+.project-mascot .mascot-eyebrow { margin: 0 0 .75rem; font: .8rem/1.4 ui-monospace, monospace; letter-spacing: .12em; text-transform: uppercase; }
+@media (max-width: 640px) { .project-mascot { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; } .project-mascot img { max-height: 22rem; } .project-mascot .mascot-copy { text-align: start; } }
