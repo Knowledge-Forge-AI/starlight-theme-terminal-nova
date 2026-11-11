@@ -23,6 +23,9 @@ if (!disconnected) {
 }
 
 const customCss = [];
+if (process.env.THEME_FORGE_SITE === "true") {
+  customCss.push("./src/styles/project-site.css");
+}
 if (override) {
   customCss.push("./src/styles/consumer-custom.css");
 }
