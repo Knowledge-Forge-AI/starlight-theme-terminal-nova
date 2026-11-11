@@ -1,6 +1,7 @@
 /* Pages-only presentation; not part of the theme package. */
 html:root {
   --sl-font: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', sans-serif;
+  --tfsl-font-body: var(--sl-font);
   --sl-font-mono: ui-monospace, 'SFMono-Regular', Menlo, 'Cascadia Code', Consolas, monospace;
 }
 html:root[data-theme='light'] {
