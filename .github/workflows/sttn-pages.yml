@@ -94,6 +94,8 @@ jobs:
         run: npm install --ignore-scripts --prefix demo "$STTN_TARBALL"
 
       - name: Build the demo site
+        env:
+          THEME_FORGE_SITE: "true"
         run: npm run build --prefix demo
 
       - name: Check the static entrypoints

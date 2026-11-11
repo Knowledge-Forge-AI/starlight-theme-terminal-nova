@@ -1,0 +1,29 @@
+/* Pages-only presentation; not part of the theme package. */
+html:root {
+  --sl-font: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', sans-serif;
+  --sl-font-mono: ui-monospace, 'SFMono-Regular', Menlo, 'Cascadia Code', Consolas, monospace;
+}
+html:root[data-theme='light'] {
+  --sl-color-bg: #d3e1d8;
+  --sl-color-bg-nav: #c5d8cd;
+  --sl-color-bg-sidebar: #c9dbd0;
+  --sl-color-bg-inline-code: #bdd3c7;
+  --sl-color-text: #253d34;
+  --sl-color-text-accent: #135c55;
+  --sl-color-text-invert: #e7eee4;
+  --sl-color-hairline: #718c7e;
+  --sl-color-hairline-light: #9fb6a7;
+  --sl-color-accent: #176c62;
+  --sl-color-accent-high: #164f49;
+  --sl-color-accent-low: #b7d4c8;
+  --sl-color-gray-7: #c0d4c7;
+  --sl-color-black: #dfebe1;
+  --sl-color-gray-6: #c9dbd0;
+  --sl-color-gray-5: #a6c0b2;
+  --sl-color-gray-4: #435c50;
+  --sl-color-gray-3: #3d574a;
+  --sl-color-gray-2: #304e40;
+  --sl-color-gray-1: #243c32;
+  --sl-color-white: #20372e;
+}
+.consumer-landing-hero h2 { font-family: var(--sl-font-mono); letter-spacing: -0.05em; }
