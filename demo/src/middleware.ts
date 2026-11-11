@@ -22,7 +22,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   html = html.replace(/<html\b[^>]*>/gi, tag => {
     roots += 1;
     if (!/\bdata-theme=["']dark["']/.test(tag)) throw new Error('Unexpected Starlight root mode');
-    return tag.replace(/\bdata-theme=["']dark["']/, `data-theme="${mode}"`);
+    return tag.replace(/\bdata-theme=["']dark["']/, `data-theme="${mode}" data-appearance-preview="${family}"`);
   });
   if (roots !== 1 || (html.match(/<\/head>/gi) ?? []).length !== 1) throw new Error('Unexpected Starlight specimen document');
   html = html.replace(/<\/head>/i, `<link rel="stylesheet" href="/appearance-preview/${family}.css"></head>`);
